@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Another Day...</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #ece6e3;
+    }
+
+    #arrow, #nextPage {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <pre id="arrow" onclick="goBack()">
+    .
+  .;;..........
+.;;;;::::::::::
+ ':;;::::::::::
+   ':
+  </pre>
+  <pre id="books">
+          __________________
+      .-/|                  \
+      |||| Journal Entry     |
+      |||| Dec 5 @22:47:     |
+      |||| ----------------  |
+      ||||                   |
+      |||| Currently losing  |
+      |||| my mind trying    |
+      |||| to get this       |
+      |||| terminal code     |
+      |||| working.          |
+      ||||                   |
+      ||||__________________ |
+      ||/===================\|
+      `--------------------~__
+  </pre>
+  <pre id="nextPage" onclick="goToNextPage()">
+ __________________
+/                  |\-.
+  And I'm way too  ||||
+  prideful to ask  ||||
+  for help!        ||||
+    (⌒_⌒;)  웃    ||||
+                   ||||
+   - Yik Yin       ||||
+     Cheuk         ||||
+                   ||||
+                   ||||
+                 __||||
+ _______________|   |||
+/===================\||
+_~-------------------''
+  </pre>
+  <script>
+    function goBack() {
+      window.location.href = 'book.html';
+    }
+
+    function goToNextPage() {
+      window.location.href = 'page2.html';
+    }
+  </script>
+</body>
+</html>

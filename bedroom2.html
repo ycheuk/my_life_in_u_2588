@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Another Day...</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #ece6e3;
+    }
+
+    #door {
+      margin-top: -20px; /* Adjust the value to move the door up */
+      cursor: pointer;
+    }
+
+    #door2 {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- <pre><br><br><br><br>
+                    _
+                   / \
+                  /___\
+  .-------------.   |
+  : .    .    . :   |
+ _;_____________;_  |
+(_)=============(_) |
+ |_______________|__|__
+</pre> -->
+  <pre id="door2" onclick="goToKitchen()"><br><br><br><br><br><br><br><br>
+   __________
+  |          |
+  |          |
+  |          |
+  |          |
+  |          |
+  |          |
+  |        0 |
+  |          |
+  |          |
+  |          |
+  |          |
+  |          |
+__|__________|
+
+
+
+             /
+            /z
+           /zz
+          /zzz
+         /zzzz
+        /zzzzz
+
+  </pre>
+  <pre id="bed" onclick="toggleBed()"> <!-- https://asciiart.website/index.php?art=objects/furniture/beds -->
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+      _      ()              ()      _
+     / \     ||______________||     / \
+    /___\    |                |    /___\
+      |      |                |      |
+     (_)     |_______  _______|     (_)
+  ___/_\___  {_______}{_______}  ___/_\___
+   |__~__|   %%%%%%%%%%%%%%%%%%   |__~__|
+___|_____|__%%%%%%%%%%%%%%%%%%%%__|_____|___
+   |     | %%%%%%%%%%%%%%%%%%%%%% |     |
+          %%%%%%%%%%%%%%%%%%%%%%%%
+         %%%%%%%%%%%%%%%%%%%%%%%%%%   웃
+zzzzzzzz%%%%%%%%%%%%%%%%%%%%%%%%%%%%zzzzzzzz
+zzzzzzz/||||||||||||||||||||||||||||\zzzzzzz
+zzzzzzz||||||||||||||||||||||||||||||zzzzzzz
+zzzzzzz||||||||||||||||||||||||||||||zzzzzzz
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+  </pre>
+
+  <pre id="door" onclick="goToBathroom()"><br><br><br><br><br><br><br><br><br>
+ __________
+|         /|
+|        / |
+|       /  |
+|      /   |
+|     |    |
+|     |    |
+|     |    |
+|     |    |
+|     |    |
+|     |0   |
+|     |    |
+|     |    |
+|_____|    |
+      |   /
+      |  /
+      | /
+\     |/
+z\
+zz\
+zzz\
+zzzz\
+zzzzz\
+  </pre>
+  <pre><br><br><br>
+       ___
+      /   \
+     | //  |
+     |     |
+      \___/
+    _________
+   |____-____|
+   |____-____|
+   |____-____|
+___|____-____|_
+   |/       \|
+  </pre>
+  <pre>
+o(=(=(=(=)=)=)=)o
+ !!!!!!}!{!!!!!!
+ !!!!!} | {!!!!!
+ !!!!}  |  {!!!!
+ !!!!}  |  {!!!!
+ !!!'   |   '!!!
+ ~@~----+----~@~
+ !!!    |    !!!
+ !!!    |    !!!
+ !!!    |    !!!
+ !!!    |    !!!
+ !!!____|____!!!
+ !!!=========!!!
+_!!!_________!!!__<br>
+  </pre>
+  <script>
+    let isPersonInBed = true;
+
+    function toggleBed() {
+      const bedElement = document.getElementById('bed');
+
+      if (isPersonInBed) {
+        // Person is in bed, show empty bed
+        bedElement.innerHTML = `
+        <br><br><br><br><br><br><br><br><br><br>
+      _      ()              ()      _
+     / \\     ||______________||     / \\
+    /___\\    |                |    /___\\
+      |      |                |      |
+     (_)     |_______  _______|     (_)
+  ___/_\\___  {_______}{_______}  ___/_\\___
+   |__~__|   %%%%%%%%%%%%%%%%%%   |__~__|
+___|_____|__%%%%%%%%%%%%%%%%%%%%__|_____|___
+   |     | %%%%%%%%%%%%%%%%%%%%%% |     |
+          %%%%%%%%%%%%%%%%%%%%%%%%
+         %%%%%%%%%%%%%%%%%%%%%%%%%%   웃
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+       /||||||||||||||||||||||||||||\\
+       ||||||||||||||||||||||||||||||
+       ||||||||||||||||||||||||||||||
+        `;
+      } else {
+        // Person is out of bed, show person in bed
+        bedElement.innerHTML = `
+        <br><br><br><br><br><br><br><br><br><br>
+      _      ()              ()      _
+     / \\     ||______________||     / \\
+    /___\\    |                |    /___\\
+      |      |                |      |
+     (_)     |_______  _______|     (_)
+  ___/_\\___  {_______}{_______}  ___/_\\___
+   |__~__|   %%%%%%%%%%%%%%%%%%   |__~__|
+___|_____|__%%%%%%%%%%%%%%%%%%%%__|_____|___
+   |     | %%%%%%%%%%%%%%%%%%%%%% |     |
+          %%%%%%%%%%%%%%%%%%%%%%%%
+         %%%%%%%%%%%%%%%%%%%%%%%%%%   웃
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+       /||||||||||||||||||||||||||||\\
+       ||||||||||||||||||||||||||||||
+       ||||||||||||||||||||||||||||||
+      `;
+      }
+
+      // Toggle the person in bed state
+      isPersonInBed = !isPersonInBed;
+    }
+
+const doorElement = document.getElementById('door');
+let currentdoorFrame = 0;
+let doorClicked = false;
+
+doorElement.addEventListener('click', function() {
+  doorClicked = !doorClicked; // Toggle the value
+  updatedoor();
+});
+
+function updatedoor() {
+  if (!doorClicked) {
+    doorElement.textContent = `
+
+
+
+
+
+
+
+
+
+ __________
+|          |
+|          |
+|          |
+|          |
+|          |
+|          |
+| 0        |
+|          |
+|          |
+|          |
+|          |
+|          |
+|__________|
+
+
+
+\\
+z\\
+zz\\
+zzz\\
+zzzz\\
+zzzzz\\
+           `;
+    return;
+  }
+
+
+  // Increment frame and loop back to 0 after the 3rd frame
+  currentdoorFrame = (currentdoorFrame + 1) % 2;
+}
+
+// Update the ASCII art every 1 second
+setInterval(updatedoor, 1000);
+
+    function goToBathroom() {
+      window.location.href = 'bathroom.html';
+    }
+
+    function goToKitchen() {
+      window.location.href = 'kitchen.html';
+    }
+  </script>
+</body>
+</html>

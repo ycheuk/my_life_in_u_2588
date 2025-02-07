@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Another Day...</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #ece6e3;
+    }
+
+    #bathroom {
+      font-family: monospace;
+    }
+
+    #hallMid, #hallLeft, #hallRight {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <pre id="hallLeft" onclick="goToShelf()">
+   .'',
+   .'.'',
+   .'.'.'',
+   .'.'.'.'',
+   .'.'.'.'.|
+   .'.'.'.'.|===;
+   .'.'.'.'.|:::|
+   .'.'.'.'.|---|
+   .'.'.'.'.|:::|
+   ,',',',',|---|
+   .'.'.'.'.|:::|
+   .'.'.'.'.|---|
+   .'.'.'.'.|===:
+   .'.'.'.'.|%%%%
+   .'.'.'.','
+   .'.'.','
+   .'.','
+   .','
+   ;
+  </pre>
+
+  <pre id="hallMid" onclick="goBack()">
+    <br><br><br><br><br>
+ ',             ,'
+ '.|, _______ ,|.'
+ '.|'|       |'|.'
+ ',|'|       |'|,'
+ '.|'|       |'|.'
+ ','   /%%%\   ','
+ '    /%%%%%\    '
+%%%%%%%%%%%%%%%%%%%
+    /%%%%%%%%%\
+   /%%%%%%%%%%%\
+  /%%%%%%%%%%%%%\
+ /%%%%%%%%%%%%%%%\
+/%%%%%%%%%%%%%%%%%\
+ </pre>
+
+  <pre id="hallRight" onclick="goToDesk()">
+          ,''.
+        ,''.'.
+      ,''.'.'.
+    ,''.'.'.'.
+    |.'.'.'.'.
+;===|.'.'.'.'.
+|:::|.'.'.'.'.
+|---|.'.'.'.'.
+|:::|.'.'.'.'.
+|---|,',',',',
+|:::|.'.'.'.'.
+|---|.'.'.'.'.
+:===|.'.'.'.'.
+%%%%|.'.'.'.'.
+    ','.'.'.'.
+      ','.'.'.
+        ','.'.
+          ','.
+            ;
+  </pre>
+
+  <script>
+    function goToShelf() {
+      window.location.href = 'shelf.html';
+    }
+
+    function goToFrontDesk() {
+      window.location.href = 'frontdesk.html';
+    }
+
+    function goToDesk() {
+      window.location.href = 'desk.html';
+    }
+
+    function goBack() {
+      window.location.href = 'road.html';
+    }
+  </script>
+</body>
+</html>

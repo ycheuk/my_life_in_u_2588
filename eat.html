@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Another Day...</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: monospace;
+      background-color: #ece6e3;
+    }
+
+    #arrow {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <pre id="arrow" onclick="goBack()">
+    .
+  .;;..........
+.;;;;::::::::::
+ ':;;::::::::::
+  ':
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  </pre>
+  <pre id="asciiArt" onclick="goBack()">
+                          _                  _
+                         | |                | |
+                         | |----------------| |
+                         | |----------------| |
+                         | |                | |
+                         | |                | |
+                         | |----------------| |
+                         | |----------------| |
+                         | |                | |
+             ____________|_|________________|_|____________
+           /                                              /|
+          /     )  (                                     / |
+         /     (   ) )                                  / /
+        /      ) ( (                                   / /
+       /     _______)_                                / /
+      /   .-'---------|                              / /
+     /   ( C|/\/\/\/\/|                             / /
+    /     '-./\/\/\/\/|                            / /
+   /        '_________'                           / /
+  /          '-------'                           / /
+ /______________________________________________/ /
+|_______________________________________________|/
+
+  </pre>
+  <script>
+    function goBack() {
+      window.location.href = 'restaurant.html';
+    }
+
+    let isOpen = true;
+
+    const asciiArtElement = document.getElementById('asciiArt');
+    let currentFrame = 0;
+
+    function updateAsciiArt() {
+      switch (currentFrame) {
+        case 0:
+          asciiArtElement.textContent = `
+                          _                  _
+                         | |                | |
+                         | |----------------| |
+                         | |----------------| |
+                         | |                | |
+                         | |                | |
+                         | |----------------| |
+                         | |----------------| |
+                         | |                | |
+             ____________|_|________________|_|____________
+           /                                              /|
+          /     (    )                                   / |
+         /     )    (                                   / /
+        /     (  )   )                                 / /
+       /     _______(_                                / /
+      /   .-\'---------|                              / /
+     /   ( C|/\\/\\/\\/\\/|                             / /
+    /     \'-./\\/\\/\\/\\/|                            / /
+   /        \'_________\'                           / /
+  /          \'-------\'                           / /
+ /______________________________________________/ /
+|_______________________________________________|/
+
+
+          `;
+          break;
+        case 1:
+        asciiArtElement.textContent = `
+                          _                  _
+                         | |                | |
+                         | |----------------| |
+                         | |----------------| |
+                         | |                | |
+                         | |                | |
+                         | |----------------| |
+                         | |----------------| |
+                         | |                | |
+             ____________|_|________________|_|____________
+           /                                              /|
+          /     )  (                                     / |
+         /     (   ) )                                  / /
+        /      ) ( (                                   / /
+       /     _______)_                                / /
+      /   .-\'---------|                              / /
+     /   ( C|/\\/\\/\\/\\/|                             / /
+    /     \'-./\\/\\/\\/\\/|                            / /
+   /        \'_________\'                           / /
+  /          \'-------\'                           / /
+ /______________________________________________/ /
+|_______________________________________________|/
+
+
+        `;
+          break;
+      }
+
+      // Increment frame and loop back to 0 after the 3rd frame
+      currentFrame = (currentFrame + 1) % 2;
+    }
+
+    // Update the ASCII art every 1 second
+    setInterval(updateAsciiArt, 500);
+  </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Another Day...</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: monospace;
+      background-color: #ece6e3;
+    }
+
+    #container {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    #shelf-container {
+      display: flex;
+      align-items: center;
+    }
+
+    #road, #arrow1 {
+      cursor: pointer;
+    }
+
+    #arrow-container {
+      display: flex;
+    }
+
+    #arrow1, #arrow2 {
+      margin: 0 10px; /* Adjust margin as needed */
+    }
+  </style>
+</head>
+<body>
+    <div id="container">
+      <div id="shelf-container">
+      <pre id="road" onclick="goToRoad()"><br><br><br><br><br>                                       .
+                                     .:;:.
+                                   .:;;;;;:.
+                                     ;;;;;
+                                     ;;;;;
+                                     ;;;;;
+                                     ;;;;;
+                                     ;;;;;
+                                          _
+                          _____/----/-\ .' './========\
+                         |.-.-.|===| _ |-----| u    u |
+                         || | ||===||||| |T| |   ||   |
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''</pre>
+    </div>
+    <pre id="asciiArt">
+                                     .______.
+                                    ./::::::\.
+                            \|/    ./::::::::\.
+                   _              ./::::::::::\.              _
+                __(_)___         ./::::::::::::\.         ___(_)__
+---------------/  / \  /|       ./::::;;;:::;;::\.       |\  / \  \---------
+______________/_______/ |      ./:::::;;:::::;;::\.      | \_______\________
+|       |     [===  =] /|     ./::::;;;::::::;;;::\.     |\ [==  = ]   |
+|_______|_____[ = == ]/ |    ./::::;;;:::::::;;;:::\.    | \[ ===  ]___|____
+     |       |[  === ] /|   ./::::;;;::::::::;;;::::\.   |\ [=  ===] |
+_____|_______|[== = =]/ |  ./::::;;;::::::::::;;;::::\.  | \[ ==  =]_|______
+ |       |    [ == = ] /| ./:::::;;:::::::::::;;;:::::\. |\ [== == ]      |
+_|_______|____[=  == ]/ |./:::::;;:::::::::::::;;;:::::\.| \[  === ]______|_
+   |       |  [ === =] /./:::::;;::::::::::::::;;;::::::\.\ [===  =]   |
+___|_______|__[ == ==]/./:::::;;;:::::::::::::::;;;::::::\.\[=  == ]___|_____
+    </pre>
+    <div id="arrow-container">
+      <pre id="arrow1" onclick="goBack()">
+    ;;;;;
+    ;;;;;
+    ;;;;;
+    ;;;;;
+    ;;;;;
+  ..;;;;;..
+   ':::::'
+     ':'
+      </pre>
+    </div>
+  </div>
+
+  <script>
+    function goBack() {
+      window.location.href = 'kitchen2.html';
+    }
+
+    function goToRoad() {
+      window.location.href = 'road.html';
+    }
+  </script>
+</body>
+</html>

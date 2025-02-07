@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Another Day...</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: monospace;
+      background-color: #ece6e3;
+    }
+
+    #container {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    #shelf-container {
+      display: flex;
+      align-items: center;
+    }
+
+    #arrow1, #arrow2 {
+      cursor: pointer;
+    }
+
+    #asciiArt, #bridge {
+      margin: 0 10px; /* Adjust margin as needed */
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="shelf-container">
+      <pre id="arrow1" onclick="goBack()">
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .
+  .;;..........
+.;;;;::::::::::
+ ':;;::::::::::
+   ':
+      </pre>
+      <pre id="bridge">
+                                        ;   :   ;
+                                     .   \_,!,_/   ,
+                                      `.,'     `.,'
+                                       /         \
+                                  ~ -- :         : -- ~
+                                       \         /
+                                      ,'`._   _.'`.
+                                     '   / `!` \   `
+                                        ;   :   ;
+                                                   ^^
+              ^^      ..                                       ..
+                      []                                       []
+                    .:[]:_          ^^                       ,:[]:.
+                  .: :[]: :-.                             ,-: :[]: :.
+                .: : :[]: : :`._                       ,.': : :[]: : :.
+              .: : : :[]: : : : :-._               _,-: : : : :[]: : : :.
+          _..: : : : :[]: : : : : : :-._________.-: : : : : : :[]: : : : :-._
+          _:_:_:_:_:_:[]:_:_:_:_:_:_:_:_:_:_:_:_:_:_:_:_:_:_:_:[]:_:_:_:_:_:_
+          !!!!!!!!!!!![]!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![]!!!!!!!!!!!!!
+          ^^^^^^^^^^^^[]^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[]^^^^^^^^^^^^^
+                      []                                       []
+                      []                                       []
+                      []                                       []</pre>
+<pre id="arrow2" onclick="goToLighthouse()">
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   .
+        ...........;;.
+        :::::::::::;;;;.
+        :::::::::::;;:'
+                   :'
+</pre>
+    </div>
+    <pre id="asciiArt">
+ ~~^-~^_~^~/  \~^-~^~_~^-~_^~-^~_^~~-^~_~^~-~_~-^~_^/  \~^-~_~^-~~-
+~ _~~- ~^-^~-^~~- ^~_^-^~~_ -~^_ -~_-~~^- _~~_~-^_ ~^-^~~-_^-~ ~^
+   ~ ^- _~~_-  ~~ _ ~  ^~  - ~~^ _ -  ^~-  ~ _  ~~^  - ~_   - ~^_~
+     ~-  ^_  ~^   _ ~~^  _ ^^~  _ _~^~-  _ ~~^ - _ ~ - _ ~~^ -
+        ~^ -_ ~^>(.)웃_ <(.)__ =(.)__~ -_   ~- _ ~^ _ -  ~ ^-
+            ~^~ -(___/  (___/  (___/^ ~ __- ~_ - ~  ~^_-
+                ~ ~- ^~ -  ~^ -  ~ ^~ - ~~  ^~ - ~
+    </pre>
+    </div>
+
+  <script>
+    function goBack() {
+      window.location.href = 'road.html';
+    }
+
+    function goToLighthouse() {
+      window.location.href = 'city.html';
+    }
+
+const asciiArtElement = document.getElementById('asciiArt');
+let currentFrame = 0;
+
+function updateAsciiArt() {
+  switch (currentFrame) {
+    case 0:
+      asciiArtElement.textContent =
+`^-~_~^-~~- /  \\~~^-~^_~^~~^-~^~_~^-~_^~-^~_^~~-^~_~^/  \\~-~_~-^~_^~
+~~-_^-~ ~^~ _~~- ~^-^~-^~~- ^~_^-^~~_ -~^_ -~_-~~^- _~~_~-^_ ~^-^
+   _   - ~^_~~ ^- _~~_-  ~~ _ ~  ^~  -  ~^ _ -  ^~-  ~ _  ~~^  - ~
+      - _ ~~^ -~-  _   ~^ _  ^~  _- ~^~ _   _~^~-  _ ~~^ - _
+         _ -  ~  >(.)웃_ <(.)__ =(.)__  ~^~-  _~ -_   ~- _ ~
+             - ~  (___/  (___/  (___/ _ - _ ~-^ ~ __- ~
+                ~~  ^~ - ~~ ~- ^~ -  ~^ -  ~ ^~ -       `;
+      break;
+
+    case 1:
+      asciiArtElement.textContent =
+` ~~^-~^_~^~/  \\~^-~^~_~^-~_^~-^~_^~~-^~_~^~-~_~-^~_^/  \\~^-~_~^-~~-
+~ _~~- ~^-^~-^~~- ^~_^-^~~_ -~^_ -~_-~~^- _~~_~-^_ ~^-^~~-_^-~ ~^
+   ~ ^- _~~_-  ~~ _ ~  ^~  - ~~^ _ -  ^~-  ~ _  ~~^  - ~_   - ~^_~
+     ~-  ^_  ~^   _ ~~^  _ ^^~  _ _~^~-  _ ~~^ - _ ~ - _ ~~^ -
+        ~^ -_ ~^>(.)웃_ <(.)__ =(.)__~ -_   ~- _ ~^ _ -  ~ ^-
+            ~^~ -(___/  (___/  (___/^ ~ __- ~_ - ~  ~^_-
+                ~ ~- ^~ -  ~^ -  ~ ^~ - ~~  ^~ - ~       `;
+        break;
+      }
+
+  // Increment frame and loop back to 0 after the 3rd frame
+  currentFrame = (currentFrame + 1) % 2;
+}
+
+// Update the ASCII art every 1 second
+setInterval(updateAsciiArt, 700);
+  </script>
+</body>
+</html>

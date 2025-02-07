@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Another Day...</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #ece6e3;
+    }
+
+    #bathroom {
+      font-family: monospace;
+    }
+
+    #door, #shower, #toilet {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <pre id="shower"><br><br><br><br><br><br>
+        ____________________
+       |  .`  |      |  `.  |
+       |-:    |      |    :-|
+       |__\___|______|___/__|
+
+
+
+
+    /-
+   _|___________________________
+  (                             )
+___`\                         /'___
+     \                       /
+      \                     /
+       `-------------------'
+        (_/             \_)
+</pre>
+<pre id="toilet">
+  <br><br><br>
+
+
+
+
+
+
+
+   ___
+  [___]       _   :
+  |  ~|     =)_)=
+  |   |      (_(
+  |   |      )_)
+  \___|
+   |  `========,
+____`.        .'___
+      `.    .'
+      _|    |_...
+     (________);;;;
+          :::::::'
+</pre>
+
+<pre>
+  <br><br><br>
+
+
+           _    __    _
+          /_\  /  \  /_\
+          =|= | // | =|=
+           !   \__/   !
+                _
+  ___          //'
+=|   |=:   __T_||_T__
+ |   |    [__________]
+ |xXx|     \_      _/
+ """""       \    /
+              |  |
+              |  |
+______________|  |___웃___
+             (____)
+           .;;;;;;;;.
+          :;;;;;;;;;;:
+           '::::::::'
+</pre>
+
+<pre id="door" onclick="goToBedroom()">
+              |
+ __________   |
+|    |     |  |
+|    |     |  |
+|    |     |  |
+|   0|     |  |
+|    |     |  |
+|    |     |  |
+|    |     |  |
+|    |     |  |
+|    |     |  |
+|   /      |  |
+|  /       |  |
+| /        |  |
+|/_________|__|
+</pre>
+<script>
+    function goToBedroom() {
+      window.location.href = 'bedroom2.html';
+    }
+
+    const showerElement = document.getElementById('shower');
+    let currentFrame = 0;
+    let showerClicked = false;
+
+    showerElement.addEventListener('click', function() {
+      showerClicked = !showerClicked; // Toggle the value
+      updateshower();
+    });
+
+    function updateshower() {
+      if (!showerClicked) {
+        showerElement.textContent = `
+
+
+
+
+
+
+        ____________________
+       |  .\`  |      |  \`.  |
+       |-:    |      |    :-|
+       |__\\___|______|___/__|
+
+
+
+
+    /-
+   _|___________________________
+  (                             )
+___\`\\                         /'___
+     \\                       /
+      \\                     /
+       \`-------------------'
+        (_/             \\_)`;
+        return;
+      }
+
+      switch (currentFrame) {
+        case 0:
+          showerElement.textContent = `
+
+
+
+
+
+
+
+        ____________________
+       |  .\`  |      |  \`.  |
+       |-:    |      |    :-|
+       |__\\___|______|___/__|
+
+        O
+                    o        O
+            0   o     :
+    /-    0      .  o
+   _|___________________________
+  (                             )
+___\`\\                         /\'___
+     \\                       /
+      \\                     /
+       \`-------------------\'
+        (_/             \\_)
+           `;
+          break;
+        case 1:
+          showerElement.textContent = `
+
+
+
+
+
+
+
+        ____________________
+       |  .\`  |      |  \`.  |
+       |-:    |      |    :-|
+       |__\\___|______|___/__|
+
+
+        O          O
+          .           .   o
+    /-         o    ()     ,
+   _|___________________________
+  (                             )
+___\`\\                         /\'___
+     \\                       /
+      \\                     /
+       \`-------------------\'
+        (_/             \\_)
+         `;
+          break;
+      }
+
+
+      // Increment frame and loop back to 0 after the 3rd frame
+      currentFrame = (currentFrame + 1) % 2;
+    }
+
+    const toiletElement = document.getElementById('toilet');
+    let currentToiletFrame = 0;
+    let toiletClicked = false;
+
+    toiletElement.addEventListener('click', function() {
+      toiletClicked = !toiletClicked; // Toggle the value
+      updatetoilet();
+    });
+
+    function updatetoilet() {
+      if (!toiletClicked) {
+        toiletElement.textContent = `
+
+
+
+
+
+
+
+
+
+
+
+   ___
+  [___]       _   :
+  |  ~|     =)_)=
+  |   |      (_(
+  |   |      )_)
+  \\___|
+   |  \`========,
+____\`.        .\'___
+      \`.    .\'
+      _|    |_...
+     (________);;;;
+          :::::::\'
+               `;
+        return;
+      }
+
+      switch (currentToiletFrame) {
+        case 0:
+          toiletElement.textContent = `
+
+
+
+
+
+
+
+
+
+
+
+   ___
+  [___]       _   :
+  |  ~|   O =)_)=
+  |   |     .O (
+  |   |  O , )_)
+  \\___|   o  .
+   |  \`========,
+____\`.        .\'___
+      \`.    .\'
+      _|    |_...
+     (________);;;;
+          :::::::\'
+           `;
+          break;
+        case 1:
+          toiletElement.textContent = `
+
+
+
+
+
+
+
+
+
+
+
+   ___
+  [___]       _   :
+  |  ~|     =)_)=
+  |   |  :   (_(
+  |   |   ,  o )
+  \\___|    .  '
+   |  \`========,
+____\`.        .\'___
+      \`.    .\'
+      _|    |_...
+     (________);;;;
+          :::::::\'
+         `;
+          break;
+      }
+
+      // Increment frame and loop back to 0 after the 3rd frame
+      currentToiletFrame = (currentToiletFrame + 1) % 2;
+    }
+
+    // Update the ASCII art every 1 second
+    setInterval(updatetoilet, 1000);
+    setInterval(updateshower, 1000);
+
+const doorElement = document.getElementById('door');
+let currentdoorFrame = 0;
+let doorClicked = false;
+
+doorElement.addEventListener('click', function() {
+  doorClicked = !doorClicked; // Toggle the value
+  updatedoor();
+});
+
+function updatedoor() {
+  if (!doorClicked) {
+    doorElement.textContent = `
+
+
+              |
+ __________   |
+|          |  |
+|          |  |
+|          |  |
+|          |  |
+|          |  |
+|          |  |
+|        0 |  |
+|          |  |
+|          |  |
+|          |  |
+|          |  |
+|          |  |
+|__________|__|
+
+
+           `;
+    return;
+  }
+
+
+  // Increment frame and loop back to 0 after the 3rd frame
+  currentdoorFrame = (currentdoorFrame + 1) % 2;
+}
+
+// Update the ASCII art every 1 second
+setInterval(updatedoor, 1000);
+  </script>
+</body>
+</html>

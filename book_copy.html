@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Another Day...</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: monospace;
+      background-color: #ece6e3;
+    }
+
+    #terminalInput {
+      border: none;
+      outline: none;
+      background: transparent;
+      font-family: monospace;
+      color: #00ff00; /* Set the color of the terminal text */
+    }
+
+    #closedBook, #user, #arrow {
+      cursor: pointer;
+    }
+
+    #inputLine {
+      background-color: black;
+    }
+
+    #prompt {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <pre id="arrow" onclick="goBack()">
+    .
+  .;;..........
+.;;;;::::::::::
+ ':;;::::::::::
+  ':
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  </pre>
+  <pre id="user" onclick="goBack()">
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+웃
+  </pre>
+  <pre id="asciiArt">
+                 ___________________________________________
+                |                                           |
+                |  <span id="inputLine">|                                     |</span>  |
+                |  <span id="inputLine">|  <span id="prompt"> C:\></span> <input id="terminalInput">       |</span>  |
+                |  <span id="inputLine">|                                     |</span>  |
+                |  <span id="inputLine">|                                     |</span>  |
+                |  <span id="inputLine">|                                     |</span>  |
+                |  <span id="inputLine">|                                     |</span>  |
+                |  <span id="inputLine">|                                     |</span>  |
+                |  <span id="inputLine">|                                     |</span>  |
+                |  <span id="inputLine">|                                     |</span>  |
+                |  <span id="inputLine">|                                     |</span>  |
+                |  <span id="inputLine">|                                     |</span>  |
+                |  <span id="inputLine">|_____________________________________|</span>  |
+                |___________________________________________|
+               /     .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  ---  \
+              /.-.  .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-\
+             /.-.  .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-\
+            /.-.  .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-\
+           /.-.  .---.-. .-------------------------.  .-.---. .--\
+          :-------------------------------------------------------:
+          `---._.-------------------------------------------._.---'
+  </pre>
+  <pre id="closedBook" onclick="goToOpenBook()">
+    <br><br><br><br><br><br><br><br><br><br>
+
+,-------------,
+( \    ~~~~    \
+ \ \  ~~  ~~~~~ \
+  \ \   ~~~~~~   \
+   \ \            \
+    \ \            \
+     \ \____________\
+      \(             )
+       `-------------'
+  </pre>
+  <script>
+
+    function goToOpenBook() {
+      window.location.href = 'opbook.html';
+    }
+
+    function goBack() {
+      window.location.href = 'desk.html';
+    }
+
+    let isOpen = true;
+
+    /* const asciiArtElement = document.getElementById('asciiArt');
+    let currentFrame = 0;
+
+    function updateAsciiArt() {
+      switch (currentFrame) {
+        case 0:
+          asciiArtElement.textContent = `
+                 ___________________________________________
+                |   _____________________________________   |
+                |  |                                     |  |
+                |  |  C:\\>                               |  |
+                |  |                                     |  |
+                |  |                                     |  |
+                |  |                                     |  |
+                |  |                                     |  |
+                |  |                                     |  |
+                |  |                                     |  |
+                |  |                                     |  |
+                |  |_____________________________________|  |
+                |___________________________________________|
+               /     .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  ---  \\
+              /.-.  .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-\\
+             /.-.  .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-\`__\`. .-.-\\
+            /.-.  .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-\\
+           /.-.  .---.-. .-------------------------.  .-.---. .--\\
+          :-------------------------------------------------------:
+          \`---._.-------------------------------------------._.---\'
+
+
+          `;
+          break;
+        case 1:
+        asciiArtElement.textContent = `
+                 ___________________________________________
+                |   _____________________________________   |
+                |  |                                     |  |
+                |  |  C:\\> _                             |  |
+                |  |                                     |  |
+                |  |                                     |  |
+                |  |                                     |  |
+                |  |                                     |  |
+                |  |                                     |  |
+                |  |                                     |  |
+                |  |                                     |  |
+                |  |_____________________________________|  |
+                |___________________________________________|
+               /     .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  ---  \\
+              /.-.  .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-\\
+             /.-.  .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-\`__\`. .-.-\\
+            /.-.  .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-\\
+           /.-.  .---.-. .-------------------------.  .-.---. .--\\
+          :-------------------------------------------------------:
+          \`---._.-------------------------------------------._.---\'
+
+
+        `;
+          break;
+      }
+
+      // Increment frame and loop back to 0 after the 3rd frame
+      currentFrame = (currentFrame + 1) % 2;
+    }
+
+    // Update the ASCII art every 1 second
+    setInterval(updateAsciiArt, 500); */
+  </script>
+</body>
+</html>

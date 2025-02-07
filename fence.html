@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Another Day...</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: monospace;
+      background-color: #ece6e3;
+    }
+
+    #arrow1, #cat {
+      cursor: pointer;
+    }
+
+    #container {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    #shelf-container {
+      display: flex;
+      align-items: center;
+    }
+
+    #road, #arrow1 {
+      cursor: pointer;
+    }
+
+    #arrow-container {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="shelf-container">
+  <pre id="sun">
+
+      ;   :   ;
+   .   \_,!,_/   ,
+    `.,'     `.,'
+     /         \
+~ -- :         : -- ~
+     \         /
+    ,'`._   _.'`.
+   '   / `!` \   `
+      ;   :   ;</pre></div>
+<div id="arrow-container">
+<pre id="cat">
+
+        |\___/|
+        )     (
+       =\     /=
+         )===(
+        /     \
+        |     |
+       /       \
+       \       /
+_/\_/\_/\__  _/_/\_/\_/\
+|  |  |  |( (  |  |  |
+|  |  |  | ) ) |  |  |
+|  |  |  |(_(  |  |  |
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |
+
+</pre>
+  <pre id="owl"><br><br><br><br><br>
+     ^ ^
+    (O,O)
+    (   )
+_/\_/"-"\_/\_/\_/\_
+|  |  |  |  |  |  |
+|  |  |  |  |  |  |
+|  |  |  |  |  |  |
+|  |  |  |  |  |  |
+|  |  |  |  |  |  |
+</pre></div>
+
+  <pre id="arrow1" onclick="goBack()">
+  ;;;;;
+  ;;;;;
+  ;;;;;
+  ;;;;;
+  ;;;;;
+..;;;;;..
+ ':::::'
+   ':'
+  </pre>
+</div>
+  <script>
+    function goBack() {
+      window.location.href = 'backyard2.html';
+    }
+const catElement = document.getElementById('cat');
+let currentcatFrame = 0;
+let catClicked = false;
+
+catElement.addEventListener('click', function() {
+  catClicked = !catClicked; // Toggle the value
+  updatecat();
+});
+
+function updatecat() {
+  if (!catClicked) {
+    catElement.textContent = `
+        |\\___/|
+        )     (
+       =\\     /=
+         )===(
+        /     \\
+        |     |
+       /       \\
+       \\       /
+_/\\_/\\_/\\__  _/_/\\_/\\_/\\
+|  |  |  |( (  |  |  |
+|  |  |  | ) ) |  |  |
+|  |  |  |(_(  |  |  |
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |
+           `;
+    return;
+  }
+
+  switch (currentcatFrame) {
+    case 0:
+      catElement.textContent = `
+        |\\___/💢
+       =) ^Y^ (=
+        \\  ^  /
+         )=*=(
+        /     \\
+        |     |
+       /| | | |\\
+       \\| | |_|/\\
+_/\\_/\\_//_// ___/\\_/\\_/\\
+|  |  |  | \\_) |  |  |
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |
+       `;
+      break;
+  }
+
+  // Increment frame and loop back to 0 after the 3rd frame
+  currentcatFrame = (currentcatFrame + 1) % 2;
+}
+
+// Update the ASCII art every 1 second
+setInterval(updatecat, 1000);
+  </script>
+</body>
+</html>

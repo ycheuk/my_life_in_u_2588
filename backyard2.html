@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Another Day...</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: monospace;
+      background-color: #ece6e3;
+    }
+
+    #user, #arrow, #door, #woof {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <pre>
+       )              )        )              )      )  )
+           )            )           )      )))         )
+)                               )                     ))
+      )       )           )(            )     )      )
+      (             (             (                 )
+  )              (                   )             _)
+          )           )      ()            (      (
+      (           )              )(            () )
+      )       )           )(            )         )
+(             (             (                    )
+        (    )#          (                      )
+       (   _)##)     (            )      )      )
+ \  ). ,' |####(  (       )                   ()
+   )  V ,||#####(              )            ))
+    \  :|||##,,,,(  (                      )
+    )\  `||##|oo|\(( (                    (
+   )  \    :#('/)|    (    (        )      )
+  )___.:. $===&__:    |#                  )
+   )      $   $. )    |#(                  )
+    )---""$.  $ V     /##(  )  (     )    )
+(_))|     $===$       |,-"() () )        )
+    |     $  `$       '      _.-"(      )
+    |     $   $\         _.-"\    ()()()
+    |_____$===$_)      ,'     \
+  ########$###$#|     (`.      \
+          $   $ |     |  `.     \
+          $===$ |     |    `.    \
+          $   $ |     |      `.   \
+          $   $ |     |        \   \
+          $===$ |     |         \   \
+          $   $ |     |          \   \
+          $   $ |     |           \   \
+          $===$ |     |            \   `.
+          $   $ |     |             `.   `.
+          @   @ |     |               `.   `-.
+                |     |                 `-.   `-.
+                |     |                    `-.   `---.---'\
+               /   / \ \                      `-._________/
+""""""""""""""/,'\/\:;`.|\"""""""""""""""""""""""""""""""""
+  </pre>
+  <pre id="woof"> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  _______
+ /       \
+ | woof! |
+  \_______\
+  </pre>
+  <pre id="asciiArt"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        ___
+    __/_  `.  .-"""-.
+    \_,` | \-'  /   )`-')
+     "") `"`    \  ((`"`
+    ___Y  ,    .'7 /|
+웃  (_,___/...-` (_/_/
+
+  </pre>
+  <pre id="well"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+              .''.
+           .'--/\--'.
+         .'--./__\.--'.
+       .'--../____\..--'.
+     .'--.._/______\_..--'.
+   .'--..__/________\__..--'.
+ .'--..___/__________\___..--'.
+'========'============'========'
+      [_|__]        [_|__]
+     =[__|_]===""===[__|_]==.
+      [_|__]   '|   [_|__]  '=O
+      [__|_]   |'   [__|_]
+      [_|__] .----. [_|__]
+      [__|_]  \==/  [__|_]
+      [_|__]_.-||-._[_|__]
+      [__|_]._\__/(_[__|_]
+      [.-._]        [_.-.]
+      [_.-.'-..__..-'.-._]
+;:'   '-._  '._) '._) _.-'
+         `--..__..--'   ;:`
+ ;:'    ;:'.:;   ;;"
+  </pre>
+  <pre id=door onclick="goBack()">
+          ________
+         / ______ \
+         || _  _ ||
+         ||| || |||
+         |||_||_|||
+         ||o_  _ ||
+         ||| || |||
+         |||_||_|||
+         ||______||
+        /__________\
+  ______|__________|______
+       /____________\
+       |____________|
+
+  </pre>
+  <pre id="arrow" onclick="goToFence()"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  ;;;;;
+  ;;;;;
+  ;;;;;
+  ;;;;;
+  ;;;;;
+..;;;;;..
+ ':::::'
+   ':'
+  </pre>
+  <script>
+    function goToOpenBook() {
+      window.location.href = 'opbook.html';
+    }
+
+    function goBack() {
+      window.location.href = 'livingroom2.html';
+    }
+
+    function goToFence() {
+      window.location.href = 'fence.html';
+    }
+
+    let isOpen = true;
+
+    const asciiArtElement = document.getElementById('asciiArt');
+    let currentFrame = 0;
+
+    function updateAsciiArt() {
+      switch (currentFrame) {
+        case 0:
+          asciiArtElement.textContent = `
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        ___
+    __/_  \`.  .-\"\"\"-.__,.
+    \\_,\` | \\-\'  /   )\`-\'
+     \"\") \`"\`    \\  ((
+    ___Y  ,    .\'7 /|
+웃  (_,___/...-\` (_/_/
+          `;
+          break;
+        case 1:
+        asciiArtElement.textContent = `
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        ___
+    __/_  \`.  .-\"\"\"-.
+    \\_,\` | \\-\'  /   )\`-\')
+     \"\") \`"\`    \\  ((\`"\`
+    ___Y  ,    .\'7 /|
+웃  (_,___/...-\` (_/_/
+        `;
+          break;
+      }
+
+      // Increment frame and loop back to 0 after the 3rd frame
+      currentFrame = (currentFrame + 1) % 2;
+    }
+
+    // Update the ASCII art every 1 second
+    setInterval(updateAsciiArt, 500);
+
+const woofElement = document.getElementById('woof');
+let currentwoofFrame = 0;
+let woofClicked = false;
+
+woofElement.addEventListener('click', function() {
+  woofClicked = !woofClicked; // Toggle the value
+  updatewoof();
+});
+
+function updatewoof() {
+  if (!woofClicked) {
+    woofElement.textContent = `
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  _______
+ /       \\
+ | woof! |
+  \\_______\\
+           `;
+    return;
+  }
+
+  switch (currentwoofFrame) {
+    case 0:
+      woofElement.textContent = `
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  _______
+ /       \\
+ |   ♥!  |
+  \\_______\\
+       `;
+      break;
+  }
+
+  // Increment frame and loop back to 0 after the 3rd frame
+  currentwoofFrame = (currentwoofFrame + 1) % 2;
+}
+
+// Update the ASCII art every 1 second
+setInterval(updatewoof, 1000);
+  </script>
+</body>
+</html>

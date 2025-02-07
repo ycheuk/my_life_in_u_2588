@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Another Day...</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #ece6e3;
+    }
+
+    #arrow, #previousPage, #nextPage {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <pre id="arrow" onclick="goBack()">
+    .
+  .;;..........
+.;;;;::::::::::
+ ':;;::::::::::
+   ':
+  </pre>
+  <pre id="previousPage" onclick="goPreviousPage()">
+          __________________
+      .-/|                  \
+      |||| Journal Entry     |
+      |||| Dec 6 @09:46:     |
+      |||| ----------------  |
+      |||| My roommate told  |
+      |||| me I should've    |
+      |||| inputted my whole |
+      |||| ASCII website     |
+      |||| into that         |
+      |||| computer instead. |
+      ||||__                 |
+      |||   |_______________ |
+      ||/===================\|
+      `--------------------~__
+  </pre>
+  <pre id="nextPage" onclick="goNextPage()">
+ __________________
+/                  |\-.
+                   ||||
+                   ||||
+  Like I'm going   ||||
+    to do that.    ||||
+                   ||||
+   - Yik Yin       ||||
+     Cheuk         ||||
+                   ||||
+                   ||||
+                 __||||
+ _______________|   |||
+/===================\||
+_~-------------------''
+  </pre>
+  <script>
+    function goBack() {
+      window.location.href = 'book.html';
+    }
+
+    function goPreviousPage() {
+      window.location.href = 'page2.html';
+    }
+
+    function goNextPage() {
+      window.location.href = 'page4.html';
+    }
+
+  </script>
+</body>
+</html>

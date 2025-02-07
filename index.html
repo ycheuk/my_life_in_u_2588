@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Another Day</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: monospace;
+      background-color: #ece6e3;
+    }
+
+    #door {
+      margin-top: -20px; /* Adjust the value to move the door up */
+      cursor: pointer;
+    }
+
+    #bed, #meow {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <pre id="asciiArt"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      \    /\
+       )  ( ')
+      (  /  )
+       \(__)|
+  </pre>
+  <pre id="meow"><br><br><br><br><br><br><br><br><br><br><br><br>
+   _______
+  /       \
+  | meow. |
+ /________/
+  </pre>
+  <pre><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+     /
+    /z
+   /zz
+  /zzz
+ /zzzz
+/zzzzz
+</pre>
+  <pre id="bed" onclick="toggleBed()"> <!-- https://asciiart.website/index.php?art=objects/furniture/beds -->
+    <br><br><br><br><br><br><br><br><br><br><br>
+      _      ()              ()      _
+     / \     ||______________||     / \
+    /___\    |                |    /___\
+      |      |                |      |
+     (_)     |_______  _______|     (_)
+  ___/_\___  {___O___}{_______}  ___/_\___
+   |__~__|   %%%%%%%%%%%%%%%%%%   |__~__|
+___|_____|__%%%%%%%%%%%%%%%%%%%%__|_____|___
+   |     | %%%%%%%%%%%%%%%%%%%%%% |     |
+          %%%%%%%%%%%%%%%%%%%%%%%%
+         %%%%%%%%%%%%%%%%%%%%%%%%%%
+zzzzzzzz%%%%%%%%%%%%%%%%%%%%%%%%%%%%zzzzzzzz
+zzzzzzz/||||||||||||||||||||||||||||\zzzzzzz
+zzzzzzz||||||||||||||||||||||||||||||zzzzzzz
+zzzzzzz||||||||||||||||||||||||||||||zzzzzzz
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+  </pre>
+
+  <pre id="door" onclick="goToBathroom()"><br><br><br><br><br><br><br><br>
+ __________
+|          |
+|          |
+|          |
+|          |
+|          |
+|          |
+|        O |
+|          |
+|          |
+|          |
+|          |
+|          |
+|__________|
+
+
+
+\
+z\
+zz\
+zzz\
+zzzz\
+zzzzz\
+  </pre>
+  <pre><br><br>
+       ___
+      /   \
+     | //  |
+     |     |
+      \___/
+    _________
+   |____-____|
+   |____-____|
+   |____-____|
+___|____-____|_
+   |/       \|
+  </pre>
+  <pre>
+o(=(=(=(=)=)=)=)o
+ !!!!!!}!{!!!!!!
+ !!!!!} | {!!!!!
+ !!!!}  |  {!!!!
+ !!!!}  |  {!!!!
+ !!!'   |   '!!!
+ ~@~----+----~@~
+ !!!    |    !!!
+ !!!    |    !!!
+ !!!    |    !!!
+ !!!    |    !!!
+ !!!____|____!!!
+ !!!=========!!!
+_!!!_________!!!__<br><br>
+  </pre>
+  <script>
+    let isOpen = true;
+
+    const asciiArtElement = document.getElementById('asciiArt');
+    let currentFrame = 0;
+
+    function updateAsciiArt() {
+      switch (currentFrame) {
+        case 0:
+          asciiArtElement.textContent = `
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      /    /\\
+     (    ( \')
+      \\  /  )
+       \\(__)|
+           `;
+          break;
+        case 1:
+        asciiArtElement.textContent = `
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      \\    /\\
+       )  ( \')
+      (  /  )
+       \\(__)|
+         `;
+          break;
+      }
+
+      // Increment frame and loop back to 0 after the 3rd frame
+      currentFrame = (currentFrame + 1) % 2;
+    }
+
+    // Update the ASCII art every 1 second
+    setInterval(updateAsciiArt, 1000);
+    let isPersonInBed = true;
+
+    function toggleBed() {
+      const bedElement = document.getElementById('bed');
+
+      if (isPersonInBed) {
+        // Person is in bed, show empty bed
+        bedElement.innerHTML = `
+        <br><br><br><br><br><br><br><br><br><br><br>
+      _      ()              ()      _
+     / \\     ||______________||     / \\
+    /___\\    |                |    /___\\
+      |      |                |      |
+     (_)     |_______  _______|     (_)
+  ___/_\\___  {_______}{_______}  ___/_\\___
+   |__~__|   %%%%%%%%%%%%%%%%%%   |__~__|
+___|_____|__%%%%%%%%%%%%%%%%%%%%__|_____|___
+   |     | %%%%%%%%%%%%%%%%%%%%%% |     |
+          %%%%%%%%%%%%%%%%%%%%%%%%
+         %%%%%%%%%%%%%%%%%%%%%%%%%%   웃
+zzzzzzzz%%%%%%%%%%%%%%%%%%%%%%%%%%%%zzzzzzzz
+zzzzzzz/||||||||||||||||||||||||||||\\zzzzzzz
+zzzzzzz||||||||||||||||||||||||||||||zzzzzzz
+zzzzzzz||||||||||||||||||||||||||||||zzzzzzz
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+        `;
+      } else {
+        // Person is out of bed, show person in bed
+        bedElement.innerHTML = `
+        <br><br><br><br><br><br><br><br><br><br><br>
+      _      ()              ()      _
+     / \\     ||______________||     / \\
+    /___\\    |                |    /___\\
+      |      |                |      |
+     (_)     |_______  _______|     (_)
+  ___/_\\___  {___O___}{_______}  ___/_\\___
+   |__~__|   %%%%%%%%%%%%%%%%%%   |__~__|
+___|_____|__%%%%%%%%%%%%%%%%%%%%__|_____|___
+   |     | %%%%%%%%%%%%%%%%%%%%%% |     |
+          %%%%%%%%%%%%%%%%%%%%%%%%
+         %%%%%%%%%%%%%%%%%%%%%%%%%%
+zzzzzzzz%%%%%%%%%%%%%%%%%%%%%%%%%%%%zzzzzzzz
+zzzzzzz/||||||||||||||||||||||||||||\\zzzzzzz
+zzzzzzz||||||||||||||||||||||||||||||zzzzzzz
+zzzzzzz||||||||||||||||||||||||||||||zzzzzzz
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+        `;
+      }
+
+      // Toggle the person in bed state
+      isPersonInBed = !isPersonInBed;
+    }
+
+    function goToBathroom() {
+      // if (!isPersonInBed) {
+        window.location.href = 'bathroom.html';
+      //}
+    }
+
+    function updateDoorClickable() {
+      const doorElement = document.getElementById('door');
+      doorElement.style.pointerEvents = isPersonInBed ? 'none' : 'auto';
+    }
+const meowElement = document.getElementById('meow');
+let currentmeowFrame = 0;
+let meowClicked = false;
+
+meowElement.addEventListener('click', function() {
+  meowClicked = !meowClicked; // Toggle the value
+  updatemeow();
+});
+
+function updatemeow() {
+  if (!meowClicked) {
+    meowElement.textContent = `
+
+
+
+
+
+
+
+
+
+
+
+
+   _______
+  /       \\
+  | meow. |
+ /________/
+           `;
+    return;
+  }
+
+  switch (currentmeowFrame) {
+    case 0:
+      meowElement.textContent = `
+
+
+
+
+
+
+
+
+
+
+
+
+   _______
+  /       \\
+  | food. |
+ /________/
+       `;
+      break;
+  }
+
+  // Increment frame and loop back to 0 after the 3rd frame
+  currentmeowFrame = (currentmeowFrame + 1) % 2;
+}
+
+// Update the ASCII art every 1 second
+setInterval(updatemeow, 1000);
+  </script>
+</body>
+</html>

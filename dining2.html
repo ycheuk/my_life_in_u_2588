@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Another Day...</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #ece6e3;
+    }
+
+    #door1, #door2 {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <pre id="door1" onclick="goToDen()">
+ |'.
+ |  '.
+ |    '.
+ |      '.
+ | .._____:
+ | ||     |
+ | ||     |
+ | ||     |
+ | ||     |
+ | ||     |
+ | ||    0|
+ | ||     |
+ | ||     |
+ | ||     |
+ | ||     |
+ | ||     |
+ | ||_____|
+ |.'
+  </pre>
+  <pre>
+             (|)
+              |
+             |O|
+____________/===\_____________
+            `\"/`  ______
+     mmmmmmm  V   |--%%--|
+     |  |  |      |-%%%%-|
+     |--|--| @@@  |=_||_=|
+     |__|__|@@@@@ |_\__/_|
+             \|/   ____
+;;       .'``(_)```\__/````:
+||___   :================:'|
+||===)  | |              | |
+//``\\__|_|______________|_|__
+'    \' | '              | '
+        |                |
+
+
+  </pre>
+  <pre id="door2" onclick="goBack()">
+       .'|
+     .'  |
+   .'    |
+ .'      |
+:     .. |
+:   .'|| |
+:  |  || |
+:  |  || |
+:  |  || |
+:  |  || |
+:  |  || |
+:  |0 || |
+:  |  || |
+:  |  || |
+ '.|  || |
+   '. || |
+     '|| |
+       '.|
+  </pre>
+  <script>
+    function goBack() {
+      window.location.href = 'livingroom3.html';
+    }
+
+    function goToDen() {
+      window.location.href = 'den.html';
+    }
+
+const door1Element = document.getElementById('door1');
+let currentdoor1Frame = 0;
+let door1Clicked = false;
+
+door1Element.addEventListener('click', function() {
+  door1Clicked = !door1Clicked; // Toggle the value
+  updatedoor1();
+});
+
+function updatedoor1() {
+  if (!door1Clicked) {
+    door1Element.textContent = `
+  |\'.
+  |  \'.
+  |    \'.
+  |      \'.
+  | ..     :
+  | ||\'.   :
+  | ||  |  :
+  | ||  |  :
+  | ||  |  :
+  | ||  |  :
+  | ||  |  :
+  | || 0|  :
+  | ||  |  :
+  | ||  |  :
+  | ||  |.\'/
+  | || .\'
+  | ||\'
+  |.\'
+
+           `;
+    return;
+  }
+
+  // Increment frame and loop back to 0 after the 3rd frame
+  currentdoor1Frame = (currentdoor1Frame + 1) % 2;
+}
+
+// Update the ASCII art every 1 second
+setInterval(updatedoor1, 1000);
+  </script>
+</body>
+</html>

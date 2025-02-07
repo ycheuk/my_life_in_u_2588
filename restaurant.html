@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Another Day...</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #ece6e3;
+    }
+
+    #tables, #door {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!--
+  <pre><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+   ______________
+            /   /|
+           /   / |
+          /   /  /
+         /   /  /
+        /   /  /
+       /   /  /
+____  /   /  /
+___/|/   /  /
+   |/___/  /
+   |    | /
+___|____|/
+
+  </pre> -->
+  <pre id="tables" onclick="goEat()">
+__________________________________________________________________
+               |                                  |
+               |                                  |
+               |                                  |
+               |                                  |
+               |                                  |
+               |                                  |
+  _____________|______________       _____________|______________
+ |          .__|__.           |     |          .__|__.           |
+ |                            |     |                            |
+ |                            |     |                            |
+ |                            |     |                            |
+ |                            |     |                            |
+ |                            |     |                            |
+ |  ||                    ||  |     |  ||                    ||  |
+ |  ||     __________     ||  |     |  ||     __________     ||  |
+ '--||----(__________)----||--'     '--||----(__________)----||--'
+    ||_____    ||    _____||           ||_____    ||    _____||
+    ||    ||   ||   ||    ||           ||    ||   ||   ||    ||
+    ||    ||   ||   ||    ||           ||    ||   ||   ||    ||
+  </pre>
+  <pre id="door" onclick="goOut()">
+__________________
+                  |
+                  |
+                  |
+                  |
+                  |
+                  |
+   ______o___     |
+  |  __  __  |    |
+  | |  ||  | |    |
+  | |  ||  | |    |
+  | |  ||  | |    |
+  | |__||__| |    |
+  |  __  __()|    |
+  | |  ||  | |    |
+  | |  ||  | |    |
+  | |  ||  | |    |
+  | |  ||  | |    |
+  | |__||__| |    |
+  |__________|    |
+  </pre>
+  <script>
+    function goEat() {
+      window.location.href = 'eat.html';
+    }
+
+    function goOut() {
+      window.location.href = 'road.html';
+    }
+  </script>
+</body>
+</html>

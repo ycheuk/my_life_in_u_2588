@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Another Day...</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: monospace;
+      background-color: #ece6e3;
+    }
+
+    #closedBook, #user, #arrow {
+      cursor: pointer;
+    }
+
+    #terminal {
+      width: 325px;
+      height: 180px;
+      overflow: auto;
+      border: 1px solid #000;
+      padding: 10px;
+      background-color: black; /* Set background color to black */
+      color: white; /* Set text color to white for better visibility */
+    }
+
+    #terminal div {
+      color: white; /* Set text color for the output elements */
+    }
+
+    #input-container {
+      display: flex;
+      background-color: black;
+    }
+
+    #prompt {
+      margin-right: 5px;
+      background-color: black; /* Set the background color to black */
+      color: white; /* Set text color to white for better visibility */
+      white-space: pre;
+    }
+
+    #user-input {
+      flex-grow: 1;
+      border: none; /* Remove the border */
+      outline: none; /* Remove the input outline */
+      background-color: black; /* Set the background color to black */
+      color: white; /* Set text color to white for better visibility */
+      width: 291px;
+    }
+
+    #container {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    #shelf-container {
+      display: flex;
+      align-items: center;
+    }
+
+    #arrow-container {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  <pre id="arrow" onclick="goBack()">
+    .
+  .;;..........
+.;;;;::::::::::
+ ':;;::::::::::
+   ':
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  </pre>
+  <pre id="user" onclick="goBack()">
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+웃
+  </pre>
+<div id="container">
+  <div id="shelf-container">
+  <pre id="asciiArt"></pre>
+  </div>
+  <div id="input-container">
+    <div id="prompt">  C:\></div>
+    <input id="user-input" type="text" onkeydown="handleKeyPress(event)">
+  </div>
+  <div id="terminal"></div>
+            <pre>     /     .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  ---  \
+    /.-.  .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-\
+   /.-.  .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-\
+  /.-.  .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-\
+ /.-.  .---.-. .-------------------------.  .-.---. .--\
+:-------------------------------------------------------:
+`---._.-------------------------------------------._.---'</pre>
+  </pre>
+  </div>
+  <pre id="closedBook" onclick="goToOpenBook()">
+    <br><br><br><br><br><br><br><br><br><br>
+
+,-------------,
+( \    ~~~~    \
+ \ \  ~~  ~~~~~ \
+  \ \   ~~~~~~   \
+   \ \            \
+    \ \            \
+     \ \____________\
+      \(             )
+       `-------------'
+  </pre>
+
+  <script>
+  function goToOpenBook() {
+    window.location.href = 'opbook.html';
+  }
+
+  function goBack() {
+    window.location.href = 'desk.html';
+  }
+
+  const terminal = document.getElementById('terminal');
+  const userInput = document.getElementById('user-input');
+  let mapCreated = false;
+
+  function handleKeyPress(event) {
+    if (event.key === 'Enter') {
+      const command = userInput.value;
+      executeCommand(command);
+      userInput.value = '';
+    }
+  }
+
+  function executeCommand(command) {
+    const output = simulateCommandExecution(command);
+    displayOutput(output);
+  }
+
+  function simulateCommandExecution(command) {
+    switch (command.toLowerCase()) {
+      case 'help':
+        return 'Available commands: help, date, traceroute, map, back';
+      case 'date':
+        return new Date().toLocaleString();
+      case 'traceroute':
+        return 'No... please...';
+      case 'map':
+        if (!mapCreated) {
+          openGoogleMap();
+          mapCreated = true;
+          return 'Opening Google Maps...';
+        } else {
+          return 'Map already opened.';
+        }
+      case 'quit':
+        if (mapCreated) {
+          closeGoogleMap();
+          mapCreated = false;
+          return 'Google Maps closed.';
+        } else {
+          return 'No active map to close.';
+        }
+      default:
+        return `Command not found: ${command}`;
+    }
+  }
+
+  function displayOutput(output) {
+    const outputElement = document.createElement('div');
+    outputElement.textContent = output;
+    terminal.appendChild(outputElement);
+    terminal.scrollTop = terminal.scrollHeight;
+  }
+
+  function openGoogleMap() {
+    const mapOptions = {
+      center: { lat: 45.4806, lng: -122.5253 }, //should be portland lol
+      zoom: 12
+    };
+
+    const map = new google.maps.Map(document.getElementById('terminal'), mapOptions);
+  }
+
+  function closeGoogleMap() {
+    // You may want to add cleanup logic here, e.g., removing the map element
+    const mapElement = document.getElementById('terminal');
+    mapElement.innerHTML = '';
+  }
+
+    function loadScript() {
+      const apiKey = 'AIzaSyCtyGh3exav5zIBV1x3Bw-ktsEMO9oDA-A'; // Replace with your actual API key
+
+      const script = document.createElement('script');
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=loadScriptCallback`;
+      script.defer = true;
+      script.async = true;
+
+      script.onerror = function () {
+        alert('Failed to load Google Maps API. Please check your internet connection and API key.');
+      };
+
+      document.head.appendChild(script);
+    }
+
+    // Load the Google Maps API script
+    loadScript();
+  </script>
+</body>
+</html>
