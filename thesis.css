@@ -1,3 +1,22 @@
+/* universal */
+.asciiAlign {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-family: monospace;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
 /* index.html */
 
 body {
@@ -10,26 +29,10 @@ body {
   background-color: #ece6e3;
 }
 
-#container {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-#shelf-container {
-  display: flex;
-  align-items: center;
-}
-
-#door {
-  margin-top: -20px; /* Adjust the value to move the door up */
-  cursor: pointer;
-}
-
-#bed, #meow {
-  cursor: pointer;
-}
-
-#pointer {
-  cursor: pointer;
+/* introduction.html */
+#asciiAlign {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-family: monospace;
 }

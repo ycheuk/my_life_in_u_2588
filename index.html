@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Thesis || Main Page</title>
+  <title>Main Page</title>
   <link rel="stylesheet" type="text/css" href="thesis.css">
 </head>
 <body>
   <div id="container">
-    <div id="shelf-container">
-      <pre id="asciiArt">
+    <div id="container">
+      <pre>
  ,--. ,--. ,------. ,--.     ,--.      ,-----.
  |  | |  | |  .---' |  |     |  |     |  .-.  |
  |   .|  | |  |     |  |     |  |     |  | |  |
@@ -19,8 +19,8 @@
  `--' `--' `------' `------' `------'  `-----'
       </pre>
     </div>
-    <div id="shelf-container">
-      <pre id="asciiArt">
+    <div id="container">
+      <pre>
   _  _  ____  __     ___  __   _  _  ____    ____  __     _  _  _  _
  / )( \(  __)(  )   / __)/  \ ( \/ )(  __)  (_  _)/  \   ( \/ )( \/ )
  \ /\ / ) _) / (_/\( (__(  O )/ \/ \ ) _)     )( (  O )  / \/ \ )  /
@@ -31,16 +31,8 @@
                    (__) \_)(_/(____)(____/(__)(____/
       </pre>
     </div>
-    <!-- <div id="shelf-container">
-      <pre id="asciiArt">
-  ____  _  _  ____  ____  __  ____
- (_  _)/ )( \(  __)/ ___)(  )/ ___)
-   )(  ) __ ( ) _) \___ \ )( \___ \
-  (__) \_)(_/(____)(____/(__)(____/
-      </pre>
-    </div> -->
-    <div id="shelf-container">
-      <pre id="pointer" onclick="goToIntroduction()">
+    <div id="container">
+      <pre class="pointer" onclick="goToIntroduction()">
                 .
  .. ............;;.
   ..::::::::::::;;;;.
@@ -51,9 +43,7 @@
   </div>
   <script>
     function goToIntroduction() {
-      // if (!isPersonInBed) {
-        window.location.href = 'bathroom.html';
-      //}
+      window.location.href = 'introduction.html';
     }
   </script>
 </body>
