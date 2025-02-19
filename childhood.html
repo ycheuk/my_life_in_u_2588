@@ -9,7 +9,7 @@
 <body>
   <div id="container">
     <div id="container">
-      <pre class="pointer asciiAlign" onclick="toggleGirl()">
+      <pre class="pointer asciiAlign" id="girl" onclick="toggleGirl()">
       ╭──────────╮
       │ click me │
       ╰───────,──╯
@@ -18,8 +18,7 @@
         (\   /)
          .-'-.
         //   \\
-        o|   |o
-         |___|
+        '|___|'
           | |
           . .
       </pre>
@@ -90,6 +89,63 @@
     function goToLetters() {
       window.location.href = 'letters.html';
     }
+
+    function goToLetters() {
+    window.location.href = 'letters.html';
+  }
+
+  let walking = false; // Track if animation is running
+  let walkInterval; // Store interval function
+
+  function toggleGirl() {
+    const girl = document.getElementById("girl");
+
+    // Define ASCII animation frames
+    const frames = [`      , -.
+     ( /  \\
+     (𐙚)  )
+       -'-
+      / | \\
+      |_o_|
+       ╱ ╲
+      .   .`,
+      `       , -.
+      ( /  \\
+      (𐙚)  )
+        -'-
+       / | \\
+       |_o_|
+         ╳
+        . .`
+    ];
+
+    let frameIndex = 0;
+
+    if (!walking) {
+      walking = true;
+      walkInterval = setInterval(() => {
+        girl.textContent = frames[frameIndex];
+        frameIndex = (frameIndex + 1) % frames.length;
+      }, 1000);
+    }
+  }
   </script>
 </body>
 </html>
+<!--
+  , -.
+ ( /  \
+ (𐙚)  )
+   -'-
+  / | \
+  |_o_|
+   . \
+
+   , -.
+  ( /  \
+  (𐙚)  )
+    -'-
+   / | \
+   |_o_|
+    / .
+  -->
