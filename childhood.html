@@ -26,67 +26,6 @@ I grew up as a Chinese American in a small town <br><br>where few people looked 
           . .
       </pre>
     </div>
-    <!-- <div id="container">
-      <pre>
-                                 .:::::..
-                            .:-:...::::::::.
-                          .--:..........::--:
-                         :-:::.....::----:::--. .-----:
-                        :=::-:.......:....::-=+++===-::-.
-                        --::-:..........:-:::-+*+==---:::
-                        --:::::......:::::::-=+*------.::
-                        :=::.:-:........::---=+=:-----.::
-                        .::-:..--..:::--:::--==-::.::::-.
-                        ...:-:.--:......:------:.....-:
-                         .:. .::.-:.::::::--:--:.....:.
-                          ..  .::-=-:::---::-:...:.::
-                          :.   :----:-:-:---:...::-.
-                          .:.  -=--=+==::--::..::--
-                            .:-++=-...-=---::::--=-.
-                            .-=+-:.:. .:---::----===-.
-                          .:::--...::  .:-----===--:.
-                         .::::-:. ..-.  .::::...
-                         .:.::...  .:-..:.::.:.
-                         ..:-..  . ..=.   .-:.-:.
-                         :--.   .   .-.     .:.:-.
-                         .-..  ..    ::      .::.::.
-                        .-:.  ...    :=.  .--:....:-.
-                       .-.. ....     ::..-===:......-:.
-                      :-.......     .--:-==:......=..:-:
-                    .-:.......  .-....  ... ...:.:::--:.
-                   :=:.:........ ..:..   ...:.---:..
-                  --::...:......::-:-----:---:.
-                  .:========--::::::.......
-                                 ...     ..
-                                 ...    ..
-                                 ...    ..
-                                  .:.   ..
-                                  .:.   ..
-                                  ...   ..
-                                  ..:  ..
-                                   .:.  .
-                              ::::::==--.
-                             .-=:.....:=:
-                              .-==+++=-.
-              ,
-    ,        / )
-   ( ＼;””~ ͡ ."
-    ˜'ミ ・ ェ)
-       >    ,”
-へ'""~ノ    ミ ╮
-  ,) ノ,,_,  ,\)
-  し'し'   |ノ
-      </pre>
-    </div> -->
-    <!-- <div id="container">
-      <pre class="pointer" onclick="goToLetters()">
-                .
- .. ............;;.
-  ..::::::::::::;;;;.
-. . ::::::::::::;;:'
-                :'
-      </pre>
-    </div> -->
   </div>
   <script>
     function goToLetters() {
@@ -104,7 +43,6 @@ I grew up as a Chinese American in a small town <br><br>where few people looked 
   function toggleGirl() {
     const girl = document.getElementById("girl");
 
-    // Define ASCII animation frames
     const frames = [`      , -.
      ( /  \\
      (𐙚)  )
@@ -123,44 +61,40 @@ I grew up as a Chinese American in a small town <br><br>where few people looked 
         . .`
     ];
 
+    const staticGirl = `
+         . -౨ৎ.
+        // ^ \\
+       ()\\   /()
+         .-'-.
+        //   \\
+        '|___|'
+          | |
+          . .`;
+
     let frameIndex = 0;
 
-      // Show narrative text and update on click
-      if (clickCount === 0) {
-        narrative.style.display = "block";
-      } else if (clickCount === 1) {
-        narrative.textContent = "To some, I was the 'smart Asian kid.' To others, I was 'exotic,' a curiosity, a foreigner, even though this was the only home I knew as a child.";
-      } else if (clickCount === 2) {
-        narrative.textContent = ""
-      }
-
-      clickCount++; 
-
-      if (!walking) {
-        walking = true;
-        walkInterval = setInterval(() => {
-          girl.textContent = frames[frameIndex];
-          frameIndex = (frameIndex + 1) % frames.length;
-        }, 1000);
-      }
+    if (clickCount === 0) {
+      narrative.style.display = "block";
+    } else if (clickCount === 1) {
+      narrative.textContent = "To some, I was the 'smart Asian kid.' To others, I was 'exotic,' a curiosity, a foreigner, even though this was the only home I knew as a child.";
+      clearInterval(walkInterval);
+        walking = false;
+        girl.textContent = staticGirl;
+        return;
+    } else if (clickCount === 2) {
+      narrative.textContent = ""
     }
+
+    clickCount++;
+
+    if (!walking) {
+      walking = true;
+      walkInterval = setInterval(() => {
+        girl.textContent = frames[frameIndex];
+        frameIndex = (frameIndex + 1) % frames.length;
+      }, 1000);
+    }
+  }
   </script>
 </body>
 </html>
-<!--
-  , -.
- ( /  \
- (𐙚)  )
-   -'-
-  / | \
-  |_o_|
-   . \
-
-   , -.
-  ( /  \
-  (𐙚)  )
-    -'-
-   / | \
-   |_o_|
-    / .
-  -->
