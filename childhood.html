@@ -8,6 +8,9 @@
 </head>
 <body>
   <div id="container">
+    <div id="narrative" class="narrative">
+I grew up as a Chinese American in a small town <br><br>where few people looked like me.
+    </div>
     <div id="container">
       <pre class="pointer asciiAlign" id="girl" onclick="toggleGirl()">
       ╭──────────╮
@@ -94,8 +97,9 @@
     window.location.href = 'letters.html';
   }
 
-  let walking = false; // Track if animation is running
-  let walkInterval; // Store interval function
+  let walking = false;
+  let walkInterval;
+  let clickCount = 0;
 
   function toggleGirl() {
     const girl = document.getElementById("girl");
@@ -121,14 +125,25 @@
 
     let frameIndex = 0;
 
-    if (!walking) {
-      walking = true;
-      walkInterval = setInterval(() => {
-        girl.textContent = frames[frameIndex];
-        frameIndex = (frameIndex + 1) % frames.length;
-      }, 1000);
+      // Show narrative text and update on click
+      if (clickCount === 0) {
+        narrative.style.display = "block";
+      } else if (clickCount === 1) {
+        narrative.textContent = "To some, I was the 'smart Asian kid.' To others, I was 'exotic,' a curiosity, a foreigner, even though this was the only home I knew as a child.";
+      } else if (clickCount === 2) {
+        narrative.textContent = ""
+      }
+
+      clickCount++; 
+
+      if (!walking) {
+        walking = true;
+        walkInterval = setInterval(() => {
+          girl.textContent = frames[frameIndex];
+          frameIndex = (frameIndex + 1) % frames.length;
+        }, 1000);
+      }
     }
-  }
   </script>
 </body>
 </html>

@@ -36,3 +36,11 @@ body {
   line-height: 1;
   font-family: monospace;
 }
+
+/* childhood.html */
+#narrative {
+  text-align: center;
+  font-size: 12px;
+  display: none;
+  margin-bottom: 30px;
+}
