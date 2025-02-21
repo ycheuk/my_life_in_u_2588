@@ -9,7 +9,7 @@
 <body>
   <div id="container">
     <div id="narrative" class="narrative">
-I grew up as a Chinese American in a small town <br><br>where few people looked like me.
+I grew up as a Chinese American in a very white predominantly small town <br><br>where few people looked like me.
     </div>
     <div id="container">
       <pre class="pointer asciiAlign" id="girl" onclick="toggleGirl()">
@@ -31,10 +31,6 @@ I grew up as a Chinese American in a small town <br><br>where few people looked 
     function goToLetters() {
       window.location.href = 'letters.html';
     }
-
-    function goToLetters() {
-    window.location.href = 'letters.html';
-  }
 
   let walking = false;
   let walkInterval;
@@ -62,15 +58,64 @@ I grew up as a Chinese American in a small town <br><br>where few people looked 
     ];
 
     const staticGirl = `
-         . -౨ৎ.
-        // ^ \\
-       ()\\   /()
-         .-'-.
-        //   \\
-        '|___|'
-          | |
-          . .`;
 
+          ┌──────────────┒
+    ┌──────────────┒  ~~ ┃
+    │~ ~~       ~~~┃ A+  ┃              _.-"\\
+    │        100%  ┃     ┃          _.-"     \\
+    │     ~~ ~     ┃ ~ ~ ┃       ,-"          \\
+    │~~ ~~~  ~~~~  ┃  ~~ ┃      ( \\            \\
+    │~ ~~~   ~~  ~ ┃~  ~ ┃       ( \\            \\
+    │~~~~    ~~ ~~ ┃~~ ~ ┃        ( \\            \\
+    │~~  ~   ~~ ~  ┃ ~~~ ┃         ( \\            \\
+    │~ ~~    ~~~ ~~┃~~ ~ ┃          \\ \\         _.-;
+    │~ ~~~   ~ ~   ┃~~ ~ ┃           \\ \\    _.-"   :
+    │~~~           ┃─────┚            \\ \\,-"    _.-"
+    └──────────────┚                   \\(   _.-"
+                                        \`--"
+
+        . - .                                         . - .
+       // ^ \\\\                 . -౨ৎ.                // ^ \\\\
+       (\\   /)                // ^ \\\\                (\\   /)
+        .-'-.--.             ()\\   /()             .--.-'-.
+       //   \\                  .-'-.                  /   \\
+       '|___|                 //   \\\\                 |___|'
+         | |                  '|___|'                  | |
+         . .                    | |                    . .
+                  . - .         . .         . - .
+                 // ^ \\\\                   // ^ \\\\
+                 (\\   /),                 .(\\   /)
+                  .-'-./                   \\.-'-.
+                 //   \\                     /   \\\\
+                 '|___|                     |___|'
+                   | |                       | |
+                   . .                       . .`;
+    const staticDog = `
+
+          ┌──────────────┒
+    ┌──────────────┒  ~~ ┃
+    │~ ~~       ~~~┃ A+  ┃              _.-"\\
+    │        100%  ┃     ┃          _.-"     \\
+    │     ~~ ~     ┃ ~ ~ ┃       ,-"          \\
+    │~~ ~~~  ~~~~  ┃  ~~ ┃      ( \\            \\
+    │~ ~~~   ~~  ~ ┃~  ~ ┃       ( \\            \\
+    │~~~~    ~~ ~~ ┃~~ ~ ┃        ( \\            \\
+    │~~  ~   ~~ ~  ┃ ~~~ ┃         ( \\            \\
+    │~ ~~    ~~~ ~~┃~~ ~ ┃          \\ \\         _.-;
+    │~ ~~~   ~ ~   ┃~~ ~ ┃           \\ \\    _.-"   :
+    │~~~           ┃─────┚            \\ \\,-"    _.-"
+    └──────────────┚           /   \\
+       '|___|                 //   \\\\                 |___|'
+         | |                  '|___|'                  | |
+         . .                    | |                    . .
+                  . - .         . .         . - .
+                 // ^ \\\\                   // ^ \\\\
+                 (\\   /),                 .(\\   /)
+                  .-'-./                   \\.-'-.
+                 //   \\                     /   \\\\
+                 '|___|                     |___|'
+                   | |                       | |
+                   . .                1       . .`;
     let frameIndex = 0;
 
     if (clickCount === 0) {
@@ -78,12 +123,16 @@ I grew up as a Chinese American in a small town <br><br>where few people looked 
     } else if (clickCount === 1) {
       narrative.textContent = "To some, I was the 'smart Asian kid.' To others, I was 'exotic,' a curiosity, a foreigner, even though this was the only home I knew as a child.";
       clearInterval(walkInterval);
-        walking = false;
-        girl.textContent = staticGirl;
-        return;
+      walking = false;
+      girl.textContent = staticGirl;
+      // return;
     } else if (clickCount === 2) {
-      narrative.textContent = ""
-    }
+        narrative.textContent = "I remember being asked if my parents and I ate dogs and cats.";
+        clearInterval(walkInterval);
+        walking = false;
+        girl.textContent = staticDog;
+        return;
+      }
 
     clickCount++;
 
