@@ -134,12 +134,40 @@ I grew up as a Chinese American in a small, predominantly white town <br><br>whe
 
 * An ethnic slur to mock or imitate the Chinese language`;
 
-    const staticNothing = `
-                .
- .. ............;;.
-  ..::::::::::::;;;;.
-. . ::::::::::::;;:'
-                :'`;
+    const staticNothing = `>`;
+
+    const staticExpectations = `
+                                                   /\\
+                                                  /  \\
+                                                 /    \\
+                                                /______\\
+                                                | ^  ^ |
+                                                |[]  []|
+                                                |______|
+              __                                |  __  |
+             /  \\       ________________________|_/  \\_|__
+            / ^^ \\     /=========================/ ^^ \\===|
+           /  []  \\   /=========================/  []  \\==|
+          /________\\ /=========================/________\\=|
+       *  |        |/==========================|        |=|
+      *** | ^^  ^^ |---------------------------| ^^  ^^ |--
+     *****| []  [] |           _____           | []  [] | |
+    *******        |          /_____\\          |        | |
+   *********^^  ^^ |  ^^  ^^  |  |  |  ^^  ^^  |        | |
+  ***********]  [] |  []  []  |  |  |  []  []  | []  [] | |
+ *************     |         @|__|__|@         |        | |
+***************    |-----------=====-----------|        |_|
+***************____|          |=====|          |________|
+ *************               /=======\\
+
+    . -౨ৎ.
+   // ^ \\\\
+  ()\\   /()
+    .-'-.
+   //   \\\\
+   '|___|'
+     | |
+     . .`;
 
     if (!walking) {
       walking = true;
@@ -174,9 +202,20 @@ I grew up as a Chinese American in a small, predominantly white town <br><br>whe
         walking = false;
         girl.textContent = staticNothing;
     } else if (clickCount === 5) {
-        window.location.href = "parents.html";
-        return;
+        narrative.textContent = "But stereotypes didn’t just come from those who saw me as an outsider. They also came from those closest to me—my own family, my own community.";
+        clearInterval(walkInterval);
+        walking = false;
+        girl.textContent = staticNothing;
+    } else if (clickCount === 6) {
+        narrative.textContent = "At school, I was expected to be the ‘smart Asian kid,’ quiet, hardworking, effortlessly good at math and science.";
+        clearInterval(walkInterval);
+        walking = false;
+        girl.textContent = staticExpectations;
     }
+    // else if (clickCount === 5) {
+    //     window.location.href = "parents.html";
+    //     return;
+    // }
 
     clickCount++;
   }
