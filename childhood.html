@@ -138,24 +138,24 @@ I grew up as a Chinese American in a small, predominantly white town <br><br>whe
 
     const staticExpectations = `
                                                    /\\
-                                                  /  \\
-                                                 /    \\
-                                                /______\\
-                                                | ^  ^ |
-                                                |[]  []|
-                                                |______|
-              __                                |  __  |
-             /  \\       ________________________|_/  \\_|__
-            / ^^ \\     /=========================/ ^^ \\===|
-           /  []  \\   /=========================/  []  \\==|
-          /________\\ /=========================/________\\=|
-       *  |        |/==========================|        |=|
-      *** | ^^  ^^ |---------------------------| ^^  ^^ |--
-     *****| []  [] |           _____           | []  [] | |
-    *******        |          /_____\\          |        | |
-   *********^^  ^^ |  ^^  ^^  |  |  |  ^^  ^^  |        | |
-  ***********]  [] |  []  []  |  |  |  []  []  | []  [] | |
- *************     |         @|__|__|@         |        | |
+                                                  /  \\           ╭╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╮
+                                                 /    \\          ╵                                                  ╵
+                                                /______\\         ╵                               |-|    *           ╵
+                                                |      |         ╵                               |-|   _    *  __   ╵
+                                                |[]  []|         ╵                               |-|   |  *    |/'  ╵
+                                                |______|         ╵                               |-|   |~*~~~o~|    ╵
+              __                                |  __  |         ╵                               |-|   |  O o *|    ╵
+             /  \\       ________________________|_/  \\_|__       ╵                              /___\\  |o___O__|    ╵
+            /    \\     /=========================/    \\===|      ╵                                                  ╵
+           /  []  \\   /=========================/  []  \\==|      ╵                                                  ╵
+          /________\\ /=========================/________\\=|      ╵              ______ ______                       ╵
+       *  |        |/==========================|        |=|     <             _/      Y      \\_                     ╵
+      *** |        |---------------------------|        |--      ╵           // ~~ ~~ | ~~ ~  \\\\                    ╵
+     *****| []  [] |  []  []   _____   []  []  | []  [] | |      ╵          // ~ ~ ~~ | ~~~ ~~ \\\\                   ╵
+    *******        |          /_____\\          |        | |      ╵         //________.|.________\\\\                  ╵
+   *********       |          |  |  |          |        | |      ╵        \`----------\`-'----------'                 ╵
+  ***********]  [] |  []  []  |  |  |  []  []  | []  [] | |      ╵                                                  ╵
+ *************     |          |__|__|          |        | |      ╰╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╯
 ***************    |-----------=====-----------|        |_|
 ***************____|          |=====|          |________|
  *************               /=======\\
@@ -197,12 +197,12 @@ I grew up as a Chinese American in a small, predominantly white town <br><br>whe
         walking = false;
         girl.textContent = staticChing;
     } else if (clickCount === 4) {
-        narrative.textContent = "At the time, I didn’t have the words to explain why these moments felt wrong... Why it hurt... But I knew they did.";
+        narrative.innerHTML = "At the time, I didn’t have the words to explain why these moments felt wrong... Why it hurt... <br><br>But I knew they did.";
         clearInterval(walkInterval);
         walking = false;
         girl.textContent = staticNothing;
     } else if (clickCount === 5) {
-        narrative.textContent = "But stereotypes didn’t just come from those who saw me as an outsider. They also came from those closest to me—my own family, my own community.";
+        narrative.innerHTML = "But stereotypes didn’t just come from those who saw me as an outsider.<br><br>They also came from those closest to me: my own family, my own community.";
         clearInterval(walkInterval);
         walking = false;
         girl.textContent = staticNothing;
