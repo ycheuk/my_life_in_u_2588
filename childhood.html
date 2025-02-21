@@ -6,16 +6,22 @@
   <title>Main Page</title>
   <link rel="stylesheet" type="text/css" href="thesis.css">
 </head>
+<style>
+  body {
+    background-color: black;
+    color: white;
+  }
+</style>
 <body>
   <div id="container">
     <div id="narrative" class="narrative">
-I grew up as a Chinese American in a very white predominantly small town <br><br>where few people looked like me.
+I grew up as a Chinese American in a small, predominantly white town <br><br>where few people looked like me.
     </div>
     <div id="container">
       <pre class="pointer asciiAlign" id="girl" onclick="toggleGirl()">
-      ╭──────────╮
+      <!-- ╭──────────╮
       │ click me │
-      ╰───────,──╯
+      ╰───────,──╯ -->
          . -౨ৎ.
         // ^ \\
        ()\   /()
@@ -74,48 +80,75 @@ I grew up as a Chinese American in a very white predominantly small town <br><br
     └──────────────┚                   \\(   _.-"
                                         \`--"
 
-        . - .                                         . - .
-       // ^ \\\\                 . -౨ৎ.                // ^ \\\\
-       (\\   /)                // ^ \\\\                (\\   /)
-        .-'-.--.             ()\\   /()             .--.-'-.
-       //   \\                  .-'-.                  /   \\
-       '|___|                 //   \\\\                 |___|'
+         .-.                                          . - .
+        / ^ \\                  . -౨ৎ.                // ^ \\\\
+        \\   /                 // ^ \\\\               (_\\   /_)
+        .-'-.-->             ()\\   /()             <--.-'-.
+       /|___|                  .-'-.                  |___|
+       '|_|_|                 //   \\\\                 /___\\'
          | |                  '|___|'                  | |
          . .                    | |                    . .
-                  . - .         . .         . - .
-                 // ^ \\\\                   // ^ \\\\
-                 (\\   /),                 .(\\   /)
-                  .-'-./                   \\.-'-.
-                 //   \\                     /   \\\\
-                 '|___|                     |___|'
-                   | |                       | |
+                  . - .         . .          .-.
+                 // ^ \\)^                 ^(/ ^ \\
+                ( \\   //)                  \\\\   /
+                / .-'-. \\                   .-'-.
+               ( //___\\  )                  /___\\\\
+                 '|_|_|                     | | |'
+                   | |                      |_|_|
                    . .                       . .`;
     const staticDog = `
+                              ╭─────────────────────────╮
+                              │ Do you and your parents │
+                              │    eat cats and dogs?   │
+                              ╰───────,─────────────────╯
+                    . -౨ৎ.     . - .
+                   // ^ \\\\    // ^ \\\\
+                  ()\\   /()   /\\   /)
+                    .-'-.     \\.-'-.\\
+                   //   \\\\   ( |___|\\)
+                   '|___|'     /___\\'
+                     | |        | |
+                     . .        . .`;
 
-          ┌──────────────┒
-    ┌──────────────┒  ~~ ┃
-    │~ ~~       ~~~┃ A+  ┃              _.-"\\
-    │        100%  ┃     ┃          _.-"     \\
-    │     ~~ ~     ┃ ~ ~ ┃       ,-"          \\
-    │~~ ~~~  ~~~~  ┃  ~~ ┃      ( \\            \\
-    │~ ~~~   ~~  ~ ┃~  ~ ┃       ( \\            \\
-    │~~~~    ~~ ~~ ┃~~ ~ ┃        ( \\            \\
-    │~~  ~   ~~ ~  ┃ ~~~ ┃         ( \\            \\
-    │~ ~~    ~~~ ~~┃~~ ~ ┃          \\ \\         _.-;
-    │~ ~~~   ~ ~   ┃~~ ~ ┃           \\ \\    _.-"   :
-    │~~~           ┃─────┚            \\ \\,-"    _.-"
-    └──────────────┚           /   \\
-       '|___|                 //   \\\\                 |___|'
-         | |                  '|___|'                  | |
-         . .                    | |                    . .
-                  . - .         . .         . - .
-                 // ^ \\\\                   // ^ \\\\
-                 (\\   /),                 .(\\   /)
-                  .-'-./                   \\.-'-.
-                 //   \\                     /   \\\\
-                 '|___|                     |___|'
-                   | |                       | |
-                   . .                1       . .`;
+     const staticChing = `
+
+
+
+
+
+
+                             ╭──────────────╮
+                             │ Ching Chong* │
+                             ╰───────,──────╯
+                   . -౨ৎ.      .-.
+                  // ^ \\\\     / ^ \\
+                 ()\\   /()    \\   /
+                   .-'-.   <--.-'-.
+                  //   \\\\     |___|\\
+                  '|___|'     | | |'
+                    | |       |_|_|
+                    . .        , ,
+
+
+
+
+* An ethnic slur to mock or imitate the Chinese language`;
+
+    const staticNothing = `
+                .
+ .. ............;;.
+  ..::::::::::::;;;;.
+. . ::::::::::::;;:'
+                :'`;
+
+    if (!walking) {
+      walking = true;
+      walkInterval = setInterval(() => {
+        girl.textContent = frames[frameIndex];
+        frameIndex = (frameIndex + 1) % frames.length;
+      }, 1000);
+    }
+
     let frameIndex = 0;
 
     if (clickCount === 0) {
@@ -125,24 +158,27 @@ I grew up as a Chinese American in a very white predominantly small town <br><br
       clearInterval(walkInterval);
       walking = false;
       girl.textContent = staticGirl;
-      // return;
     } else if (clickCount === 2) {
-        narrative.textContent = "I remember being asked if my parents and I ate dogs and cats.";
+        narrative.textContent = "I remember being asked...";
         clearInterval(walkInterval);
         walking = false;
         girl.textContent = staticDog;
+    } else if (clickCount === 3) {
+        narrative.textContent = "or being told...";
+        clearInterval(walkInterval);
+        walking = false;
+        girl.textContent = staticChing;
+    } else if (clickCount === 4) {
+        narrative.textContent = "At the time, I didn’t have the words to explain why these moments felt wrong... Why it hurt... But I knew they did.";
+        clearInterval(walkInterval);
+        walking = false;
+        girl.textContent = staticNothing;
+    } else if (clickCount === 5) {
+        window.location.href = "parents.html";
         return;
-      }
+    }
 
     clickCount++;
-
-    if (!walking) {
-      walking = true;
-      walkInterval = setInterval(() => {
-        girl.textContent = frames[frameIndex];
-        frameIndex = (frameIndex + 1) % frames.length;
-      }, 1000);
-    }
   }
   </script>
 </body>
