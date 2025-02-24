@@ -211,7 +211,7 @@ I grew up as a Chinese American in a small, predominantly white town <br><br>whe
 ╵                            │ good at math,╰────────────────────────────────────────────────────────────────────────────────────────────╮
 ╵                     .-.    │ perfect your violin and piano, never talk back, always work harder than anyone else, get a stable job     │
 ╵                    /   \\   │ like a doctor or lawyer, always get 100%'s and A's, stand up straight at all times, walk like a proper    │
-╵                    \\   /   < lady, sit properly and never slouch, speak softly and respectfully, smile more but not too much, no       │
+╵                    \\   /  <  lady, sit properly and never slouch, speak softly and respectfully, smile more but not too much, no       │
 ╵     . -౨ৎ.         .-'-.   │ tatoos, no piercings, no dyed hair, nothing permanently done to your body, never argue, always obey,      │
 ╵    // ^ \\\\      __/| V |\\\\ │ never lose face, never pursue things like philosophy or art, your elders know best, you should be         │
 ╵   ()\\   /()     --'|   |// │ grateful, we didn't have these opportunities growing up, you don't understand how easy you have it...     │
@@ -223,6 +223,7 @@ I grew up as a Chinese American in a small, predominantly white town <br><br>whe
 ╵                                             ╵
 ╰╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╯
 `;
+    const staticMusic = `>`;
 
     if (!walking) {
       walking = true;
@@ -271,6 +272,11 @@ I grew up as a Chinese American in a small, predominantly white town <br><br>whe
         clearInterval(walkInterval);
         walking = false;
         girl.textContent = staticHome;
+    } else if (clickCount === 8) {
+        narrative.innerHTML = "My childhood was mostly measured in hours — hours spent at the piano, hours spent with the violin.<br><br>Three hours for one, three hours for the other, every single day.<br><br>While other kids played outside, I was perfecting scales, etudes, concertos.<br><br>There was always more to practice, always more to prove.<br><br>I carried the weight of expectation on my small shoulders, the pressure to be exceptional, to be worthy.<br><br><br><br>To be enough.";
+        clearInterval(walkInterval);
+        walking = false;
+        girl.textContent = staticMusic;
     }
 
     clickCount++;
