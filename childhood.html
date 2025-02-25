@@ -223,7 +223,57 @@ I grew up as a Chinese American in a small, predominantly white town <br><br>whe
 ╵                                             ╵
 ╰╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╯
 `;
-    const staticMusic = `>`;
+    const staticMusic = `
+                                 |\\
+                                 |/
+                                 |
+                                /|
+                               / |                      __...--~~~~~-._   _.-~~~~~--...__
+                              / _|_                   //               \`V'               \\\\
+                             / / | \\                 //                 |                 \\\\
+                            ( (  |  \\               //__...--~~~~~~-._  |  _.-~~~~~~--...__\\\\
+    _________                \\ \\_|) /              //__.....----~~~~._\\ | /_.~~~~----.....__\\\\
+   /   12    \\                \\__|_/              ====================\\\\|//====================
+  |           |                  |                                    \`---\`
+  |           |                  |
+  |9    .    3|                 \`-'
+  |     |\\    |  ___|\\_______|________|_______________________O__________O____________
+  |     |     |  ___|/_______|________|_|___|__________|__O__|_____O__|_|____O._______||
+   \\____6____/   __/|____4___|__O_____|_|___|__O.______|_|O__|____|___|_|___|O.______o||
+                  _(C^\\__4__O|_|_____O__|___|_|________|_|O__|____|___|_|___|________o||
+                 __\\|/'________|________|__O|_|________|_|________|___|_____|_________||
+                    j          |           O  |          |`;
+
+    const staticAlone = `
+  ╭───────────────╮
+  │   Wanna go    │ The "Popular Girls"                     The "Nerds"
+  │   shopping    │                                     (The Overachievers)
+  │ after school? │   ╭─────────────╮                    . - .         . - .
+  ╰────────────,──╯   │  Heck yeah! │                   // ^ \\       (/ ^ \)
+              . - .   ╰─,────,──────╯                   (\   /) . - .  \   /
+             // ^ \\. - . . - .                          .-'-. //   \\ .-'-.
+            ( \    // ^ \// ^ \\                        /|___|(_\   /_)|___|\
+            / .-'-(_\   (_\   /_)                       '| | |' .-'-. '| | |'
+           ( /|___| .-'-. .-'-.                          |_|_| /|___|\ |_|_|
+             '/___\//___\/|___|\                          . .   | | |  . .
+               | | '|_|_|'/   \                                 |_|_|
+               . .   | |  |___|             . -౨ৎ.               . .
+                     . .   . .             // ^ \\
+                                          ()\   /()
+                                            .-'-.
+  Varsity Football Team                    //   \\
+      (The Jocks)                          '|___|'
+   .-.             .-.                       | |
+  / ^ \.-.     .-./ ^ \                      . .
+  \   / ^ \.-./ ^ \   /
+  .-'-\   / ^ \   /-'-.
+ /|___.-'-\   /-'-.___|\
+ '| |/|___.-'-.___|\|_|'
+  |_|'|_|/|___|\| |' |
+   . . | '| | |'|_|. .
+       . .|_|_|. .
+           . .
+    `;
 
     if (!walking) {
       walking = true;
@@ -277,6 +327,11 @@ I grew up as a Chinese American in a small, predominantly white town <br><br>whe
         clearInterval(walkInterval);
         walking = false;
         girl.textContent = staticMusic;
+    } else if (clickCount === 9) {
+        narrative.innerHTML = "Because I spent most my time studying and practicing music, I never had the chance to make friends.<br><br>I longed to be a part of something, but always feeling just a little too different, a little too distant.<br><br>I was surrounded by people, my classmates, yet somehow, I always felt completely alone.";
+        clearInterval(walkInterval);
+        walking = false;
+        girl.textContent = staticAlone;
     }
 
     clickCount++;
