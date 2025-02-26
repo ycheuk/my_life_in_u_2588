@@ -249,31 +249,49 @@ I grew up as a Chinese American in a small, predominantly white town <br><br>whe
   │   Wanna go    │ The "Popular Girls"                     The "Nerds"
   │   shopping    │                                     (The Overachievers)
   │ after school? │   ╭─────────────╮                    . - .         . - .
-  ╰────────────,──╯   │  Heck yeah! │                   // ^ \\       (/ ^ \)
-              . - .   ╰─,────,──────╯                   (\   /) . - .  \   /
-             // ^ \\. - . . - .                          .-'-. //   \\ .-'-.
-            ( \    // ^ \// ^ \\                        /|___|(_\   /_)|___|\
-            / .-'-(_\   (_\   /_)                       '| | |' .-'-. '| | |'
-           ( /|___| .-'-. .-'-.                          |_|_| /|___|\ |_|_|
-             '/___\//___\/|___|\                          . .   | | |  . .
-               | | '|_|_|'/   \                                 |_|_|
+  ╰────────────,──╯   │  Heck yeah! │                   // ^ \\\\       (/ ^ \\)
+              . - .   ╰─,────,──────╯                   (\\   /) . - .  \\   /
+             // ^ \\\\. - . . - .                          .-'-. //   \\\\ .-'-.
+            ( \\    // ^ \\// ^ \\\\                        /|___|(_\\   /_)|___|\\
+            / .-'-(_\\   (_\\   /_)                       '| | |' .-'-. '| | |'
+           ( /|___| .-'-. .-'-.                          |_|_| /|___|\\ |_|_|
+             '/___\\//___\\/|___|\\                          . .   | | |  . .
+               | | '|_|_|'/   \\                                 |_|_|
                . .   | |  |___|             . -౨ৎ.               . .
-                     . .   . .             // ^ \\
-                                          ()\   /()
+                     . .   . .             // ^ \\\\
+                                          ()\\   /()
                                             .-'-.
-  Varsity Football Team                    //   \\
-      (The Jocks)                          '|___|'
-   .-.             .-.                       | |
-  / ^ \.-.     .-./ ^ \                      . .
-  \   / ^ \.-./ ^ \   /
-  .-'-\   / ^ \   /-'-.
- /|___.-'-\   /-'-.___|\
- '| |/|___.-'-.___|\|_|'
-  |_|'|_|/|___|\| |' |
-   . . | '| | |'|_|. .
-       . .|_|_|. .
-           . .
-    `;
+  Varsity Football Team                    //   \\\\                     The Theater Kids
+      (The Jocks)                          '|___|'                                 . - .
+   .-.             .-.                       | |                       . - .      //   \\\\
+  / ^ \\.-.     .-./ ^ \\                      . .                      // ^ \\\\. - .(\\   '\\
+  \\   / ^ \\.-./ ^ \\   /                                              (_\\   / / ^ \\ .-'-./
+  .-'-\\   / ^ \\   /-'-.                                                .-'-. \\   / |___|
+ /|___.-'-\\   /-'-.___|\\                                              //___\\,.-'-.,/___\\
+ '| |/|___.-'-.___|\\|_|'                                               |_|_|\\|___|/ | |
+  |_|'|_|/|___|\\| |' |                                                  | |  | | |  . .
+   . . | '| | |'|_|. .                                                  . .  |_|_|
+       . .|_|_|. .                                                            . .
+           . .`;
+
+    const staticPressure = `
+       ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+       ┃┏━━━━━━━━━━━━━━━━━━━━━━━━━┓┃
+       ┃┃ ╔═════════════════════╗ ┃┃
+       ┃┃ ║ ╭╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╮ ║ ┃┃
+       ┃┃ ║ ╵      . -౨ৎ.     ╵ ║ ┃┃
+       ┃┃ ║ ╵     // ^ \\\\     ╵ ║ ┃┃
+       ┃┃ ║ ╵    ()\\   /()    ╵ ║ ┃┃
+       ┃┃ ║ ╵      .-'-.      ╵ ║ ┃┃
+       ┃┃ ║ ╵     //   \\\\     ╵ ║ ┃┃
+       ┃┃ ║ ╵     '|___|'     ╵ ║ ┃┃
+       ┃┃ ║ ╵       | |       ╵ ║ ┃┃
+       ┃┃ ║ ╵       . .       ╵ ║ ┃┃
+       ┃┃ ║ ╰╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╯ ║ ┃┃
+       ┃┃ ╚═════════════════════╝ ┃┃
+       ┃┗━━━━━━━━━━━━━━━━━━━━━━━━━┛┃
+       ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+     `;
 
     if (!walking) {
       walking = true;
@@ -332,6 +350,11 @@ I grew up as a Chinese American in a small, predominantly white town <br><br>whe
         clearInterval(walkInterval);
         walking = false;
         girl.textContent = staticAlone;
+    } else if (clickCount === 10) {
+        narrative.innerHTML = "All these expectations—spoken and unspoken—became a weight I carried every day.<br><br>Over time, loneliness became something quieter, something almost comforting.<br><br>Being alone in my room felt like the only place where I could breathe, where I didn’t have to meet anyone’s expectations.<br><br>But the more I retreated into solitude, the harder it became to step back out.<br><br>Slowly, isolation turned into anxiety—a constant fear of saying the wrong thing, of never quite belonging.";
+        clearInterval(walkInterval);
+        walking = false;
+        girl.textContent = staticPressure;
     }
 
     clickCount++;
