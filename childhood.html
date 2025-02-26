@@ -290,8 +290,49 @@ I grew up as a Chinese American in a small, predominantly white town <br><br>whe
        ┃┃ ║ ╰╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╯ ║ ┃┃
        ┃┃ ╚═════════════════════╝ ┃┃
        ┃┗━━━━━━━━━━━━━━━━━━━━━━━━━┛┃
-       ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-     `;
+       ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━┛`;
+
+     const staticResearch = `
+  ┌─────────────────────────────┐                 ┌─────────────────────────────┐
+  │                             │                 │                             │
+  │                             │                 │                  . - .      │
+  │      ,୨‧୧,       . - .      │                 │      ,୨‧୧,      //   \\\\     │
+  │     //   \\\\     //   \\\\     │                 │     //   \\\\     |\\   /|     │
+  │    ( \\   / )   (_\\   /_)    │                 │    ( \\   / )   ,_.-'-._)    │
+  │    / .-'-. \\   , .-'-.      │                 │    / .-'-. \\   \\/(   )\\     │
+  │     /(   )\\    \\/(   )\\     │                 │     /(   )\\      |___|'     │
+  │     '/___\\'      |___|'     │                 │     '/___\\'      |╯|╰|      │
+  │      | | |       | | |      │                 │      | | |       | | |      │
+  │      | | |       |_|_|      │                 │      | | |       | | |      │
+  │      |_|_|        | |       │                 │      |_|_|       |_|_|      │
+  │       ╚ ╚         ╝ ╝       │                 │       ╚ ╚         ╝ ╝       │
+  └─────────────────────────────┘                 └─────────────────────────────┘
+
+
+
+
+
+
+  ┌─────────────────────────────┐                 ┌─────────────────────────────┐
+  │                  . - .      │                 │                             │
+  │                 // v \\\\     │                 │                   .-.       │
+  │      ,୨‧୧,      \\\\   //     │                 │      ,୨‧୧,       /   \\      │
+  │     //   \\\\    , .-'-.      │                 │     //   \\\\      \\   /      │
+  │    ( \\   / )   \\/|   |\\     │                 │    ( \\   / )   , .-'-.      │
+  │    / .-'-. \\     |___||     │                 │    / .-'-. \\   \\/|   |\\     │
+  │     /(   )\\      |╯|╰|'     │                 │     /(   )\\      |___|'     │
+  │     '/___\\'      | | |      │                 │     '/___\\'      |---|      │
+  │      | | |       | | |      │                 │      | | |       | | |      │
+  │      | | |       |_|_|      │                 │      | | |       | | |      │
+  │      |_|_|        | |       │                 │      |_|_|       |_|_|      │
+  │       ╚ ╚         ╝ ╝       │                 │       ╚ ╚         ╝ ╝       │
+  └─────────────────────────────┘                 └─────────────────────────────┘
+
+
+
+
+                 *These figures, other than me, are purely symbolic
+        and do not represent the actual interviewees to maintain anonymity.*`;
 
     if (!walking) {
       walking = true;
@@ -355,6 +396,19 @@ I grew up as a Chinese American in a small, predominantly white town <br><br>whe
         clearInterval(walkInterval);
         walking = false;
         girl.textContent = staticPressure;
+    } else if (clickCount === 11) {
+        narrative.innerHTML = "This experience is why I wanted to explore these struggles beyond just my own.<br><br><br><br>I began to wonder:<br><br><br>How many others have felt this same pressure?<br><br>How many others have carried the weight of expectations, the loneliness of being ‘too different’ at school and ‘never enough’ at home?";
+        clearInterval(walkInterval);
+        walking = false;
+        girl.textContent = staticNothing;
+    } else if (clickCount === 12) {
+        narrative.innerHTML = "To find out, I reached out to other Chinese students. Those who have lived between cultures, balancing identities, expectations, and belonging.<br><br>Through my research, I gathered their stories, their experiences with stereotypes, family pressures, and the quiet loneliness that so many of us have carried.";
+        clearInterval(walkInterval);
+        walking = false;
+        girl.textContent = staticResearch;
+    } else if (clickCount === 13) {
+        window.location.href = "menu.html";
+        return;
     }
 
     clickCount++;
