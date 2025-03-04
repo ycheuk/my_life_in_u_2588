@@ -44,3 +44,14 @@ body {
   display: none;
   margin-bottom: 30px;
 }
+
+/* expriene.html */
+.time {
+  position: absolute; 
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  white-space: pre;
+  font-family: monospace;
+}

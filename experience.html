@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Page</title>
+  <link rel="stylesheet" type="text/css" href="thesis.css">
+</head>
+<body>
+  <div id="container">
+    <div id="container">
+      <pre class="time" id="clock">
+╭──────────────────╮
+│ Monday │ 6:20 AM │
+╰──────────────────╯
+      </pre>
+      <pre class="pointer asciiAlign"><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      _      ()              ()      _
+     / \     ||______________||     / \
+    /___\    |                |    /___\
+      |      |                |      |
+     (_)     |_______  _______|     (_)
+  ___/_\___  {___O___}{_______}  ___/_\___
+   |__~__|   %%%%%%%%%%%%%%%%%%   |__~__|
+___|_____|__%%%%%%%%%%%%%%%%%%%%__|_____|___
+   |     | %%%%%%%%%%%%%%%%%%%%%% |     |
+          %%%%%%%%%%%%%%%%%%%%%%%%
+         %%%%%%%%%%%%%%%%%%%%%%%%%%
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+       /||||||||||||||||||||||||||||\
+       ||||||||||||||||||||||||||||||
+       ||||||||||||||||||||||||||||||
+      </pre>
+    </div>
+  </div>
+  <pre>
+o(=(=(=(=)=)=)=)o
+ !!!!!!}!{!!!!!!
+ !!!!!} | {!!!!!
+ !!!!}  |  {!!!!
+ !!!!}  |  {!!!!
+ !!!'   |   '!!!
+ ~@~----+----~@~
+ !!!    |    !!!
+ !!!    |    !!!
+ !!!    |    !!!
+ !!!    |    !!!
+ !!!____|____!!!
+ !!!=========!!!
+_!!!_________!!!__<br>
+  </pre>
+  <script>
+  function goToExperience() {
+    window.location.href = 'experience.html';
+  }
+
+  let hours = 6;
+  let minutes = 20;
+  let period = "AM";
+
+  function updateClock() {
+    minutes++;
+
+    if (minutes === 60) {
+      minutes = 0;
+      hours++;
+      if (hours === 12) {
+        period = period === "AM" ? "PM" : "AM";
+      } else if (hours > 12) {
+        hours = 1;
+      }
+    }
+
+    let timeString = `│ Monday │ ${hours}:${minutes.toString().padStart(2, '0')} ${period} │`;
+
+    document.getElementById("clock").innerHTML = `╭──────────────────╮\n${timeString}\n╰──────────────────╯
+
+
+    `;}
+  setInterval(updateClock, 1000);
+  </script>
+  </body>
+</html>
