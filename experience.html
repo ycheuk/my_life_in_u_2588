@@ -50,7 +50,7 @@ o(=(=(=(=)=)=)=)o
 _!!!_________!!!__<br>
   </pre>
   <div id="container">
-    <div class="dialogue-box" id="container">
+    <div id="dialogue-box" class="dialogue-box" style="display: none;">
       <pre class="asciiAlign">╭─────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────┒
 │                             ┃
 │  *Your alarm is going off.* ┃
@@ -79,34 +79,38 @@ _!!!_________!!!__<br>
     </div>
   </div>
   <script>
-  function goToExperience() {
-    window.location.href = 'experience.html';
-  }
+    let hours = 6;
+    let minutes = 20;
+    let period = "AM";
+    let clockRunning = true; // Controls if the clock should update
 
-  let hours = 6;
-  let minutes = 20;
-  let period = "AM";
+    function updateClock() {
+      if (!clockRunning) return; // Stop updating if the clock has stopped
 
-  function updateClock() {
-    minutes++;
+      minutes++;
 
-    if (minutes === 60) {
-      minutes = 0;
-      hours++;
-      if (hours === 12) {
-        period = period === "AM" ? "PM" : "AM";
-      } else if (hours > 12) {
-        hours = 1;
+      if (minutes === 60) {
+        minutes = 0;
+        hours++;
+        if (hours === 12) {
+          period = period === "AM" ? "PM" : "AM";
+        } else if (hours > 12) {
+          hours = 1;
+        }
+      }
+
+      let timeString = `║ Monday │ ${hours}:${minutes.toString().padStart(2, '0')} ${period} ║`;
+
+      document.getElementById("clock").innerHTML = `╔══════════════════╗\n${timeString}\n╚══════════════════╝`;
+
+      // Check if it's 6:30 AM, stop clock & show dialogue box
+      if (hours === 6 && minutes === 30 && period === "AM") {
+        clockRunning = false; // Stop updating the clock
+        document.getElementById("dialogue-box").style.display = "block"; // Show dialogue box
       }
     }
 
-    let timeString = `║ Monday │ ${hours}:${minutes.toString().padStart(2, '0')} ${period} ║`;
-
-    document.getElementById("clock").innerHTML = `╔══════════════════╗\n${timeString}\n╚══════════════════╝
-
-
-    `;}
-  setInterval(updateClock, 1000);
+    setInterval(updateClock, 1000); // Update clock every second
   </script>
   </body>
 </html>
