@@ -7,7 +7,7 @@
   <link rel="stylesheet" type="text/css" href="thesis.css">
 </head>
 <body>
-  <pre>
+  <pre id="ascii-door">
 
     __________
    |          |
@@ -78,15 +78,15 @@ _!!!_________!!!__
 │                             ┃
 │                             ┃
 │                             ┃</pre>
-      <pre class="pointer asciiAlign">
+      <pre class="pointer asciiAlign" onclick="chooseOption('A')">
 │                             ┃
 │  A. Turn it off and get up  ┃
 │                             ┃</pre>
-      <pre class="pointer asciiAlign" onclick="continueClock()">
+      <pre class="pointer asciiAlign" onclick="chooseOption('B')">
 │                             ┃
 │  B. Turn it off and         ┃
 │     continue sleeping       ┃</pre>
-      <pre class="pointer asciiAlign">
+      <pre class="pointer asciiAlign" onclick="chooseOption('C')">
 │                             ┃
 │  C. Sleep through it        ┃
 │                             ┃</pre>
@@ -101,6 +101,7 @@ _!!!_________!!!__
     let minutes = 20;
     let period = "AM";
     let clockRunning = true;
+    let chosenOption = null;
 
     function updateClock() {
       if (!clockRunning) return;
@@ -118,26 +119,55 @@ _!!!_________!!!__
       }
 
       let timeString = `║ Monday │ ${hours}:${minutes.toString().padStart(2, '0')} ${period} ║`;
-
       document.getElementById("clock").innerHTML = `╔══════════════════╗\n${timeString}\n╚══════════════════╝`;
 
+      // dialogue box at 6:30am
       if (hours === 6 && minutes === 30 && period === "AM") {
         clockRunning = false;
         document.getElementById("dialogue-box").style.display = "block";
       }
+
+      // if user chose B stop clock and replace ASCII at 6:40 AM
+      if (chosenOption === 'B' && hours === 6 && minutes === 40 && period === "AM") {
+        clockRunning = false;
+        replaceAsciiArt();
+      }
     }
 
-    function stopClock() {
-      clockRunning = false;
+    function chooseOption(option) {
+      chosenOption = option;
       document.getElementById("dialogue-box").style.display = "none";
+
+      if (option === 'B') {
+        clockRunning = true;
+      }
     }
 
-    function continueClock() {
-      clockRunning = true;
-      document.getElementById("dialogue-box").style.display = "none";
+    function replaceAsciiArt() {
+      document.getElementById("ascii-door").innerHTML = `<br><br><br><br><br><br>
+       __________
+      |\\         |
+      | \\        |
+      |  \\       |
+      |   \\      |
+      |    \\     |
+      |     |    |
+      |     |    |
+      |     |    |
+      |     |    |
+      |     |    |
+      |     |    |
+      |     |    |
+    __|     |____|
+       \\    |
+        \\   |
+         \\  |
+          \\ |
+           \\|
+      `;
     }
 
-    setInterval(updateClock, 1000);
+    setInterval(updateClock, 50); // 1000 is normal, adjust to speed
   </script>
   </body>
-</html>
+</html>=
