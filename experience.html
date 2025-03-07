@@ -7,6 +7,23 @@
   <link rel="stylesheet" type="text/css" href="thesis.css">
 </head>
 <body>
+  <pre>
+
+    __________
+   |          |
+   |          |
+   |          |
+   |          |
+   |          |
+   |          |
+   |        0 |
+   |          |
+   |          |
+   |          |
+   |          |
+   |          |
+ __|__________|
+</pre>
   <div id="container">
     <div id="container">
       <pre class="time" id="clock">
@@ -14,7 +31,8 @@
 ║ Monday │ 6:20 AM ║
 ╚══════════════════╝
       </pre>
-      <pre class="asciiAlign"><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <pre></pre>
+      <pre class="asciiAlign"><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
       _      ()              ()      _
      / \     ||______________||     / \
     /___\    |                |    /___\
@@ -33,7 +51,7 @@ ___|_____|__%%%%%%%%%%%%%%%%%%%%__|_____|___
       </pre>
     </div>
   </div>
-  <pre>
+  <pre><br>
 o(=(=(=(=)=)=)=)o
  !!!!!!}!{!!!!!!
  !!!!!} | {!!!!!
@@ -47,7 +65,7 @@ o(=(=(=(=)=)=)=)o
  !!!    |    !!!
  !!!____|____!!!
  !!!=========!!!
-_!!!_________!!!__<br>
+_!!!_________!!!__
   </pre>
   <div id="container">
     <div id="dialogue-box" class="dialogue-box" style="display: none;">
@@ -64,7 +82,7 @@ _!!!_________!!!__<br>
 │                             ┃
 │  A. Turn it off and get up  ┃
 │                             ┃</pre>
-      <pre class="pointer asciiAlign">
+      <pre class="pointer asciiAlign" onclick="continueClock()">
 │                             ┃
 │  B. Turn it off and         ┃
 │     continue sleeping       ┃</pre>
@@ -82,10 +100,10 @@ _!!!_________!!!__<br>
     let hours = 6;
     let minutes = 20;
     let period = "AM";
-    let clockRunning = true; // Controls if the clock should update
+    let clockRunning = true;
 
     function updateClock() {
-      if (!clockRunning) return; // Stop updating if the clock has stopped
+      if (!clockRunning) return;
 
       minutes++;
 
@@ -103,14 +121,23 @@ _!!!_________!!!__<br>
 
       document.getElementById("clock").innerHTML = `╔══════════════════╗\n${timeString}\n╚══════════════════╝`;
 
-      // Check if it's 6:30 AM, stop clock & show dialogue box
       if (hours === 6 && minutes === 30 && period === "AM") {
-        clockRunning = false; // Stop updating the clock
-        document.getElementById("dialogue-box").style.display = "block"; // Show dialogue box
+        clockRunning = false;
+        document.getElementById("dialogue-box").style.display = "block";
       }
     }
 
-    setInterval(updateClock, 1000); // Update clock every second
+    function stopClock() {
+      clockRunning = false;
+      document.getElementById("dialogue-box").style.display = "none";
+    }
+
+    function continueClock() {
+      clockRunning = true;
+      document.getElementById("dialogue-box").style.display = "none";
+    }
+
+    setInterval(updateClock, 1000);
   </script>
   </body>
 </html>
