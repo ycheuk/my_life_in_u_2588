@@ -58,8 +58,7 @@ body {
 
 .dialogue-box {
   position: absolute;
-  top: 30px;
-  right: 30px;
-  text-align: left;
+  bottom: 10px;
+  text-align: center;
   font-family: monospace;
 }

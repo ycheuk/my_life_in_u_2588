@@ -8,7 +8,6 @@
 </head>
 <body>
   <pre id="ascii-door">
-
     __________
    |          |
    |          |
@@ -31,8 +30,7 @@
 ║ Monday │ 6:20 AM ║
 ╚══════════════════╝
       </pre>
-      <pre></pre>
-      <pre class="asciiAlign"><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <pre class="asciiAlign"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
       _      ()              ()      _
      / \     ||______________||     / \
     /___\    |                |    /___\
@@ -49,9 +47,25 @@ ___|_____|__%%%%%%%%%%%%%%%%%%%%__|_____|___
        ||||||||||||||||||||||||||||||
        ||||||||||||||||||||||||||||||
       </pre>
+      <div id="dialogue-box" class="dialogue-box" style="display: none;">
+      <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
+
+Your alarm is going off. What would you like to do?
+
+                             </pre>
+      <pre class="pointer asciiAlign" onclick="chooseOption('A')">A. Turn it off and get up
+      </pre>
+
+      <pre class="pointer asciiAlign" onclick="chooseOption('B')">B. Turn it off and continue sleeping
+      </pre>
+
+      <pre class="pointer asciiAlign" onclick="chooseOption('C')">C. Sleep through it
+      </pre>
+                             </div>
     </div>
   </div>
-  <pre><br>
+  <pre>
+
 o(=(=(=(=)=)=)=)o
  !!!!!!}!{!!!!!!
  !!!!!} | {!!!!!
@@ -67,7 +81,7 @@ o(=(=(=(=)=)=)=)o
  !!!=========!!!
 _!!!_________!!!__
   </pre>
-  <div id="container">
+  <!-- <div id="container">
     <div id="dialogue-box" class="dialogue-box" style="display: none;">
       <pre class="asciiAlign">╭─────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────┒
 │                             ┃
@@ -95,7 +109,7 @@ _!!!_________!!!__
 ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
       </pre>
     </div>
-  </div>
+  </div> -->
   <script>
     let hours = 6;
     let minutes = 20;
@@ -146,24 +160,24 @@ _!!!_________!!!__
     function replaceAsciiArt() {
       document.getElementById("ascii-door").innerHTML = `<br><br><br><br><br><br>
    __________
-  |\\         |
-  | \\        |
-  |  \\       |
-  |   \\      |
-  |    \\     |
+  |\         |
+  | \        |
+  |  \       |
+  |   \      |
+  |    \     |
   |     |    |
   |     | .-.|
-  |     |/   \\
-  |     |\\   /
+  |     |/   \
+  |     |\   /
   |     |.-'-.
-  |     || V |\\\\
+  |     || V |\\
   |     ||   |//
 __|     ||___|
-   \\    || | |
-    \\   || | |
-     \\  ||_!_|
-      \\ | ╚ ╚
-       \\|
+   \    || | |
+    \   || | |
+     \  ||_!_|
+      \ | ╚ ╚
+       \|
       `;
     }
 
