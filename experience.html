@@ -64,11 +64,35 @@ My alarm is going off... What should I do?
         <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
 
 It's 6:40am... do I continue sleeping...?
+
+
         </pre>
         <pre class="pointer asciiAlign" onclick="chooseOption('2A')">A. Yes
         </pre>
 
         <pre class="pointer asciiAlign" onclick="chooseOption('2B')">B. Let's get up
+        </pre>
+      </div>
+      <div id="dialogue-box3" class="dialogue-box" style="display: none;">
+        <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
+
+6:50am... I should really get up.
+
+
+        </pre>
+        <pre class="pointer asciiAlign" onclick="chooseOption('3A')">A. Let's get up.
+        </pre>
+
+        <pre class="pointer asciiAlign" onclick="chooseOption('3B')">B. No. Sleep.
+        </pre>
+      </div>
+      <div id="dialogue-box4" class="pointer dialogue-box" style="display: none;">
+        <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
+
+It's 7am. I don't have time to eat breakfast anymore...
+
+
+>
         </pre>
       </div>
     </div>
@@ -145,14 +169,25 @@ _!!!_________!!!__
       document.getElementById("clock").innerHTML = `╔══════════════════╗\n${timeString}\n╚══════════════════╝`;
 
       if (hours === 6 && minutes === 30 && period === "AM") {
-        clockRunning = false;
-        document.getElementById("dialogue-box").style.display = "block";
-      }
+    clockRunning = false;
+    document.getElementById("dialogue-box").style.display = "block";
+  }
 
+      // If 'B' is chosen, show second dialogue at 6:40 AM
       if (chosenOption === 'B' && hours === 6 && minutes === 40 && period === "AM") {
         clockRunning = false;
-        // replaceAsciiArt();
         document.getElementById("dialogue-box2").style.display = "block";
+      }
+
+      // If '2A' is chosen, stop the clock at 6:50 AM
+      if (chosenOption === '2A' && hours === 6 && minutes === 50 && period === "AM") {
+        clockRunning = false; // Stops the clock
+        document.getElementById("dialogue-box3").style.display = "block";
+      }
+
+      if (chosenOption ==='3B' && hours === 7 && minutes === 0 && period === "AM") {
+        clockRunning = false;
+        document.getElementById("dialogue-box4").style.display = "block";
       }
     }
 
@@ -160,10 +195,26 @@ _!!!_________!!!__
       chosenOption = option;
       document.getElementById("dialogue-box").style.display = "none";
 
-      if (option === 'B' || option === '2A') {
+      if (option === 'A' || option === '2B' || option === '3A') {
+        window.location.href = 'hallway.html';  // Redirect to hallway.html
+        return;
+      }
+
+      if (option === 'B') {
         clockRunning = true;
+        document.getElementById("dialogue-box2").style.display = "none";
+      }
+
+      if (option === '2A') {
+        clockRunning = true; // Continue clock, but will stop at 6:50 AM
+        document.getElementById("dialogue-box2").style.display = "none";
+      }
+      if (option === '3B') {
+        clockRunning = true; // Continue clock, but will stop at 6:50 AM
+        document.getElementById("dialogue-box3").style.display = "none";
       }
     }
+
 
     function replaceAsciiArt() {
       document.getElementById("ascii-door").innerHTML = `<br><br><br><br><br>
@@ -190,6 +241,10 @@ __|     ||___|
     }
 
     setInterval(updateClock, 50); // 1000 is normal, adjust to speed
+
+    document.getElementById("dialogue-box4").onclick = function() {
+      window.location.href = 'hallway.html';
+    };
   </script>
   </body>
 </html>
