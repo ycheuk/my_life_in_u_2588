@@ -48,20 +48,29 @@ ___|_____|__%%%%%%%%%%%%%%%%%%%%__|_____|___
        ||||||||||||||||||||||||||||||
       </pre>
       <div id="dialogue-box" class="dialogue-box" style="display: none;">
-      <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
+        <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
 
-Your alarm is going off. What would you like to do?
+My alarm is going off... What should I do?
 
-                             </pre>
-      <pre class="pointer asciiAlign" onclick="chooseOption('A')">A. Turn it off and get up
-      </pre>
 
-      <pre class="pointer asciiAlign" onclick="chooseOption('B')">B. Turn it off and continue sleeping
-      </pre>
+                               </pre>
+        <pre class="pointer asciiAlign" onclick="chooseOption('A')">A. Turn it off and get up
+        </pre>
 
-      <pre class="pointer asciiAlign" onclick="chooseOption('C')">C. Sleep through it
-      </pre>
-                             </div>
+        <pre class="pointer asciiAlign" onclick="chooseOption('B')">B. Turn it off and sleep a bit longer
+        </pre>
+      </div>
+      <div id="dialogue-box2" class="dialogue-box" style="display: none;">
+        <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
+
+It's 6:40am... do I continue sleeping...?
+        </pre>
+        <pre class="pointer asciiAlign" onclick="chooseOption('2A')">A. Yes
+        </pre>
+
+        <pre class="pointer asciiAlign" onclick="chooseOption('2B')">B. Let's get up
+        </pre>
+      </div>
     </div>
   </div>
   <pre>
@@ -135,16 +144,15 @@ _!!!_________!!!__
       let timeString = `║ Monday │ ${hours}:${minutes.toString().padStart(2, '0')} ${period} ║`;
       document.getElementById("clock").innerHTML = `╔══════════════════╗\n${timeString}\n╚══════════════════╝`;
 
-      // dialogue box at 6:30am
       if (hours === 6 && minutes === 30 && period === "AM") {
         clockRunning = false;
         document.getElementById("dialogue-box").style.display = "block";
       }
 
-      // if user chose B stop clock and replace ASCII at 6:40 AM
       if (chosenOption === 'B' && hours === 6 && minutes === 40 && period === "AM") {
         clockRunning = false;
-        replaceAsciiArt();
+        // replaceAsciiArt();
+        document.getElementById("dialogue-box2").style.display = "block";
       }
     }
 
@@ -152,32 +160,32 @@ _!!!_________!!!__
       chosenOption = option;
       document.getElementById("dialogue-box").style.display = "none";
 
-      if (option === 'B') {
+      if (option === 'B' || option === '2A') {
         clockRunning = true;
       }
     }
 
     function replaceAsciiArt() {
-      document.getElementById("ascii-door").innerHTML = `<br><br><br><br><br><br>
+      document.getElementById("ascii-door").innerHTML = `<br><br><br><br><br>
    __________
-  |\         |
-  | \        |
-  |  \       |
-  |   \      |
-  |    \     |
+  |\\         |
+  | \\        |
+  |  \\       |
+  |   \\      |
+  |    \\     |
   |     |    |
   |     | .-.|
-  |     |/   \
-  |     |\   /
+  |     |/   \\
+  |     |\\   /
   |     |.-'-.
-  |     || V |\\
+  |     || V |\\\\
   |     ||   |//
 __|     ||___|
-   \    || | |
-    \   || | |
-     \  ||_!_|
-      \ | ╚ ╚
-       \|
+   \\    || | |
+    \\   || | |
+     \\  ||_!_|
+      \\ | ╚ ╚
+       \\|
       `;
     }
 
