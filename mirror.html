@@ -6,85 +6,75 @@
   <title>Main Page</title>
   <link rel="stylesheet" type="text/css" href="thesis.css">
 </head>
+<style>
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: monospace;
+    background-color: #ece6e3; /* initial background color */
+    transition: background-color 1s ease; /* smooth transition for background */
+  }
+</style>
 <body>
   <div id="container">
     <div id="container">
       <pre class="time" id="clock">
 ╔══════════════════╗
-║ Monday │ 6:20 AM ║
+║ Monday │ 7:00 AM ║
 ╚══════════════════╝
       </pre>
-      <pre id="ascii-door">
-         ,/─────────────────`\
-       ,/                     `\
-     ,/                         `\
-    │|                           |│
-    │|                           |│
-    │|                           |│
-    │|                           |│
-    │|                           |│
-    │|                           |│
-    │|                           |│
-    │|                           |│
-    │|                           |│
-    │|                           |│
-    │|                           |│
-  (=│|                           |│=)
-  │ │|                           |│ │
-  │ │|                           |│ │
-  │ │|                           |│ │
-  │ │|                           |│ │
-  │ │|                           |│ │
-  │ │|                           |│ │
-  ││ `\                         ,/ ││
-  ││   `\                     ,/   ││
-  ││     `\─────────────────,/     ││
-  ││                               ││
- /││\                             /││\
-/____\                           /____\</pre>
-      <div id="dialogue-box" class="dialogue-box" style="display: none;">
-        <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
+      <pre id="ascii-mirror">
+        ,/───`\
+      ,/       `\
+    ,/           `\
+   │|             |│
+   │|             |│
+   │|             |│
+   │|             |│
+ (=│|    . - .    |│=)
+  ││|   // ^ \\   |││
+  ││|   \\   //   |││
+  ││|    .-'-.    |││
+  │ `\  //   \\  ,/ │
+  ││  `\'|   |' ,/ ││
+  ││    `\────,/   ││
+  ││               ││
+ ┍││┑             ┍││┑
+ ╰──╯             ╰──╯</pre>
+       <div id="dialogue-box1" class="pointer dialogue-box">
+         <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
 
-My alarm is going off... What should I do?
+Need to look good... what would look good on me...
 
 
-                               </pre>
-        <pre class="pointer asciiAlign" onclick="chooseOption('A')">A. Turn it off and get up
-        </pre>
-
-        <pre class="pointer asciiAlign" onclick="chooseOption('B')">B. Turn it off and sleep a bit longer
-        </pre>
-      </div>
+>
+         </pre>
+       </div>
       <div id="dialogue-box2" class="dialogue-box" style="display: none;">
         <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
 
-It's 6:40am... do I continue sleeping...?
+Hmm... No... white makes me look fat...
 
 
-        </pre>
-        <pre class="pointer asciiAlign" onclick="chooseOption('2A')">A. Yes
-        </pre>
-
-        <pre class="pointer asciiAlign" onclick="chooseOption('2B')">B. Let's get up
-        </pre>
+>
+         </pre>
       </div>
       <div id="dialogue-box3" class="dialogue-box" style="display: none;">
         <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
 
-6:50am... I should really get up.
+The colors don't match...
 
 
-        </pre>
-        <pre class="pointer asciiAlign" onclick="chooseOption('3A')">A. Let's get up.
-        </pre>
-
-        <pre class="pointer asciiAlign" onclick="chooseOption('3B')">B. No. Sleep.
-        </pre>
+>
+         </pre>
       </div>
       <div id="dialogue-box4" class="pointer dialogue-box" style="display: none;">
         <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
 
-It's 7am. I don't have time to eat breakfast anymore...
+... It still looks off... but I have no time to continue picking.
 
 
 >
@@ -92,137 +82,160 @@ It's 7am. I don't have time to eat breakfast anymore...
       </div>
     </div>
   </div>
-  <!-- <div id="container">
-    <div id="dialogue-box" class="dialogue-box" style="display: none;">
-      <pre class="asciiAlign">╭─────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────┒
-│                             ┃
-│  *Your alarm is going off.* ┃
-│                             ┃
-│  What would you like to do? ┃
-│                             ┃
-│                             ┃
-│                             ┃
-│                             ┃</pre>
-      <pre class="pointer asciiAlign" onclick="chooseOption('A')">
-│                             ┃
-│  A. Turn it off and get up  ┃
-│                             ┃</pre>
-      <pre class="pointer asciiAlign" onclick="chooseOption('B')">
-│                             ┃
-│  B. Turn it off and         ┃
-│     continue sleeping       ┃</pre>
-      <pre class="pointer asciiAlign" onclick="chooseOption('C')">
-│                             ┃
-│  C. Sleep through it        ┃
-│                             ┃</pre>
-      <pre class="asciiAlign">
-│                             ┃
-┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-      </pre>
-    </div>
-  </div> -->
   <script>
-    let hours = 6;
-    let minutes = 20;
-    let period = "AM";
-    let clockRunning = true;
-    let chosenOption = null;
+    const dialogueSteps = [
+      {
+        dialogue: "dialogue-box1",
+        nextDialogue: "dialogue-box2",
+        newMirror: `
+        ,/───\`\\
+      ,/       \`\\
+    ,/           \`\\
+   │|             |│
+   │|             |│
+   │|             |│
+   │|             |│
+ (=│|    . - .    |│=)
+  ││|   // ^ \\\\   |││
+  ││|  / \\   / \\  |││
+  ││| (_-.-'-.__) |││
+  │ \`\\  /|   |\\  ,/ │
+  ││  \`\\'|   |' ,/ ││
+  ││    \`\\────,/   ││
+  ││               ││
+ ┍││┑             ┍││┑
+ ╰──╯             ╰──╯`,
+        newTime: "7:05 AM"
+      },
+      {
+        dialogue: "dialogue-box2",
+        nextDialogue: "dialogue-box3",
+        newMirror: `
+       ,/───\`\\
+     ,/       \`\\
+   ,/           \`\\
+  │|             |│
+  │|             |│
+  │|             |│
+  │|             |│
+(=│|    . - .    |│=)
+ ││|   // ^ \\\\   |││
+ ││|   |\\   /|   |││
+ ││|   |.-'-.|   |││
+ │ \`\\  //   \\\\  ,/ │
+ ││  \`\\||   || ,/ ││
+ ││    \`\\────,/   ││
+ ││               ││
+┍││┑             ┍││┑
+╰──╯             ╰──╯`,
+        newTime: "7:10 AM"
+      },
+      {
+        dialogue: "dialogue-box3",
+        nextDialogue: "dialogue-box4",
+        newMirror: `
+        ,/───\`\\
+      ,/       \`\\
+    ,/           \`\\
+   │|             |│
+   │|             |│
+   │|             |│
+   │|             |│
+ (=│|    . -౨ৎ.   |│=)
+  ││|   // ^ \\\\   |││
+  ││|  ()\\   /()  |││
+  ││|    .-'-.    |││
+  │ \`\\  //   \\\\  ,/ │
+  ││  \`\\'|   |' ,/ ││
+  ││    \`\\────,/   ││
+  ││               ││
+ ┍││┑             ┍││┑
+ ╰──╯             ╰──╯`,
+        newTime: "7:15 AM"
+      }
+    ];
 
-    function updateClock() {
-      if (!clockRunning) return;
+    function updateScene(index) {
+      const step = dialogueSteps[index];
 
-      minutes++;
+      document.body.style.backgroundColor = "black";
+      document.getElementById("container").style.display = "none";
 
-      if (minutes === 60) {
-        minutes = 0;
-        hours++;
-        if (hours === 12) {
-          period = period === "AM" ? "PM" : "AM";
-        } else if (hours > 12) {
-          hours = 1;
+      setTimeout(() => {
+        document.body.style.backgroundColor = "#ece6e3";
+        document.getElementById("container").style.display = "block";
+
+        document.getElementById(step.dialogue).style.display = "none";
+        if (step.nextDialogue) {
+          document.getElementById(step.nextDialogue).style.display = "block";
         }
-      }
-
-      let timeString = `║ Monday │ ${hours}:${minutes.toString().padStart(2, '0')} ${period} ║`;
-      document.getElementById("clock").innerHTML = `╔══════════════════╗\n${timeString}\n╚══════════════════╝`;
-
-      if (hours === 6 && minutes === 30 && period === "AM") {
-    clockRunning = false;
-    document.getElementById("dialogue-box").style.display = "block";
-  }
-
-      // If 'B' is chosen, show second dialogue at 6:40 AM
-      if (chosenOption === 'B' && hours === 6 && minutes === 40 && period === "AM") {
-        clockRunning = false;
-        document.getElementById("dialogue-box2").style.display = "block";
-      }
-
-      // If '2A' is chosen, stop the clock at 6:50 AM
-      if (chosenOption === '2A' && hours === 6 && minutes === 50 && period === "AM") {
-        clockRunning = false; // Stops the clock
-        document.getElementById("dialogue-box3").style.display = "block";
-      }
-
-      if (chosenOption ==='3B' && hours === 7 && minutes === 0 && period === "AM") {
-        clockRunning = false;
-        document.getElementById("dialogue-box4").style.display = "block";
-      }
+        document.getElementById("ascii-mirror").textContent = step.newMirror;
+        document.getElementById("clock").textContent = `
+    ╔══════════════════╗
+    ║ Monday │ ${step.newTime} ║
+    ╚══════════════════╝
+          `;
+      }, 2000);
     }
 
-    function chooseOption(option) {
-      chosenOption = option;
-      document.getElementById("dialogue-box").style.display = "none";
-
-      if (option === 'A' || option === '2B' || option === '3A') {
-        window.location.href = 'mirror.html';  // Redirect to mirror.html
-        return;
-      }
-
-      if (option === 'B') {
-        clockRunning = true;
-        document.getElementById("dialogue-box2").style.display = "none";
-      }
-
-      if (option === '2A') {
-        clockRunning = true; // Continue clock, but will stop at 6:50 AM
-        document.getElementById("dialogue-box2").style.display = "none";
-      }
-      if (option === '3B') {
-        clockRunning = true; // Continue clock, but will stop at 6:50 AM
-        document.getElementById("dialogue-box3").style.display = "none";
-      }
-    }
-
-
-    function replaceAsciiArt() {
-      document.getElementById("ascii-door").innerHTML = `<br><br><br><br><br>
-   __________
-  |\\         |
-  | \\        |
-  |  \\       |
-  |   \\      |
-  |    \\     |
-  |     |    |
-  |     | .-.|
-  |     |/   \\
-  |     |\\   /
-  |     |.-'-.
-  |     || V |\\\\
-  |     ||   |//
-__|     ||___|
-   \\    || | |
-    \\   || | |
-     \\  ||_!_|
-      \\ | ╚ ╚
-       \\|
-      `;
-    }
-
-    setInterval(updateClock, 50); // 1000 is normal, adjust to speed
-
-    document.getElementById("dialogue-box4").onclick = function() {
-      window.location.href = 'mirror.html';
-    };
+    document.getElementById("dialogue-box1").addEventListener("click", () => updateScene(0));
+    document.getElementById("dialogue-box2").addEventListener("click", () => updateScene(1));
+    document.getElementById("dialogue-box3").addEventListener("click", () => updateScene(2));
   </script>
   </body>
-</html>
+<!-- </html>
+
+<pre id="ascii-mirror2">
+       ,/───`\
+     ,/       `\
+   ,/           `\
+  │|             |│
+  │|             |│
+  │|             |│
+  │|             |│
+(=│|    . - .    |│=)
+ ││|   // ^ \\   |││
+ ││|  / \   / \  |││
+ ││| (_-.-'-.__) |││
+ │ `\  /|   |\  ,/ │
+ ││  `\'|   |' ,/ ││
+ ││    `\────,/   ││
+ ││               ││
+┍││┑             ┍││┑
+╰──╯             ╰──╯</pre>
+ <pre id="ascii-mirror3">
+        ,/───`\
+      ,/       `\
+    ,/           `\
+   │|             |│
+   │|             |│
+   │|             |│
+   │|             |│
+ (=│|    . - .    |│=)
+  ││|   // ^ \\   |││
+  ││|   |\   /|   |││
+  ││|   |.-'-.|   |││
+  │ `\  //   \\  ,/ │
+  ││  `\||   || ,/ ││
+  ││    `\────,/   ││
+  ││               ││
+ ┍││┑             ┍││┑
+ ╰──╯             ╰──╯</pre>
+  <pre id="ascii-mirror4">
+         ,/───`\
+       ,/       `\
+     ,/           `\
+    │|             |│
+    │|             |│
+    │|             |│
+    │|             |│
+  (=│|    . -౨ৎ.   |│=)
+   ││|   // ^ \\   |││
+   ││|  ()\   /()  |││
+   ││|    .-'-.    |││
+   │ `\  //   \\  ,/ │
+   ││  `\'|   |' ,/ ││
+   ││    `\────,/   ││
+   ││               ││
+  ┍││┑             ┍││┑
+  ╰──╯             ╰──╯</pre> -->
