@@ -118,10 +118,8 @@ It'll be my fault if he's tired and doesn't get enough sleep.
   </div>
   <script>
     function chooseOption(option) {
-      // Hide all dialogue boxes
       document.querySelectorAll('.dialogue-box').forEach(box => box.style.display = 'none');
 
-      // Show the corresponding dialogue box
       if (option === '1A') {
         document.getElementById('dialogue-box2-A').style.display = 'block';
       } else if (option === '1B') {
@@ -145,13 +143,11 @@ It'll be my fault if he's tired and doesn't get enough sleep.
       window.location.href = 'kitchen.html';
     });
 
-    // Add event listener to dialogue-box4-B to go to dialogue-box5
     document.getElementById('dialogue-box4-B').addEventListener('click', function() {
       document.querySelectorAll('.dialogue-box').forEach(box => box.style.display = 'none');
       document.getElementById('dialogue-box5').style.display = 'block';
     });
 
-    // Add event listener to dialogue-box5 to go to kitchen.html
     document.getElementById('dialogue-box5').addEventListener('click', function() {
       window.location.href = 'kitchen.html';
     });
