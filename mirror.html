@@ -65,7 +65,7 @@ Hmm... No... white makes me look fat...
       <div id="dialogue-box3" class="dialogue-box" style="display: none;">
         <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
 
-The colors don't match...
+The colors don't match... and my hair looks awful.
 
 
 >
@@ -180,6 +180,10 @@ The colors don't match...
     document.getElementById("dialogue-box1").addEventListener("click", () => updateScene(0));
     document.getElementById("dialogue-box2").addEventListener("click", () => updateScene(1));
     document.getElementById("dialogue-box3").addEventListener("click", () => updateScene(2));
+
+    document.getElementById("dialogue-box4").addEventListener("click", () => {
+      window.location.href = "hallway.html";
+    });
   </script>
   </body>
 <!-- </html>
