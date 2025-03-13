@@ -9,17 +9,165 @@
 <body>
   <div id="container">
     <div id="container">
+      <pre class="time" id="clock">
+╔══════════════════╗
+║ Monday │ 7:20 AM ║
+╚══════════════════╝
+      </pre>
       <pre class="asciiAlign">
-╭────── ˚₊‧꒰ა ☆ ໒꒱‧₊˚ ──────┒
-│                          ┃
-│        Experience        ┃
-│                          ┃
-┕━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+                   |
+                   |       ___________________
+.                  |      |  _______________  |
+ '.                |      | |               | |
+   '.              |      | |   ___   ___   | |
+     '.____________|      | |  |   | |   |  | |           _____________
+      |            |      | |  |   | |   |  | |          |.-----------.|
+      |  __________|      | |  |   | |   |  | |          ||           ||
+      | |.---------|      | |  |   | |   |  | |          ||           ||
+      | ||   ;  |  |      | |  |   | |   |  | |          |:___________:|
+      | ||  ;   |  |      | |  |   | |   |  | |          '-------------'
+      | ||.'    |  |      | |  '---' '---'  | |
+      | || '.---|--|      | |             ()| |
+      | ||   ;  |  |      | |   ___   ___   | |
+      | ||    ; |  |      | |  |   | |   |  | |
+      | ||    ; |  |      | |  |   | |   |  | |
+      | |:____;_|__|      | |  |   | |   |  | |
+      | '__________|      | |  |   | |   |  | |
+     _|____________|      | |  |   | |   |  | |
+  ,' _|____________|      | |  '---' '---'  | |
+,' .'              |______| |               | |_________________________
+ .'                |______|_|_______________|_|_________________________
+      </pre>
+    </div>
+    <div id="dialogue-box1" class="pointer dialogue-box">
+      <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
+
+Should I get a ride to school today?
+
+
+      </pre>
+      <pre class="pointer asciiAlign" onclick="chooseOption('1A')">A. Nah. I'll walk.
+      </pre>
+
+      <pre class="pointer asciiAlign" onclick="chooseOption('1B')">B. Yes, let's wake my dad up.
+      </pre>
+    </div>
+    <div id="dialogue-box2-A" class="pointer dialogue-box" style="display: none;">
+      <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
+
+But... I might encounter people I don't want to encounter.
+
+
+      </pre>
+      <pre class="pointer asciiAlign" onclick="chooseOption('2A')">A. Let's walk. He needs his rest.
+      </pre>
+
+      <pre class="pointer asciiAlign" onclick="chooseOption('2B')">B. You're right, let's wake him up.
+      </pre>
+    </div>
+
+    <div id="dialogue-box3-A" class="pointer dialogue-box" style="display: none;">
+      <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
+
+You're right... I can't be selfish.
+
+
+>
+      </pre>
+    </div>
+    <div id="dialogue-box2-B" class="pointer dialogue-box" style="display: none;">
+      <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
+
+But... what if he gets angry at me for waking him up?
+
+
+      </pre>
+      <pre class="pointer asciiAlign" onclick="chooseOption('3A')">A. Let's walk... I don't want to get yelled at.
+      </pre>
+
+      <pre class="pointer asciiAlign" onclick="chooseOption('3B')">B. It's fine... he's never had a problem with it before.
+      </pre>
+    </div>
+    <div id="dialogue-box4-A" class="pointer dialogue-box" style="display: none;">
+      <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
+
+Alright... I'll endure it.
+
+
+>
+      </pre>
+    </div>
+    <div id="dialogue-box4-B" class="pointer dialogue-box" style="display: none;">
+      <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
+
+But... he needs his sleep. He went to bed late last night.
+
+
+>
+      </pre>
+    </div>
+    <div id="dialogue-box5" class="pointer dialogue-box" style="display: none;">
+      <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
+
+It'll be my fault if he's tired and doesn't get enough sleep.
+
+
+>
       </pre>
     </div>
   </div>
   <script>
-    
+    function chooseOption(option) {
+      // Hide all dialogue boxes
+      document.querySelectorAll('.dialogue-box').forEach(box => box.style.display = 'none');
+
+      // Show the corresponding dialogue box
+      if (option === '1A') {
+        document.getElementById('dialogue-box2-A').style.display = 'block';
+      } else if (option === '1B') {
+        document.getElementById('dialogue-box2-B').style.display = 'block';
+      } else if (option === '2A') {
+        document.getElementById('dialogue-box3-A').style.display = 'block';
+      } else if (option === '2B') {
+        document.getElementById('dialogue-box2-B').style.display = 'block';
+      } else if (option === '3A') {
+        document.getElementById('dialogue-box4-A').style.display = 'block';
+      } else if (option === '3B') {
+        document.getElementById('dialogue-box4-B').style.display = 'block';
+      }
+    }
+
+    document.getElementById('dialogue-box3-A').addEventListener('click', function() {
+      window.location.href = 'kitchen.html';
+    });
+
+    document.getElementById('dialogue-box4-A').addEventListener('click', function() {
+      window.location.href = 'kitchen.html';
+    });
+
+    // Add event listener to dialogue-box4-B to go to dialogue-box5
+    document.getElementById('dialogue-box4-B').addEventListener('click', function() {
+      document.querySelectorAll('.dialogue-box').forEach(box => box.style.display = 'none');
+      document.getElementById('dialogue-box5').style.display = 'block';
+    });
+
+    // Add event listener to dialogue-box5 to go to kitchen.html
+    document.getElementById('dialogue-box5').addEventListener('click', function() {
+      window.location.href = 'kitchen.html';
+    });
+
   </script>
 </body>
-</html>
+<!-- </html>
+
+If 1A chosen, go to dialogue-box2-A
+If 1B chosen, go to dialogue-box2-B
+
+If 2A chosen, go to dialogue-box3-A
+If 2B chosen, go to dialogue-box2-B
+
+If 3A chosen, go to dialogue-box4-A
+If 3B chosen, go to dialogue-box4-B
+
+When dialogue-box4-B is clicked, go to dialogue-box5
+When dialogue-box5 is cliced, go to kitchen.html -->
