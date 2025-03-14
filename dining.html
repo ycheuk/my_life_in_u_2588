@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Page</title>
+  <link rel="stylesheet" type="text/css" href="thesis.css">
+</head>
+<style>
+    body {
+      transition: background-color 2s, opacity 2s;
+      opacity: 1;
+    }
+  </style>
+<body>
+  <div id="container">
+    <div id="container">
+      <pre class="time" id="clock">
+╔══════════════════╗
+║ Monday │ 7:25 AM ║
+╚══════════════════╝
+      </pre>
+      <pre id="breakfast">
+                    _______________
+                   |\ _____________\
+                   | |\_____________`.
+                   | |              |
+                   | |              |
+   _______         | |              |
+  |_______|        | |              |
+ /\        \       | |    CEREAL    |
+/__\________\      | |              |
+|  |        |      | |              |
+|--|--------|      | |              |
+|  |  MILK  |      | |              |
+|--|--------|       \|_ / __________|
+|  |        |          /
+|  |      .__oOo8oo0Oo/o__.
+|__|_______\=============/
+            \           /
+             `---------'
+      </pre>
+      <pre id="empty-breakfast" style="display: none;">
+                    _______________
+                   |\ _____________\
+                   | |\_____________.
+                   | |              |
+                   | |              |
+   _______         | |              |
+  |_______|        | |              |
+ /\        \       | |    CEREAL    |
+/__\________\      | |              |
+|  |        |      | |              |
+|--|--------|      | |              |
+|  |  MILK  |      | |              |
+|--|--------|       \|_ / __________|
+|  |        |          /
+|  |      .___________/___.
+|__|_______\=============/
+            \           /
+              ---------'
+      </pre>
+
+      <div id="dialogue-box" class="pointer dialogue-box">
+        <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
+
+I don't really have an appetite but... I should at least eat something.
+
+
+>
+                               </pre>
+      </div>
+      <div id="dialogue-box2" class="pointer dialogue-box" style="display: none;">
+        <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
+
+Plus I won't be having lunch until noon.
+
+
+>
+                               </pre>
+      </div>
+      <div id="dialogue-box3" class="pointer dialogue-box" style="display: none;">
+        <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
+
+I only have a few minutes to eat... better hurry.
+
+
+>
+                               </pre>
+      </div>
+      <div id="dialogue-box4" class="pointer dialogue-box" style="display: none;">
+        <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
+
+Alright, let's get going.
+
+
+>
+                               </pre>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById('dialogue-box').addEventListener('click', function() {
+      document.getElementById('dialogue-box').style.display = 'none';
+      document.getElementById('dialogue-box2').style.display = 'block';
+    });
+
+    document.getElementById('dialogue-box2').addEventListener('click', function() {
+      document.getElementById('dialogue-box2').style.display = 'none';
+      document.getElementById('dialogue-box3').style.display = 'block';
+    });
+
+    document.getElementById('dialogue-box3').addEventListener('click', function() {
+      document.body.style.backgroundColor = "black";
+      document.getElementById("container").style.display = "none";
+
+      setTimeout(() => {
+        document.body.style.backgroundColor = "#ece6e3";
+        document.getElementById("container").style.display = "block";
+        document.getElementById("breakfast").style.display = "none";
+        document.getElementById("empty-breakfast").style.display = "block";
+        document.getElementById('dialogue-box3').style.display = 'none';
+        document.getElementById('dialogue-box4').style.display = 'block';
+
+        document.getElementById('clock').innerHTML = "╔══════════════════╗\n║ Monday │ 7:34 AM ║\n╚══════════════════╝";
+      }, 2000);
+    });
+
+    document.getElementById('dialogue-box4').addEventListener('click', function() {
+      window.location.href = 'street.html';
+    });
+  </script>
+</body>
+</html>
+
+<!--
+When user clicks on dialogue-box, dialogue-box2 replaces it.
+When user clicks on dialogue-box2, dialogue-box3 replaces it.
+When user clicks on dialogue-box3, the screen transitions to dark, before breakfast is replaced by empty-breakfast and dialogue replaced with dialogue-box4
+When user clicks on dialogue-box4, the user is directed to dining.html -->
