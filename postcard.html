@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Page</title>
+  <link rel="stylesheet" type="text/css" href="thesis.css">
+</head>
+<style>
+  body {
+    background-color: black;
+    color: white;
+  }
+</style>
+<body>
+  <div id="container">
+    <div id="container">
+      <pre class="asciiAlign">
+      .-.
+     /   \             . - .
+     \   /            //   \\
+     .-'-.    . -౨ৎ.  (\   /)
+    /│ V │\  // ^ \\   .-'-.
+    |│   │| ()\   /() /(   )\
+    .│___│.   .-'-.   '│___│'
+     │ | │   //   \\   │ ╷ │
+     │ │ │   '|___|'   │ │ │
+     ╵-╵-╵     | |     ╵-╵-╵
+      ╚ ╚      . .      ╝ ╝
+      </pre>
+      <pre class="asciiAlign">
+        ,/───`\
+      ,/       `\
+    ,/           `\
+   │|             |│
+   │|             |│
+   │|             |│
+   │|             |│
+ (=│|    . -౨ৎ.   |│=)
+  ││|   // ^ \\   |││
+  ││|  ()\   /()  |││
+  │ |    .-'-.    | │
+  ││`\  //   \\  ,/││
+  ││  `\'|   |',/  ││
+  ││    `\───,/    ││
+  ││               ││
+ ┍││┑             ┍││┑
+ ╰──╯             ╰──╯
+      </pre>
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      let preElements = document.querySelectorAll(".asciiAlign");
+      let index = 0;
+
+      preElements.forEach((pre, i) => {
+        pre.style.display = i === 0 ? "block" : "none";
+      });
+
+      preElements.forEach((pre) => {
+        pre.addEventListener("click", function () {
+          preElements[index].style.display = "none";
+          index = (index + 1) % preElements.length;
+          preElements[index].style.display = "block";
+        });
+      });
+    });
+
+  </script>
+</body>
+</html>
