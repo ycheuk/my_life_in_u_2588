@@ -11,6 +11,10 @@
       transition: background-color 2s, opacity 2s;
       opacity: 1;
     }
+
+    #dialogue-box {
+      display: none;
+    }
   </style>
 <body>
   <div id="container">
@@ -44,13 +48,42 @@
 
 --------------------------------------------------------------------
       </pre>
+      <div id="dialogue-box" class="dialogue-box">
+        <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
+
+She's waving 'hi' at me. Do I... wave back too? Or just ignore her?
+
+
+        </pre>
+        <pre class="pointer asciiAlign" onclick="chooseOption('1A')">A. Wave 'hi'. It'd be rude to ignore.
+        </pre>
+
+        <pre class="pointer asciiAlign" onclick="chooseOption('1B')">B. Just ignore...
+        </pre>
+      </div>
     </div>
   </div>
   <script>
     const asciiArtElement = document.getElementById('asciiArt');
     let currentFrame = 0;
 
+    function chooseOption(option) {
+        if (option === '1A') {
+            currentFrame = 15;
+            updateAsciiArt();
+        }
+        document.getElementById('dialogue-box').style.display = 'none';
+    }
+
     function updateAsciiArt() {
+      const dialogueBox = document.getElementById('dialogue-box');
+
+      if (currentFrame === 14) {
+        dialogueBox.style.display = 'block';
+      } else {
+        dialogueBox.style.display = 'none';
+      }
+
       switch (currentFrame) {
         case 0:
           asciiArtElement.textContent = `                                                           ~.|~~
@@ -421,26 +454,118 @@ __:______:___\\             .'_____\`.         ||
 | |__| |__| ||                 (𐙚)  )        ||             \\  (  )
 |___________||_                  -'-         ||             .-'-\\ ',
 _|---------|___|_               / | \\        ||             |_|_(,,)
-/-----------\\____|------------- |_o_| --------|-------------/_o_\\--
+/-----------\\____|------------- |_o_| --------|-------------/_o_\\---
                                  | |                         | |
                                  . .                         . .
 
 --------------------------------------------------------------------
                 `;
+                return;
+              case 15:
+                  asciiArtElement.textContent = `                                             ~.|~~
+     ____                                     ||
+  .-'    '-.                                  ||
+.'          '.                _..._           ||
+___:______:___\\             .'_____\`.         ||
+||  __   __  ||           .-|---.---|-.       ||
+|| |  | |  | ||           |=|   |   |=|       ||
+|| |  | |  | ||           |=|   |   |=|       ||
+|| |  | |  | ||           |=|   |   |=|       ||
+|| |  | |  | ||           |=|   |   |=|       ||
+|| |  | |  | ||           |=|   |   |=|       ||
+||o|__| |__| ||           \`-|___|___|-'       ||
+||  __  __   ||             \`----, -.         ||             . - .
+|| |  | |  | ||                 ( /  \\        ||             / \\  \\
+|| |__| |__| ||                 (𐙚)  )        ||             \\  (  )
+||___________||_                  -'-         ||             .-'-\\ '
+__|---------|___|_               / | \\        ||             |_|_(,,
+_/-----------\\____|------------- |_o_| --------|-------------/_o_\\--
+                                  | |                         | |
+                                  . .                         . .
+
+--------------------------------------------------------------------
+                `;
                 break;
+                case 16:
+                asciiArtElement.textContent = `                                              ~.|~~
+      ____                                     ||
+   .-'    '-.                                  ||
+ .'          '.                _..._           ||
+/___:______:___\\             .'_____\`.         ||
+ ||  __   __  ||           .-|---.---|-.       ||
+ || |  | |  | ||           |=|   |   |=|       ||
+ || |  | |  | ||           |=|   |   |=|       ||
+ || |  | |  | ||           |=|   |   |=|       ||
+ || |  | |  | ||           |=|   |   |=|       ||
+ || |  | |  | ||           |=|   |   |=|       ||
+ ||o|__| |__| ||           \`-|___|___|-'       ||
+ ||  __  __   ||             \`----, -.         ||             . - .
+ || |  | |  | ||                 ( /  \\        ||             / \\  \\
+ || |__| |__| ||                 (𐙚)  )        ||             \\  (
+_||___________||_                  -'-         ||             .-'-\\
+___|---------|___|_               / | \\        ||             |_|_(,
+__/-----------\\____|------------- |_o_| --------|-------------/_o_\\-
+                                   | |                         | |
+                                   . .                         . .
+
+--------------------------------------------------------------------
+                  `;
+                  break;
+                  case 17:
+                  asciiArtElement.textContent = `                                               ~.|~~
+       ____                                     ||
+    .-'    '-.                                  ||
+  .'          '.                _..._           ||
+ /___:______:___\\             .'_____\`.         ||
+  ||  __   __  ||           .-|---.---|-.       ||
+  || |  | |  | ||           |=|   |   |=|       ||
+  || |  | |  | ||           |=|   |   |=|       ||
+  || |  | |  | ||           |=|   |   |=|       ||
+  || |  | |  | ||           |=|   |   |=|       ||
+  || |  | |  | ||           |=|   |   |=|       ||
+  ||o|__| |__| ||           \`-|___|___|-'       ||
+  ||  __  __   ||             \`----, -.         ||             . - .
+  || |  | |  | ||                 ( /  \\        ||             / \\
+  || |__| |__| ||                 (𐙚)  )        ||             \\  (
+ _||___________||_                  -'-         ||             .-'-\\
+|___|---------|___|_               / | \\        ||             |_|_(
+___/-----------\\____|------------- |_o_| --------|-------------/_o_\\
+                                    | |                         | |
+                                    . .                         . .
+
+--------------------------------------------------------------------
+                  `;
+                  break;
+                  case 18:
+                    asciiArtElement.textContent = `                                                ~.|~~
+        ____                                     ||
+     .-'    '-.                                  ||
+   .'          '.                _..._           ||
+  /___:______:___\\             .'_____\`.         ||
+   ||  __   __  ||           .-|---.---|-.       ||
+   || |  | |  | ||           |=|   |   |=|       ||
+   || |  | |  | ||           |=|   |   |=|       ||
+   || |  | |  | ||           |=|   |   |=|       ||
+   || |  | |  | ||           |=|   |   |=|       ||
+   || |  | |  | ||           |=|   |   |=|       ||
+   ||o|__| |__| ||           \`-|___|___|-'       ||
+   ||  __  __   ||             \`----, -.         ||             . -
+   || |  | |  | ||                 ( /  \\        ||             / \\
+   || |__| |__| ||                 (𐙚)  )        ||             \\  (
+  _||___________||_                  -'-         ||             .-'-
+_|___|---------|___|_               / | \\        ||             |_|_
+____/-----------\\____|------------- |_o_| --------|-------------/_o_
+                                     | |                         | |
+                                     . .                         . .
+
+--------------------------------------------------------------------
+                `;
+                return;
           }
-        // Increment frame and loop back to 0 after the 3rd frame
         currentFrame = (currentFrame + 1) % 40;
       }
 
-      // Update the ASCII art every 1 second
-      setInterval(updateAsciiArt, 700);
+      setInterval(updateAsciiArt, 50);
   </script>
 </body>
 </html>
-
-<!--
-When user clicks on dialogue-box, dialogue-box2 replaces it.
-When user clicks on dialogue-box2, dialogue-box3 replaces it.
-When user clicks on dialogue-box3, the screen transitions to dark, before breakfast is replaced by empty-breakfast and dialogue replaced with dialogue-box4
-When user clicks on dialogue-box4, the user is directed to dining.html -->
