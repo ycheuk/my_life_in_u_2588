@@ -17,6 +17,11 @@
     opacity: 1;
     background-color: #ece6e3;
   }
+
+  #moving-person {
+    position: relative; /* Ensures transform works properly */
+    display: inline-block; /* Prevents unwanted text-related issues */
+}
   </style>
 <body>
   <div id="container">
@@ -57,6 +62,14 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ,--.  _ _ _ _ _ _ _ 
                                                           ~'O---O'                                              ~'O---O'
 ___________________________________________________________________________________________________________________________
       </pre>
+      <pre id="empty-street" style="display: none;">
+
+___________________________________________________________________________________________________________________________
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+___________________________________________________________________________________________________________________________
+      </pre>
       <pre id="self"><span id="moving-person">웃</span></pre>
       <div id="dialogue-box" class="pointer dialogue-box" style="display: none;">
         <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
@@ -76,6 +89,15 @@ Someone please let me cross...
 >
         </pre>
       </div>
+      <div id="dialogue-box3" class="pointer dialogue-box" style="display: none;">
+        <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
+
+Finally, there are no cars.
+
+
+>
+        </pre>
+      </div>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       document.body.classList.add("loaded");
@@ -87,6 +109,8 @@ Someone please let me cross...
     const selfElement = document.getElementById('moving-person');
     let position = -200;
     const maxPosition = 75;
+    const centerPosition = maxPosition / 2;
+    let hasMovedUp = false;
 
     function updateSelf() {
         position += 10;
@@ -109,8 +133,55 @@ Someone please let me cross...
       });
 
       document.getElementById("dialogue-box2").addEventListener("click", function() {
-        this.style.display = "none";
-      });
+          this.style.display = "none";
+
+          setTimeout(() => {
+              document.body.style.opacity = "0";
+              document.body.style.backgroundColor = "black";
+
+              setTimeout(() => {
+                  document.getElementById("street").style.display = "none";
+                  document.getElementById("empty-street").style.display = "block";
+                  document.getElementById("clock").innerHTML = `
+╔══════════════════╗
+║ Monday │ 7:49 AM ║
+╚══════════════════╝
+            `;
+
+                  document.body.style.opacity = "1";
+                  document.body.style.backgroundColor = "#ece6e3";
+                  setTimeout(() => {
+                    document.getElementById("dialogue-box3").style.display = "block";
+                  }, 2000);
+                }, 2000);
+              }, 5000);
+          });
+
+          document.getElementById("dialogue-box3").addEventListener("click", function() {
+            this.style.display = "none";
+
+            let person = document.getElementById("moving-person");
+            let moveUp = 0;
+
+            let moveInterval = setInterval(() => {
+                moveUp -= 2;
+                person.style.transform = `translateY(${moveUp}px)`;
+
+                if (moveUp <= -100) {
+                    clearInterval(moveInterval);
+                }
+            }, 150);
+
+            setTimeout(() => {
+                document.body.style.transition = "background-color 2s ease-in, opacity 2s ease-in";
+                document.body.style.backgroundColor = "black";
+                document.body.style.opacity = "0";
+
+                setTimeout(() => {
+                    window.location.href = "classroom.html";
+                }, 2000);
+            }, 3000);
+        });
 
 
       function updatestreet() {
