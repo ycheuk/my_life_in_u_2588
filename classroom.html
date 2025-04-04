@@ -549,7 +549,13 @@
         fade.style.opacity = 0;
       }
 
-      currentFrame = (currentFrame + 1) % frames.length;
+      if (currentFrame === 40) {
+        setTimeout(() => {
+          window.location.href = "hallway.html";
+        }, 700);
+      } else {
+        currentFrame = (currentFrame + 1) % frames.length;
+      }
     }
 
     setInterval(updateFrame, 700);
