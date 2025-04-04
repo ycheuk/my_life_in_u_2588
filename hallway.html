@@ -6,7 +6,32 @@
   <title>Main Page</title>
   <link rel="stylesheet" type="text/css" href="thesis.css">
 </head>
+<style>
+  #fade-in {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 1;
+    transition: opacity 2s ease-in-out;
+  }
+
+  #fade-out {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    pointer-events: none;
+  }
+</style>
 <body>
+  <div id="fade-in"></div>
   <div id="container">
     <div id="container">
       <pre class="time" id="clock">
@@ -116,7 +141,15 @@ It'll be my fault if he's tired and doesn't get enough sleep.
       </pre>
     </div>
   </div>
+  <div id="fade-out"></div>
   <script>
+      window.onload = function() {
+        document.getElementById("fade-in").style.opacity = "0";
+        setTimeout(() => {
+          document.getElementById("fade-in").style.display = "none";
+        }, 2000);
+      };
+
     function chooseOption(option) {
       document.querySelectorAll('.dialogue-box').forEach(box => box.style.display = 'none');
 
@@ -136,11 +169,17 @@ It'll be my fault if he's tired and doesn't get enough sleep.
     }
 
     document.getElementById('dialogue-box3-A').addEventListener('click', function() {
-      window.location.href = 'kitchen.html';
+      document.getElementById("fade-out").style.opacity = "1";
+      setTimeout(() => {
+        window.location.href = "kitchen.html";
+      }, 2000);
     });
 
     document.getElementById('dialogue-box4-A').addEventListener('click', function() {
-      window.location.href = 'kitchen.html';
+      document.getElementById("fade-out").style.opacity = "1";
+      setTimeout(() => {
+        window.location.href = "kitchen.html";
+      }, 2000);
     });
 
     document.getElementById('dialogue-box4-B').addEventListener('click', function() {
@@ -149,7 +188,10 @@ It'll be my fault if he's tired and doesn't get enough sleep.
     });
 
     document.getElementById('dialogue-box5').addEventListener('click', function() {
-      window.location.href = 'kitchen.html';
+      document.getElementById("fade-out").style.opacity = "1";
+      setTimeout(() => {
+        window.location.href = "kitchen.html";
+      }, 2000);
     });
 
   </script>

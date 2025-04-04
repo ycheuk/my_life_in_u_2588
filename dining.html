@@ -11,8 +11,32 @@
       transition: background-color 2s, opacity 2s;
       opacity: 1;
     }
+
+    #fade-in {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      opacity: 1;
+      transition: opacity 2s ease-in-out;
+    }
+
+    #fade-out {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+      pointer-events: none;
+    }
   </style>
 <body>
+  <div id="fade-in"></div>
   <div id="container">
     <div id="container">
       <pre class="time" id="clock">
@@ -99,7 +123,15 @@ Alright, let's get going.
       </div>
     </div>
   </div>
+  <div id="fade-out"></div>
   <script>
+    window.onload = function() {
+      document.getElementById("fade-in").style.opacity = "0";
+      setTimeout(() => {
+        document.getElementById("fade-in").style.display = "none";
+      }, 2000);
+    };
+
     document.getElementById('dialogue-box').addEventListener('click', function() {
       document.getElementById('dialogue-box').style.display = 'none';
       document.getElementById('dialogue-box2').style.display = 'block';
@@ -127,7 +159,10 @@ Alright, let's get going.
     });
 
     document.getElementById('dialogue-box4').addEventListener('click', function() {
-      window.location.href = 'street.html';
+      document.getElementById("fade-out").style.opacity = "1";
+      setTimeout(() => {
+        window.location.href = "street.html";
+      }, 2000);
     });
   </script>
 </body>
