@@ -555,3 +555,48 @@ _________________||  |___
  \  \/
  .-'-.
  |_|_|
+
+FADE IN AND OUT CODE:
+
+ <style>
+   #fade-in {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: black;
+     opacity: 1;
+     transition: opacity 2s ease-in-out;
+   }
+
+   #fade-out {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: black;
+     opacity: 0;
+     transition: opacity 2s ease-in-out;
+     pointer-events: none;
+   }
+ </style>
+
+ <div id="fade-in"></div>
+
+ <div id="fade-out"></div>
+
+   window.onload = function() {
+     document.getElementById("fade-in").style.opacity = "0";
+     setTimeout(() => {
+       document.getElementById("fade-in").style.display = "none";
+     }, 2000);
+   };
+
+ document.getElementById("dialogue-box4").addEventListener("click", () => {
+   document.getElementById("fade-out").style.opacity = "1";
+   setTimeout(() => {
+     window.location.href = "hallway.html";
+   }, 2000);
+ });
