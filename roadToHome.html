@@ -29,9 +29,40 @@
     opacity: 1;
     transition: opacity 1s ease-in-out;
   }
+
+  #context, #words_context {
+    position: fixed;
+    top: 0;
+    left: 50px;
+    margin: 0;
+    padding: 10px;
+    font-family: monospace;
+  }
+
+  #words_context {
+    display: none;
+  }
+
+  #context:hover {
+    display: none;
+  }
+
+  #context:hover + #words_context {
+    display: block;
+  }
 </style>
 <body>
   <div id="fade-in"></div>
+  <pre class="time" id="context">
+╭╶╶╶╶╮
+: ౨ৎ :
+╰╶╶╶╶╯
+  </pre>
+  <pre class="time" id="words_context">
+
+Context
+
+  </pre>
   <div id="container">
     <div id="container">
       <pre class="time" id="clock">
@@ -39,28 +70,12 @@
 ║ ███day │ 2:40 PM ║
 ╚══════════════════╝
       </pre>
-      <!-- <pre id="school">
-                                     .' '.
-                                   .'     '.
-                ________________ .'         '. _________________
-             ,'                .'             '.                 '.
-          ,'                 .'   S C H O O L   '.                  '.
-       .'                   /_____________________\                    '.
-      /_______________________|                  |_______________________\
-        |                     |                  |                     |
-        |                     |    .--------.    |                     |
-        |                     |   /__________\   |                     |
-        |                     |    |        |    |                     |
-        |                     |    |        |    |                     |
-        |                     |    |________|    |                     |
-        |_____________________|____/--------\____|_____________________|</pre> -->
       <pre id="school">
-                                 .
-                          ______/ \______
-    _____________________/     /   \     \______________________
-   /                    /     /  O  \     \                     \
-  /                    /     /       \     \                     \
- /                    /_____/         \_____\                     \
+                           ______/\______
+    ______________________/     /  \     \______________________
+   /                     /     / () \     \                     \
+  /                     /     /      \     \                     \
+ /                     /_____/        \_____\                     \
 /______________________ |                  | ______________________\
   |   ___   ___   ___   |  ___   __   ___  |   ___   ___   ___   |
   |  |   | |   | |   |  | |   | |  | |   | |  |   | |   | |   |  |
@@ -68,7 +83,8 @@
   |   ___   ___   ___   |      ______      |   ___   ___   ___   |
   |  |   | |   | |   |  |     |      |     |  |   | |   | |   |  |
   |  '---' '---' '---'  |     |      |     |  '---' '---' '---'  |
-  |_____________________|_____|______|_____|_____________________|</pre>
+  |_____________________|_____|______|_____|_____________________|
+                                 웃</pre>
       <pre id="self">
                 웃웃                                      웃웃웃                                                웃웃
 _______________________________  ,--. _______________________  ,--. __________  ,--. ______________________________________
@@ -679,7 +695,31 @@ ____/-----------\____|- . . ----- . . ------------|-- |_o_| --------
       setTimeout(playFrames, delay);
     }
 
-playFrames();
+    playFrames();
+
+    function fadeToBlackAndRedirect() {
+     let fadeOverlay = document.createElement("div");
+     fadeOverlay.style.position = "fixed";
+     fadeOverlay.style.top = "0";
+     fadeOverlay.style.left = "0";
+     fadeOverlay.style.width = "100%";
+     fadeOverlay.style.height = "100%";
+     fadeOverlay.style.background = "black";
+     fadeOverlay.style.opacity = "0";
+     fadeOverlay.style.transition = "opacity 2s ease-in-out";
+     document.body.appendChild(fadeOverlay);
+
+     setTimeout(() => {
+       fadeOverlay.style.opacity = "1";
+     }, 10);
+
+     setTimeout(() => {
+       window.location.href = "context.html";
+     }, 2000);
+   }
+
+   document.getElementById("context").addEventListener("click", fadeToBlackAndRedirect);
+   document.getElementById("words_context").addEventListener("click", fadeToBlackAndRedirect);
   </script>
 </body>
 </html>
