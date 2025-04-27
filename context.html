@@ -11,381 +11,314 @@
     background-color: black;
     color: white;
   }
+
+  #fade {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s ease-in-out;
+    }
+
+  #fade-in {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
 </style>
 <body>
+  <div id="fade-in"></div>
   <div id="container">
-    <div id="narrative" class="narrative">
-I grew up as a Chinese American in a small, predominantly white town <br><br>where few people looked like me.
-    </div>
     <div id="container">
-      <pre class="pointer asciiAlign" id="girl" onclick="toggleGirl()">
-         . -౨ৎ.
-        // ^ \\
-       ()\   /()
-         .-'-.
-        //   \\
-        '|___|'
-          | |
-          . .
+      <pre class="pointer" id="self1" onclick="nextFrame('self1')">
+        <div style="text-align: center;">
+Throughout my childhood, my father emphasized the importance of etiquette, poise, and respect.
+
+He taught me to carry myself with dignity, even through moments of discomfort.
+        </div>
+                                                    .-.
+                                                   /   \
+                                      . -౨ৎ.       \   /
+                                     // ^ \\       .-'-.
+                                    ()\   /()   __/| V |\\
+                                      .-'-.     --'|   |//
+                                     //   \\       |___|
+                                     '|___|'       | | |
+                                       | |         |_!_|
+                                       . .          ╝ ╝
+      </pre>
+      <pre class="pointer" style=" display: none;" id="self2" onclick="nextFrame('self2')">
+        <div style="text-align: center;">
+Growing up as one of the few Asian students in my middle and high school, I never felt like I fit in.
+
+I was often picked on for my race and appearance.
+
+While teachers assumed I was smart, my classmates labeled me as an overachiever.
+        </div>
+
+
+                                           ______/\______
+                    ______________________/     /  \     \______________________
+                   /                     /     / () \     \                     \
+                  /                     /     /      \     \                     \
+                 /                     /_____/        \_____\                     \
+                /______________________ |                  | ______________________\
+                  |   ___   ___   ___   |  ___   __   ___  |   ___   ___   ___   |
+                  |  |   | |   | |   |  | |   | |  | |   | |  |   | |   | |   |  |
+                  |  '---' '---' '---'  | '---' '--' '---' |  '---' '---' '---'  |
+                  |   ___   ___   ___   |      ______      |   ___   ___   ___   |
+                  |  |   | |   | |   |  |     |      |     |  |   | |   | |   |  |
+                  |  '---' '---' '---'  |     |      |     |  '---' '---' '---'  |
+                  |_____________________|_____|______|_____|_____________________|
+
+                         .-.                                          . - .
+                        / ^ \                  . -౨ৎ.                // ^ \\
+                        \   /                 // ^ \\               (_\   /_)
+                        .-'-.-->             ()\   /()             <--.-'-.
+                       /|___|                  .-'-.                  |___|\
+                       '|_|_|                 //   \\                 /___\'
+                         | |                  '|___|'                  | |
+                         . .                    | |                    . .
+                                  . - .         . .          .-.
+                                 // ^ \)^                 ^(/ ^ \
+                                ( \   //)                  \\   /
+                                / .-'-. \                   .-'-.
+                               ( //___\  )                  /___\\
+                                 '|_|_|                     | | |'
+                                   | |                      |_|_|
+                                   . .                       . .
+      </pre>
+      <pre class="pointer" style=" display: none;" id="self3" onclick="nextFrame('self3')">
+        <div style="text-align: center;">
+I was constantly asked by the same group of boys if my parents ate cats and dogs.
+
+Another student would constantly mock me, saying slurs like "ching chong" to imitate the Chinese language.
+        </div>
+
+
+                                           .-.             .-.
+                                          / ^ \.-.     .-./ ^ \
+                                          \   / ^ \.-./ ^ \   /
+                                          .-'-\   / ^ \   /-'-.
+                                         /|___.-'-\   /-'-.___|\
+                                         '| |/|___.-'-.___|\|_|'
+                                          |_|'|_|/|___|\| |' |
+                                           . . | '| | |'|_|. .
+                                               . .|_|_|. .
+                                           . -౨ৎ.  . .   .-.
+                                          // ^ \\       / ^ \
+                                         ()\   /()      \   /
+                                           .-'-.     <--.-'-.
+                                          //   \\       |___|\
+                                          '|___|'       | | |'
+                                            | |         |_|_|
+                                            . .          . .
+      </pre>
+      <pre class="pointer" style=" display: none;" id="self4" onclick="nextFrame('self4')">
+        <div style="text-align: center;">
+My father's teachings about masking my emotions led me to bottle everything up.
+
+I was scared to tell anyone about my emotional struggles in school, afraid that I would seem weak or incapable of being independent.
+        </div>
+                                                                   ╭────────────╮
+                                                                   │  I'm okay. │
+                                                                   ╰───,────────╯
+                                                               . -౨ৎ.
+                                                              // ^ \\
+                                                             ()\   /()
+                                                               .-'-.
+                                                              //   \\
+                                                              '|___|'
+                                                                | |
+                                                                . .
+      </pre>
+      <pre class="pointer" style=" display: none;" id="self5" onclick="nextFrame('self5')">
+        <div style="text-align: center;">
+All this emotional suppression over the years had made me a very sensitive person.
+
+I overthought everything, even simple tasks like crossing a street or entering a building.
+
+I stressed over the smallest things, always wondering if others were judging me.
+        </div>
+
+                                    ╭───────────────╮
+               ╭─────────────────╮  │ I should just │
+               │  They probably  │  │   disappear   │           ╭──────────────────╮
+               │   hate me now   │  ╰─ ╭────────────────────╮   │  Did they think  │
+               ╰─────────────.───╯     │     I must've      │   │  that was weird? │
+                        ╭─────\────────╮ embarrassed myself │   .──────────────────╯
+                        │  Why did I   │ ──── ╭────────────────/
+                        │   do that?   │      │  What if I am  │
+              ╭──────────────────╮ ────╯      │    a burden?   │ ───────────────────╮
+              │ I shouldn't have │            ╰───,────────────╯     I ruined       │
+              │    said that...  │      . -౨ৎ.                │ everything again... │
+              ╰──────────────────>     // ^ \\    <────────────────────╮ ───────────╯
+                                      ()\   /()   │  I should've just  │
+                                        .-'-.     │  stayed quiet...   │
+                                       //   \\    ╰────────────────────╯
+                                       '|___|'
+                                         | |
+                                         . .
+      </pre>
+      <pre class="pointer" style=" display: none;" id="self6" onclick="nextFrame('self6')">
+        <div style="text-align: center;">
+I remember every moment of embarrassment and shame, no matter how insignificant.
+
+Even the most fleeting moments, they continue to linger, like a constant reminder that I didn't belong.
+        </div>
+                                                           . - .         . - .
+                                                          // ^ \\       (/ ^ \)
+                                                          (\   /) . - .  \   /
+               // ^ \\. - . . - .                          .-'-. //   \\ .-'-.
+              ( \    // ^ \// ^ \\                        /|___|(_\   /_)|___|\
+              / .-'-(_\   (_\   /_)                       '| | |' .-'-. '| | |'
+             ( /|___| .-'-. .-'-.                          |_|_| /|___|\ |_|_|
+               '/___\//___\/|___|\                          . .   | | |  . .
+                 | | '|_|_|'/   \                                 |_|_|
+                 . .   | |  |___|               . -౨ৎ.             . .
+                       . .   . .               // ^ \\
+                                              ()\   /()
+                                                .-'-.
+                                               //   \\
+                                               '|___|'                                  . - .
+        .-.             .-.                      | |                        . - .      //   \\
+       / ^ \.-.     .-./ ^ \                     . .                       // ^ \\. - .(\   /).
+       \   / ^ \.-./ ^ \   /                                              (_\   / / ^ \ .-'-./
+       .-'-\   / ^ \   /-'-.                                                .-'-. \   / |___|
+      /|___.-'-\   /-'-.___|\                                              //___\,.-'-.,/___\
+      '| |/|___.-'-.___|\|_|'                                               |_|_|\|___|/ | |
+       |_|'|_|/|___|\| |' |                                                  | |  | | |  . .
+        . . | '| | |'|_|. .                                                  . .  |_|_|
+            . .|_|_|. .                                                            . .
+                . .
+      </pre>
+      <pre class="pointer" style=" display: none;" id="self7" onclick="nextFrame('self7')">
+        <div style="text-align: center;">
+I never forgave my past self, blaming her for all the shame and embarrassment that she put me through.
+
+I felt trapped by the shame and tears, unable to move forward or let go of the past.
+        </div>
+                                       ,୨‧୧,
+                                      //   \\
+                                     ( \   / )            . -౨ৎ.
+                                     / .-'-. \           // ^ \\
+                                      /(   )\           ()\   /()
+                                      '/___\'             .-'-.
+                                       | | |             //   \\
+                                       | | |             '|___|'
+                                       |_|_|               | |
+                                        ╚ ╚                . .
+      </pre>
+      <pre class="pointer" style=" display: none;" id="self8" onclick="nextFrame('self8')">
+        <div style="text-align: center;">
+But throughout college, I had discovered a place of comfort, having met many wonderful people who helped me heal.
+
+I'm finally learning to forgive my past self through this self-reflection.
+
+I no longer see someone who was weak, but someone who was just trying to survive.
+        </div>
+
+                         ┌───                                                    ───┐
+                         │                                                    • REC │
+                                                     . - .
+                                                    //   \\
+                                                 .-.|\   /|.-.
+                                                /   \.-'-./   \
+                                                \   /(   )\   /
+                                           . - ..-'-.,୨‧୧,.-'-. - .
+                                          // ^ \\   //   \\   //   \\
+             .౨ৎ,                        ( \   / )_( \   / )__|\   /|
+            /  \ )                       / .-'-. \|/ .-'-. \|( .-'-. )
+            \  ( )                        /(   )\ | /(   )\ | /(   )\
+             -'-                          '|===|'_|_'/___\'_|_'|___|'
+            / | \                          |   | ╚ ╚ | | | ╚ ╚ | | |
+            |_o_|                          |   |     | | |     | | |
+             ╱ ╲                           |___|     |_|_|     |_|_|
+            .   .                           ╚ ╚       ╚ ╚       ╚ ╚
+                         │                                                          │
+                         └───                                                    ───┘
+      </pre>
+      <pre class="pointer" style=" display: none;" id="self9" onclick="fadeAndRedirect()">
+        <div style="text-align: center;">
+This thesis project is not just a reflection for my past self, but a message to anyone who feels alone, unseen, or overwhelmed.
+
+You are not weak for feeling lost, nor broken for struggling.
+
+Healing and growth take time.
+
+Sometimes, all it takes is finding the right people, the right place, and the right moment.
+        </div>
       </pre>
     </div>
   </div>
+  <div id="fade"></div>
   <script>
-    function goToLetters() {
-      window.location.href = 'letters.html';
-    }
+  let currentFrame = 1;
+  let idleTimer;
 
-  let walking = false;
-  let walkInterval;
-  let clickCount = 0;
+  function resetIdleTimer() {
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(() => {
+      nextFrame('self' + currentFrame);
+    }, 60000); // 60000 = 1 minute
+  }
 
-  function toggleGirl() {
-    const girl = document.getElementById("girl");
+  function nextFrame(currentId) {
+    const current = document.getElementById(currentId);
+    const next = document.getElementById('self' + (currentFrame + 1));
+    const fade = document.getElementById('fade');
 
-    const frames = [`      , -.
-     ( /  \\
-     (𐙚)  )
-       -'-
-      / | \\
-      |_o_|
-       ╱ ╲
-      .   .`,
-      `       , -.
-      ( /  \\
-      (𐙚)  )
-        -'-
-       / | \\
-       |_o_|
-         ╳
-        . .`
-    ];
+    if (next) {
+      fade.style.pointerEvents = 'auto';
+      fade.style.opacity = 1;
 
-    const staticGirl = `
-         .-.                                          . - .
-        / ^ \\                  . -౨ৎ.                // ^ \\\\
-        \\   /                 // ^ \\\\               (_\\   /_)
-        .-'-.-->             ()\\   /()             <--.-'-.
-       /|___|                  .-'-.                  |___|
-       '|_|_|                 //   \\\\                 /___\\'
-         | |                  '|___|'                  | |
-         . .                    | |                    . .
-                  . - .         . .          .-.
-                 // ^ \\)^                 ^(/ ^ \\
-                ( \\   //)                  \\\\   /
-                / .-'-. \\                   .-'-.
-               ( //___\\  )                  /___\\\\
-                 '|_|_|                     | | |'
-                   | |                      |_|_|
-                   . .                       . .`;
-    const staticDog = `
-                              ╭─────────────────────────╮
-                              │ Do you and your parents │
-                              │    eat cats and dogs?   │
-                              ╰───────,─────────────────╯
-                    . -౨ৎ.     . - .
-                   // ^ \\\\    // ^ \\\\
-                  ()\\   /()   (\\   /)
-                    .-'-.     /.-'-.\\
-                   //   \\\\   (/|___|\\)
-                   '|___|'    '/___\\'
-                     | |        | |
-                     . .        . .`;
-
-     const staticChing = `
-
-
-
-
-
-
-                             ╭──────────────╮
-                             │ Ching Chong* │
-                             ╰───────,──────╯
-                   . -౨ৎ.      .-.
-                  // ^ \\\\     / ^ \\
-                 ()\\   /()    \\   /
-                   .-'-.   <--.-'-.
-                  //   \\\\     |___|\\
-                  '|___|'     | | |'
-                    | |       |_|_|
-                    . .        , ,
-
-
-
-
-* An ethnic slur to mock or imitate the Chinese language`;
-
-    const staticNothing = `>`;
-
-    const staticExpectations = `
-    /\\                                         /\\
-   /  \\_______________________________________/  \\
-  /    \\=====================================/    \\        ╭╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╮
- /  []  \\===================================/  []  \\       ╵                                          ╵
-/________\\=================================/________\\      ╵              ______ ______               ╵
-|        |=================================|        |     <             _/      V      \\_             ╵
-|        |-------------- ___ --------------|        |      ╵           //       |       \\\\            ╵
-| []  [] |  []     []   /   \\   []     []  | []  [] |      ╵          //        |        \\\\           ╵
-|        |             /_____\\             |        |      ╵         //_________|_________\\\\          ╵
-|        |             |  |  |             |        |      ╵         ----------'-'----------          ╵
-| []  [] |  []     []  |  |  |  []     []  | []  [] |      ╵                                          ╵
-|        |             |__|__|             |        |      ╰╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╯
-|        |--------------=====--------------|        |
-|________|             /=====\\             |________|
-
-
-
-                       ╭╶╶╶^╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╮
-                       ╵                            ╭─────────────╮    ╵
-                       ╵                            │ You must be │    ╵
-                       ╵                            │ really good │    ╵
-                       ╵                    . - .   │   at math   │    ╵
-                       ╵                   (/ ^ \\)  ,─────────────╯    ╵
-                       ╵                   (_\\ /_)                     ╵
-                       ╵     . -౨ৎ.         .-'-.                      ╵
-                       ╵    // ^ \\\\      __/(   )\\\\                    ╵
-                       ╵   ()\\   /()     --/ )=( //                    ╵
-                       ╵     .-'-.          /   \\                      ╵
-                       ╵    //   \\\\         |   |                      ╵
-                       ╵    '|___|'         |___|                      ╵
-                       ╵      | |            \\|/                       ╵
-                       ╵      . .            /Y\\                       ╵
-                       ╵                                               ╵
-                       ╰╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╯
-`;
-
-    const staticHome = `                                                  ╭╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╮
-                                                  ╵                                                                             ╵
-                                                  ╵             {}       I\\                                                     ╵
-                                                  ╵            oIIo      |:                                                     ╵
-                                                  ╵            oIIo      |:                                                     ╵
-                                     ____         ╵             ||       |:                                                     ╵
-                                    |____|        ╵             ||       |:                                                     ╵
-                                     |  |         ╵             ||       |:                                                     ╵
-                  ___________________|  |_        ╵            _||_      |:                                                     ╵
-                 /     .-.           |__| \\       ╵          .' || \`.    |:      ____________________________________           ╵
-                /    .'.-.'.               \\      ╵         /   ||   \\   |:     |\\                                    \\         ╵
-               /   .'.'   '.'.    ,-'''-.   \\     ╵        |    ::    |  |:     | \\                                    \\        ╵
-              /__.'. __   __ .'._/_______\\___\\    ╵        )_   ::   _(  |:     |  \\____________________________________\\       ╵
-              |    ||  | |  ||   |_|_|_|_|  |     ╵         _)( :: )(_   |:     |  |             _---_ _---__           |       ╵
-              |    ||  | |__||   |_|_|_|_|  |     ╵        )  _)::(_  (  |:     |  |            |=====|=====|           |       ╵
-              |    |"""" """"|    ____   _  |    <        /     ++     \\ |:     |  |            |=====|=====|           |       ╵
-              |    | __   __ |   | [] | | | |     ╵       |     ||     | |:     |  |  __________|_---_|_---_|_________  |       ╵
-              |    ||  | |  ||   |   o| |_| |     ╵        \\ .-.)(    /  |!     |  |  ________________________________  |       ╵
-              |    ||  | |  ||   |    |     |     ╵         (___\\/__.'   I'     |   \\ \\________________________________\\ \\      ╵
-              |    |"""" """"|   |____|     |     ╵                             |  , | |\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\| |     ╵
-              """""|_________|"""'====\`""""""     ╵                             |  |\\  ,--------------------------------, |     ╵
-                                                  ╵                             |  ||| |                               || |     ╵
-                                                  ╵                              \\ ||| |            _  _  _            || |     ╵
-╭╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶^╶╶╶╶╶╶╶╶╶╶╶╶╮   ╵                               \\||| |------------\\\\-\\\\-\\\\-----------|| |     ╵
-╵                                             ╵   ╵                                 \\|_|                               \\|_|     ╵
-╵                            ╭──────────────╮ ╵   ╵                                                                             ╵
-╵                            │ You must be  │ ╵   ╰╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╯
-╵                            │ good at math,╰────────────────────────────────────────────────────────────────────────────────────────────╮
-╵                     .-.    │ perfect your violin and piano, never talk back, always work harder than anyone else, get a stable job     │
-╵                    /   \\   │ like a doctor or lawyer, always get 100%'s and A's, stand up straight at all times, walk like a proper    │
-╵                    \\   /  <  lady, sit properly and never slouch, speak softly and respectfully, smile more but not too much, no       │
-╵     . -౨ৎ.         .-'-.   │ tatoos, no piercings, no dyed hair, nothing permanently done to your body, never argue, always obey,      │
-╵    // ^ \\\\      __/| V |\\\\ │ never lose face, never pursue things like philosophy or art, your elders know best, you should be         │
-╵   ()\\   /()     --'|   |// │ grateful, we didn't have these opportunities growing up, you don't understand how easy you have it...     │
-╵     .-'-.          |___|   ╰───────────────────────────────────────────────────────────────────────────────────────────────────────────╯
-╵    //   \\\\         | | |                    ╵
-╵    '|___|'         | | |                    ╵
-╵      | |           |_!_|                    ╵
-╵      . .            | |                     ╵
-╵                                             ╵
-╰╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╯
-`;
-    const staticMusic = `
-                                 |\\
-                                 |/
-                                 |
-                                /|
-                               / |                      __...--~~~~~-._   _.-~~~~~--...__
-                              / _|_                   //               \`V'               \\\\
-                             / / | \\                 //                 |                 \\\\
-                            ( (  |  \\               //__...--~~~~~~-._  |  _.-~~~~~~--...__\\\\
-    _________                \\ \\_|) /              //__.....----~~~~._\\ | /_.~~~~----.....__\\\\
-   /   12    \\                \\__|_/              ====================\\\\|//====================
-  |           |                  |                                    \`---\`
-  |           |                  |
-  |9    .    3|                 \`-'
-  |     |\\    |  ___|\\_______|________|_______________________O__________O____________
-  |     |     |  ___|/_______|________|_|___|__________|__O__|_____O__|_|____O._______||
-   \\____6____/   __/|____4___|__O_____|_|___|__O.______|_|O__|____|___|_|___|O.______o||
-                  _(C^\\__4__O|_|_____O__|___|_|________|_|O__|____|___|_|___|________o||
-                 __\\|/'________|________|__O|_|________|_|________|___|_____|_________||
-                    j          |           O  |          |`;
-
-    const staticAlone = `
-  ╭───────────────╮
-  │   Wanna go    │ The "Popular Girls"                     The "Nerds"
-  │   shopping    │                                     (The Overachievers)
-  │ after school? │   ╭─────────────╮                    . - .         . - .
-  ╰────────────,──╯   │  Heck yeah! │                   // ^ \\\\       (/ ^ \\)
-              . - .   ╰─,────,──────╯                   (\\   /) . - .  \\   /
-             // ^ \\\\. - . . - .                          .-'-. //   \\\\ .-'-.
-            ( \\    // ^ \\// ^ \\\\                        /|___|(_\\   /_)|___|\\
-            / .-'-(_\\   (_\\   /_)                       '| | |' .-'-. '| | |'
-           ( /|___| .-'-. .-'-.                          |_|_| /|___|\\ |_|_|
-             '/___\\//___\\/|___|\\                          . .   | | |  . .
-               | | '|_|_|'/   \\                                 |_|_|
-               . .   | |  |___|             . -౨ৎ.               . .
-                     . .   . .             // ^ \\\\
-                                          ()\\   /()
-                                            .-'-.
-  Varsity Football Team                    //   \\\\                     The Theater Kids
-      (The Jocks)                          '|___|'                                 . - .
-   .-.             .-.                       | |                       . - .      //   \\\\
-  / ^ \\.-.     .-./ ^ \\                      . .                      // ^ \\\\. - .(\\   '\\
-  \\   / ^ \\.-./ ^ \\   /                                              (_\\   / / ^ \\ .-'-./
-  .-'-\\   / ^ \\   /-'-.                                                .-'-. \\   / |___|
- /|___.-'-\\   /-'-.___|\\                                              //___\\,.-'-.,/___\\
- '| |/|___.-'-.___|\\|_|'                                               |_|_|\\|___|/ | |
-  |_|'|_|/|___|\\| |' |                                                  | |  | | |  . .
-   . . | '| | |'|_|. .                                                  . .  |_|_|
-       . .|_|_|. .                                                            . .
-           . .`;
-
-    const staticPressure = `
-       ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-       ┃┏━━━━━━━━━━━━━━━━━━━━━━━━━┓┃
-       ┃┃ ╔═════════════════════╗ ┃┃
-       ┃┃ ║ ╭╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╮ ║ ┃┃
-       ┃┃ ║ ╵      . -౨ৎ.     ╵ ║ ┃┃
-       ┃┃ ║ ╵     // ^ \\\\     ╵ ║ ┃┃
-       ┃┃ ║ ╵    ()\\   /()    ╵ ║ ┃┃
-       ┃┃ ║ ╵      .-'-.      ╵ ║ ┃┃
-       ┃┃ ║ ╵     //   \\\\     ╵ ║ ┃┃
-       ┃┃ ║ ╵     '|___|'     ╵ ║ ┃┃
-       ┃┃ ║ ╵       | |       ╵ ║ ┃┃
-       ┃┃ ║ ╵       . .       ╵ ║ ┃┃
-       ┃┃ ║ ╰╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╯ ║ ┃┃
-       ┃┃ ╚═════════════════════╝ ┃┃
-       ┃┗━━━━━━━━━━━━━━━━━━━━━━━━━┛┃
-       ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━┛`;
-
-     const staticResearch = `
-  ┌─────────────────────────────┐                 ┌─────────────────────────────┐
-  │                             │                 │                             │
-  │                             │                 │                  . - .      │
-  │      ,୨‧୧,       . - .      │                 │      ,୨‧୧,      //   \\\\     │
-  │     //   \\\\     //   \\\\     │                 │     //   \\\\     |\\   /|     │
-  │    ( \\   / )   (_\\   /_)    │                 │    ( \\   / )   ,_.-'-._)    │
-  │    / .-'-. \\   , .-'-.      │                 │    / .-'-. \\   \\/(   )\\     │
-  │     /(   )\\    \\/(   )\\     │                 │     /(   )\\      |___|'     │
-  │     '/___\\'      |___|'     │                 │     '/___\\'      |╯|╰|      │
-  │      | | |       | | |      │                 │      | | |       | | |      │
-  │      | | |       |_|_|      │                 │      | | |       | | |      │
-  │      |_|_|        | |       │                 │      |_|_|       |_|_|      │
-  │       ╚ ╚         ╝ ╝       │                 │       ╚ ╚         ╝ ╝       │
-  └─────────────────────────────┘                 └─────────────────────────────┘
-
-
-
-
-
-
-  ┌─────────────────────────────┐                 ┌─────────────────────────────┐
-  │                  . - .      │                 │                             │
-  │                 // v \\\\     │                 │                   .-.       │
-  │      ,୨‧୧,      \\\\   //     │                 │      ,୨‧୧,       /   \\      │
-  │     //   \\\\    , .-'-.      │                 │     //   \\\\      \\   /      │
-  │    ( \\   / )   \\/|   |\\     │                 │    ( \\   / )   , .-'-.      │
-  │    / .-'-. \\     |___||     │                 │    / .-'-. \\   \\/|   |\\     │
-  │     /(   )\\      |╯|╰|'     │                 │     /(   )\\      |___|'     │
-  │     '/___\\'      | | |      │                 │     '/___\\'      |---|      │
-  │      | | |       | | |      │                 │      | | |       | | |      │
-  │      | | |       |_|_|      │                 │      | | |       | | |      │
-  │      |_|_|        | |       │                 │      |_|_|       |_|_|      │
-  │       ╚ ╚         ╝ ╝       │                 │       ╚ ╚         ╝ ╝       │
-  └─────────────────────────────┘                 └─────────────────────────────┘
-
-
-
-
-                 *These figures, other than me, are purely symbolic
-        and do not represent the actual interviewees to maintain anonymity.*`;
-
-    if (!walking) {
-      walking = true;
-      walkInterval = setInterval(() => {
-        girl.textContent = frames[frameIndex];
-        frameIndex = (frameIndex + 1) % frames.length;
+      setTimeout(() => {
+        current.style.display = 'none';
+        next.style.display = 'block';
+        fade.style.opacity = 0;
+        fade.style.pointerEvents = 'none';
+        currentFrame++;
+        resetIdleTimer();
+      }, 1000);
+    } else {
+      fade.style.pointerEvents = 'auto';
+      fade.style.opacity = 1;
+      setTimeout(() => {
+        window.location.href = "morning.html";
       }, 1000);
     }
-
-    let frameIndex = 0;
-
-    if (clickCount === 0) {
-      narrative.style.display = "block";
-    } else if (clickCount === 1) {
-      narrative.textContent = "To some, I was the 'smart Asian kid.' To others, I was 'exotic,' a curiosity, a foreigner, even though this was the only home I knew as a child.";
-      clearInterval(walkInterval);
-      walking = false;
-      girl.textContent = staticGirl;
-    } else if (clickCount === 2) {
-        narrative.textContent = "I remember constantly being asked...";
-        clearInterval(walkInterval);
-        walking = false;
-        girl.textContent = staticDog;
-    } else if (clickCount === 3) {
-        narrative.textContent = "or being mocked...";
-        clearInterval(walkInterval);
-        walking = false;
-        girl.textContent = staticChing;
-    } else if (clickCount === 4) {
-        narrative.innerHTML = "At the time, I didn’t have the words to explain why these moments felt wrong... Why it hurt... <br><br>But I knew they did.";
-        clearInterval(walkInterval);
-        walking = false;
-        girl.textContent = staticNothing;
-    } else if (clickCount === 5) {
-        narrative.innerHTML = "But these stereotypes, assumptions, and expectations didn’t just come from those who saw me as an outsider.<br><br>They also came from those closest to me: my own family, my own culure.";
-        clearInterval(walkInterval);
-        walking = false;
-        girl.textContent = staticNothing;
-    } else if (clickCount === 6) {
-        narrative.textContent = "At school, I was expected to be the ‘smart Asian kid,’ quiet, hardworking, effortlessly good at math and science.";
-        clearInterval(walkInterval);
-        walking = false;
-        girl.textContent = staticExpectations;
-    } else if (clickCount === 7) {
-        narrative.textContent = "At home, I was expected to be obedient, to be poised, to bring pride to my family, and to mask my negative emotions.";
-        clearInterval(walkInterval);
-        walking = false;
-        girl.textContent = staticHome;
-    } else if (clickCount === 8) {
-        narrative.innerHTML = "During middle and high school, I was surrounded by people who already formed their own friend groups.";
-        clearInterval(walkInterval);
-        walking = false;
-        girl.textContent = staticMusic;
-    } else if (clickCount === 9) {
-        narrative.innerHTML = "Because I spent most my time studying and practicing music, I never had the chance to make friends.<br><br>I longed to be a part of something, but always feeling just a little too different, a little too distant.<br><br>I was surrounded by people, my classmates, yet somehow, I always felt completely alone.";
-        clearInterval(walkInterval);
-        walking = false;
-        girl.textContent = staticAlone;
-    } else if (clickCount === 10) {
-        narrative.innerHTML = "All these expectations—spoken and unspoken—became a weight I carried every day.<br><br>Over time, loneliness became something quieter, something almost comforting.<br><br>Being alone in my room felt like the only place where I could breathe, where I didn’t have to meet anyone’s expectations.<br><br>But the more I retreated into solitude, the harder it became to step back out.<br><br>Slowly, isolation turned into anxiety—a constant fear of saying the wrong thing, of never quite belonging.";
-        clearInterval(walkInterval);
-        walking = false;
-        girl.textContent = staticPressure;
-    } else if (clickCount === 11) {
-        narrative.innerHTML = "This experience is why I wanted to explore these struggles beyond just my own.<br><br><br><br>I began to wonder:<br><br><br>How many others have felt this same pressure?<br><br>How many others have carried the weight of expectations, the loneliness of being ‘too different’ at school and ‘never enough’ at home?";
-        clearInterval(walkInterval);
-        walking = false;
-        girl.textContent = staticNothing;
-    } else if (clickCount === 12) {
-        narrative.innerHTML = "To find out, I reached out to other Chinese students. Those who have lived between cultures, balancing identities, expectations, and belonging.<br><br>Through my research, I gathered their stories, their experiences with stereotypes, family pressures, and the quiet loneliness that so many of us have carried.";
-        clearInterval(walkInterval);
-        walking = false;
-        girl.textContent = staticResearch;
-    } else if (clickCount === 13) {
-        window.location.href = "morning.html";
-        return;
-    }
-
-    clickCount++;
   }
-  </script>
+
+  window.onload = () => {
+    const fadeIn = document.getElementById('fade-in');
+    fadeIn.style.opacity = 0;
+    setTimeout(() => {
+      fadeIn.style.display = 'none';
+    }, 1000);
+
+    resetIdleTimer();
+  };
+
+  document.addEventListener('click', resetIdleTimer);
+
+  function fadeAndRedirect() {
+    const fade = document.getElementById('fade');
+    fade.style.pointerEvents = 'auto';
+    fade.style.opacity = 1;
+
+    setTimeout(() => {
+      window.location.href = "morning.html";
+    }, 1000);
+  }
+</script>
 </body>
 </html>

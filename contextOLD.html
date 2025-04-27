@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Page</title>
+  <link rel="stylesheet" type="text/css" href="thesis.css">
+</head>
+<style>
+  body {
+    background-color: black;
+    color: white;
+  }
+</style>
+<body>
+  <div id="container">
+    <div id="narrative" class="narrative">
+I grew up as a Chinese American in a small, predominantly white town <br><br>where few people looked like me.
+    </div>
+    <div id="container">
+      <pre class="pointer asciiAlign" id="girl" onclick="toggleGirl()">
+         . -౨ৎ.
+        // ^ \\
+       ()\   /()
+         .-'-.
+        //   \\
+        '|___|'
+          | |
+          . .
+      </pre>
+    </div>
+  </div>
+  <script>
+    function goToLetters() {
+      window.location.href = 'letters.html';
+    }
+
+  let walking = false;
+  let walkInterval;
+  let clickCount = 0;
+
+  function toggleGirl() {
+    const girl = document.getElementById("girl");
+
+    const frames = [`      , -.
+     ( /  \\
+     (𐙚)  )
+       -'-
+      / | \\
+      |_o_|
+       ╱ ╲
+      .   .`,
+      `       , -.
+      ( /  \\
+      (𐙚)  )
+        -'-
+       / | \\
+       |_o_|
+         ╳
+        . .`
+    ];
+
+    const staticGirl = `
+         .-.                                          . - .
+        / ^ \\                  . -౨ৎ.                // ^ \\\\
+        \\   /                 // ^ \\\\               (_\\   /_)
+        .-'-.-->             ()\\   /()             <--.-'-.
+       /|___|                  .-'-.                  |___|
+       '|_|_|                 //   \\\\                 /___\\'
+         | |                  '|___|'                  | |
+         . .                    | |                    . .
+                  . - .         . .          .-.
+                 // ^ \\)^                 ^(/ ^ \\
+                ( \\   //)                  \\\\   /
+                / .-'-. \\                   .-'-.
+               ( //___\\  )                  /___\\\\
+                 '|_|_|                     | | |'
+                   | |                      |_|_|
+                   . .                       . .`;
+    const staticDog = `
+                              ╭─────────────────────────╮
+                              │ Do you and your parents │
+                              │    eat cats and dogs?   │
+                              ╰───────,─────────────────╯
+                    . -౨ৎ.     . - .
+                   // ^ \\\\    // ^ \\\\
+                  ()\\   /()   (\\   /)
+                    .-'-.     /.-'-.\\
+                   //   \\\\   (/|___|\\)
+                   '|___|'    '/___\\'
+                     | |        | |
+                     . .        . .`;
+
+     const staticChing = `
+
+
+
+
+
+
+                             ╭──────────────╮
+                             │ Ching Chong* │
+                             ╰───────,──────╯
+                   . -౨ৎ.      .-.
+                  // ^ \\\\     / ^ \\
+                 ()\\   /()    \\   /
+                   .-'-.   <--.-'-.
+                  //   \\\\     |___|\\
+                  '|___|'     | | |'
+                    | |       |_|_|
+                    . .        , ,
+
+
+
+
+* An ethnic slur to mock or imitate the Chinese language`;
+
+    const staticNothing = `>`;
+
+    const staticExpectations = `
+    /\\                                         /\\
+   /  \\_______________________________________/  \\
+  /    \\=====================================/    \\        ╭╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╮
+ /  []  \\===================================/  []  \\       ╵                                          ╵
+/________\\=================================/________\\      ╵              ______ ______               ╵
+|        |=================================|        |     <             _/      V      \\_             ╵
+|        |-------------- ___ --------------|        |      ╵           //       |       \\\\            ╵
+| []  [] |  []     []   /   \\   []     []  | []  [] |      ╵          //        |        \\\\           ╵
+|        |             /_____\\             |        |      ╵         //_________|_________\\\\          ╵
+|        |             |  |  |             |        |      ╵         ----------'-'----------          ╵
+| []  [] |  []     []  |  |  |  []     []  | []  [] |      ╵                                          ╵
+|        |             |__|__|             |        |      ╰╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╯
+|        |--------------=====--------------|        |
+|________|             /=====\\             |________|
+
+
+
+                       ╭╶╶╶^╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╮
+                       ╵                            ╭─────────────╮    ╵
+                       ╵                            │ You must be │    ╵
+                       ╵                            │ really good │    ╵
+                       ╵                    . - .   │   at math   │    ╵
+                       ╵                   (/ ^ \\)  ,─────────────╯    ╵
+                       ╵                   (_\\ /_)                     ╵
+                       ╵     . -౨ৎ.         .-'-.                      ╵
+                       ╵    // ^ \\\\      __/(   )\\\\                    ╵
+                       ╵   ()\\   /()     --/ )=( //                    ╵
+                       ╵     .-'-.          /   \\                      ╵
+                       ╵    //   \\\\         |   |                      ╵
+                       ╵    '|___|'         |___|                      ╵
+                       ╵      | |            \\|/                       ╵
+                       ╵      . .            /Y\\                       ╵
+                       ╵                                               ╵
+                       ╰╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╯
+`;
+
+    const staticHome = `                                                  ╭╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╮
+                                                  ╵                                                                             ╵
+                                                  ╵             {}       I\\                                                     ╵
+                                                  ╵            oIIo      |:                                                     ╵
+                                                  ╵            oIIo      |:                                                     ╵
+                                     ____         ╵             ||       |:                                                     ╵
+                                    |____|        ╵             ||       |:                                                     ╵
+                                     |  |         ╵             ||       |:                                                     ╵
+                  ___________________|  |_        ╵            _||_      |:                                                     ╵
+                 /     .-.           |__| \\       ╵          .' || \`.    |:      ____________________________________           ╵
+                /    .'.-.'.               \\      ╵         /   ||   \\   |:     |\\                                    \\         ╵
+               /   .'.'   '.'.    ,-'''-.   \\     ╵        |    ::    |  |:     | \\                                    \\        ╵
+              /__.'. __   __ .'._/_______\\___\\    ╵        )_   ::   _(  |:     |  \\____________________________________\\       ╵
+              |    ||  | |  ||   |_|_|_|_|  |     ╵         _)( :: )(_   |:     |  |             _---_ _---__           |       ╵
+              |    ||  | |__||   |_|_|_|_|  |     ╵        )  _)::(_  (  |:     |  |            |=====|=====|           |       ╵
+              |    |"""" """"|    ____   _  |    <        /     ++     \\ |:     |  |            |=====|=====|           |       ╵
+              |    | __   __ |   | [] | | | |     ╵       |     ||     | |:     |  |  __________|_---_|_---_|_________  |       ╵
+              |    ||  | |  ||   |   o| |_| |     ╵        \\ .-.)(    /  |!     |  |  ________________________________  |       ╵
+              |    ||  | |  ||   |    |     |     ╵         (___\\/__.'   I'     |   \\ \\________________________________\\ \\      ╵
+              |    |"""" """"|   |____|     |     ╵                             |  , | |\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\| |     ╵
+              """""|_________|"""'====\`""""""     ╵                             |  |\\  ,--------------------------------, |     ╵
+                                                  ╵                             |  ||| |                               || |     ╵
+                                                  ╵                              \\ ||| |            _  _  _            || |     ╵
+╭╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶^╶╶╶╶╶╶╶╶╶╶╶╶╮   ╵                               \\||| |------------\\\\-\\\\-\\\\-----------|| |     ╵
+╵                                             ╵   ╵                                 \\|_|                               \\|_|     ╵
+╵                            ╭──────────────╮ ╵   ╵                                                                             ╵
+╵                            │ You must be  │ ╵   ╰╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╯
+╵                            │ good at math,╰────────────────────────────────────────────────────────────────────────────────────────────╮
+╵                     .-.    │ perfect your violin and piano, never talk back, always work harder than anyone else, get a stable job     │
+╵                    /   \\   │ like a doctor or lawyer, always get 100%'s and A's, stand up straight at all times, walk like a proper    │
+╵                    \\   /  <  lady, sit properly and never slouch, speak softly and respectfully, smile more but not too much, no       │
+╵     . -౨ৎ.         .-'-.   │ tatoos, no piercings, no dyed hair, nothing permanently done to your body, never argue, always obey,      │
+╵    // ^ \\\\      __/| V |\\\\ │ never lose face, never pursue things like philosophy or art, your elders know best, you should be         │
+╵   ()\\   /()     --'|   |// │ grateful, we didn't have these opportunities growing up, you don't understand how easy you have it...     │
+╵     .-'-.          |___|   ╰───────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╵    //   \\\\         | | |                    ╵
+╵    '|___|'         | | |                    ╵
+╵      | |           |_!_|                    ╵
+╵      . .            | |                     ╵
+╵                                             ╵
+╰╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╯
+`;
+    const staticMusic = `
+                                 |\\
+                                 |/
+                                 |
+                                /|
+                               / |                      __...--~~~~~-._   _.-~~~~~--...__
+                              / _|_                   //               \`V'               \\\\
+                             / / | \\                 //                 |                 \\\\
+                            ( (  |  \\               //__...--~~~~~~-._  |  _.-~~~~~~--...__\\\\
+    _________                \\ \\_|) /              //__.....----~~~~._\\ | /_.~~~~----.....__\\\\
+   /   12    \\                \\__|_/              ====================\\\\|//====================
+  |           |                  |                                    \`---\`
+  |           |                  |
+  |9    .    3|                 \`-'
+  |     |\\    |  ___|\\_______|________|_______________________O__________O____________
+  |     |     |  ___|/_______|________|_|___|__________|__O__|_____O__|_|____O._______||
+   \\____6____/   __/|____4___|__O_____|_|___|__O.______|_|O__|____|___|_|___|O.______o||
+                  _(C^\\__4__O|_|_____O__|___|_|________|_|O__|____|___|_|___|________o||
+                 __\\|/'________|________|__O|_|________|_|________|___|_____|_________||
+                    j          |           O  |          |`;
+
+    const staticAlone = `
+  ╭───────────────╮
+  │   Wanna go    │ The "Popular Girls"                     The "Nerds"
+  │   shopping    │                                     (The Overachievers)
+  │ after school? │   ╭─────────────╮                    . - .         . - .
+  ╰────────────,──╯   │  Heck yeah! │                   // ^ \\\\       (/ ^ \\)
+              . - .   ╰─,────,──────╯                   (\\   /) . - .  \\   /
+             // ^ \\\\. - . . - .                          .-'-. //   \\\\ .-'-.
+            ( \\    // ^ \\// ^ \\\\                        /|___|(_\\   /_)|___|\\
+            / .-'-(_\\   (_\\   /_)                       '| | |' .-'-. '| | |'
+           ( /|___| .-'-. .-'-.                          |_|_| /|___|\\ |_|_|
+             '/___\\//___\\/|___|\\                          . .   | | |  . .
+               | | '|_|_|'/   \\                                 |_|_|
+               . .   | |  |___|             . -౨ৎ.               . .
+                     . .   . .             // ^ \\\\
+                                          ()\\   /()
+                                            .-'-.
+  Varsity Football Team                    //   \\\\                     The Theater Kids
+      (The Jocks)                          '|___|'                                 . - .
+   .-.             .-.                       | |                       . - .      //   \\\\
+  / ^ \\.-.     .-./ ^ \\                      . .                      // ^ \\\\. - .(\\   '\\
+  \\   / ^ \\.-./ ^ \\   /                                              (_\\   / / ^ \\ .-'-./
+  .-'-\\   / ^ \\   /-'-.                                                .-'-. \\   / |___|
+ /|___.-'-\\   /-'-.___|\\                                              //___\\,.-'-.,/___\\
+ '| |/|___.-'-.___|\\|_|'                                               |_|_|\\|___|/ | |
+  |_|'|_|/|___|\\| |' |                                                  | |  | | |  . .
+   . . | '| | |'|_|. .                                                  . .  |_|_|
+       . .|_|_|. .                                                            . .
+           . .`;
+
+    const staticPressure = `
+       ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+       ┃┏━━━━━━━━━━━━━━━━━━━━━━━━━┓┃
+       ┃┃ ╔═════════════════════╗ ┃┃
+       ┃┃ ║ ╭╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╮ ║ ┃┃
+       ┃┃ ║ ╵      . -౨ৎ.     ╵ ║ ┃┃
+       ┃┃ ║ ╵     // ^ \\\\     ╵ ║ ┃┃
+       ┃┃ ║ ╵    ()\\   /()    ╵ ║ ┃┃
+       ┃┃ ║ ╵      .-'-.      ╵ ║ ┃┃
+       ┃┃ ║ ╵     //   \\\\     ╵ ║ ┃┃
+       ┃┃ ║ ╵     '|___|'     ╵ ║ ┃┃
+       ┃┃ ║ ╵       | |       ╵ ║ ┃┃
+       ┃┃ ║ ╵       . .       ╵ ║ ┃┃
+       ┃┃ ║ ╰╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╯ ║ ┃┃
+       ┃┃ ╚═════════════════════╝ ┃┃
+       ┃┗━━━━━━━━━━━━━━━━━━━━━━━━━┛┃
+       ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━┛`;
+
+     const staticResearch = `
+  ┌─────────────────────────────┐                 ┌─────────────────────────────┐
+  │                             │                 │                             │
+  │                             │                 │                  . - .      │
+  │      ,୨‧୧,       . - .      │                 │      ,୨‧୧,      //   \\\\     │
+  │     //   \\\\     //   \\\\     │                 │     //   \\\\     |\\   /|     │
+  │    ( \\   / )   (_\\   /_)    │                 │    ( \\   / )   ,_.-'-._)    │
+  │    / .-'-. \\   , .-'-.      │                 │    / .-'-. \\   \\/(   )\\     │
+  │     /(   )\\    \\/(   )\\     │                 │     /(   )\\      |___|'     │
+  │     '/___\\'      |___|'     │                 │     '/___\\'      |╯|╰|      │
+  │      | | |       | | |      │                 │      | | |       | | |      │
+  │      | | |       |_|_|      │                 │      | | |       | | |      │
+  │      |_|_|        | |       │                 │      |_|_|       |_|_|      │
+  │       ╚ ╚         ╝ ╝       │                 │       ╚ ╚         ╝ ╝       │
+  └─────────────────────────────┘                 └─────────────────────────────┘
+
+
+
+
+
+
+  ┌─────────────────────────────┐                 ┌─────────────────────────────┐
+  │                  . - .      │                 │                             │
+  │                 // v \\\\     │                 │                   .-.       │
+  │      ,୨‧୧,      \\\\   //     │                 │      ,୨‧୧,       /   \\      │
+  │     //   \\\\    , .-'-.      │                 │     //   \\\\      \\   /      │
+  │    ( \\   / )   \\/|   |\\     │                 │    ( \\   / )   , .-'-.      │
+  │    / .-'-. \\     |___||     │                 │    / .-'-. \\   \\/|   |\\     │
+  │     /(   )\\      |╯|╰|'     │                 │     /(   )\\      |___|'     │
+  │     '/___\\'      | | |      │                 │     '/___\\'      |---|      │
+  │      | | |       | | |      │                 │      | | |       | | |      │
+  │      | | |       |_|_|      │                 │      | | |       | | |      │
+  │      |_|_|        | |       │                 │      |_|_|       |_|_|      │
+  │       ╚ ╚         ╝ ╝       │                 │       ╚ ╚         ╝ ╝       │
+  └─────────────────────────────┘                 └─────────────────────────────┘
+
+
+
+
+                 *These figures, other than me, are purely symbolic
+        and do not represent the actual interviewees to maintain anonymity.*`;
+
+    if (!walking) {
+      walking = true;
+      walkInterval = setInterval(() => {
+        girl.textContent = frames[frameIndex];
+        frameIndex = (frameIndex + 1) % frames.length;
+      }, 1000);
+    }
+
+    let frameIndex = 0;
+
+    if (clickCount === 0) {
+      narrative.style.display = "block";
+    } else if (clickCount === 1) {
+      narrative.textContent = "To some, I was the 'smart Asian kid.' To others, I was 'exotic,' a curiosity, a foreigner, even though this was the only home I knew as a child.";
+      clearInterval(walkInterval);
+      walking = false;
+      girl.textContent = staticGirl;
+    } else if (clickCount === 2) {
+        narrative.textContent = "I remember constantly being asked...";
+        clearInterval(walkInterval);
+        walking = false;
+        girl.textContent = staticDog;
+    } else if (clickCount === 3) {
+        narrative.textContent = "or being mocked...";
+        clearInterval(walkInterval);
+        walking = false;
+        girl.textContent = staticChing;
+    } else if (clickCount === 4) {
+        narrative.innerHTML = "At the time, I didn’t have the words to explain why these moments felt wrong... Why it hurt... <br><br>But I knew they did.";
+        clearInterval(walkInterval);
+        walking = false;
+        girl.textContent = staticNothing;
+    } else if (clickCount === 5) {
+        narrative.innerHTML = "But these stereotypes, assumptions, and expectations didn’t just come from those who saw me as an outsider.<br><br>They also came from those closest to me: my own family, my own culure.";
+        clearInterval(walkInterval);
+        walking = false;
+        girl.textContent = staticNothing;
+    } else if (clickCount === 6) {
+        narrative.textContent = "At school, I was expected to be the ‘smart Asian kid,’ quiet, hardworking, effortlessly good at math and science.";
+        clearInterval(walkInterval);
+        walking = false;
+        girl.textContent = staticExpectations;
+    } else if (clickCount === 7) {
+        narrative.textContent = "At home, I was expected to be obedient, to be poised, to bring pride to my family, and to mask my negative emotions.";
+        clearInterval(walkInterval);
+        walking = false;
+        girl.textContent = staticHome;
+    } else if (clickCount === 8) {
+        narrative.innerHTML = "During middle and high school, I was surrounded by people who already formed their own friend groups.";
+        clearInterval(walkInterval);
+        walking = false;
+        girl.textContent = staticMusic;
+    } else if (clickCount === 9) {
+        narrative.innerHTML = "Because I spent most my time studying and practicing music, I never had the chance to make friends.<br><br>I longed to be a part of something, but always feeling just a little too different, a little too distant.<br><br>I was surrounded by people, my classmates, yet somehow, I always felt completely alone.";
+        clearInterval(walkInterval);
+        walking = false;
+        girl.textContent = staticAlone;
+    } else if (clickCount === 10) {
+        narrative.innerHTML = "All these expectations—spoken and unspoken—became a weight I carried every day.<br><br>Over time, loneliness became something quieter, something almost comforting.<br><br>Being alone in my room felt like the only place where I could breathe, where I didn’t have to meet anyone’s expectations.<br><br>But the more I retreated into solitude, the harder it became to step back out.<br><br>Slowly, isolation turned into anxiety—a constant fear of saying the wrong thing, of never quite belonging.";
+        clearInterval(walkInterval);
+        walking = false;
+        girl.textContent = staticPressure;
+    } else if (clickCount === 11) {
+        narrative.innerHTML = "This experience is why I wanted to explore these struggles beyond just my own.<br><br><br><br>I began to wonder:<br><br><br>How many others have felt this same pressure?<br><br>How many others have carried the weight of expectations, the loneliness of being ‘too different’ at school and ‘never enough’ at home?";
+        clearInterval(walkInterval);
+        walking = false;
+        girl.textContent = staticNothing;
+    } else if (clickCount === 12) {
+        narrative.innerHTML = "To find out, I reached out to other Chinese students. Those who have lived between cultures, balancing identities, expectations, and belonging.<br><br>Through my research, I gathered their stories, their experiences with stereotypes, family pressures, and the quiet loneliness that so many of us have carried.";
+        clearInterval(walkInterval);
+        walking = false;
+        girl.textContent = staticResearch;
+    } else if (clickCount === 13) {
+        window.location.href = "morning.html";
+        return;
+    }
+
+    clickCount++;
+  }
+  </script>
+</body>
+</html>
