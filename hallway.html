@@ -29,36 +29,6 @@
     transition: opacity 2s ease-in-out;
     pointer-events: none;
   }
-
-  #context, #words_context {
-    position: fixed;
-    top: 0;
-    left: 50px;
-    margin: 0;
-    padding: 10px;
-    font-family: monospace;
-  }
-
-  #question, #words_question {
-    position: fixed;
-    top: 50px;
-    left: 16px;
-    margin: 0;
-    padding: 10px;
-    font-family: monospace;
-  }
-
-  #words_context, #words_question {
-    display: none;
-  }
-
-  #context:hover, #question:hover {
-    display: none;
-  }
-
-  #context:hover + #words_context, #question:hover + #words_question {
-    display: block;
-  }
 </style>
 <body>
   <div id="fade-in"></div>
@@ -121,34 +91,34 @@
     <div id="dialogue-box1" class="pointer dialogue-box">
       <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
 
-Should I get a ride to school today?
+Should I ask for a ride today?… I don’t think I have the energy to walk...
 
 
       </pre>
-      <pre class="pointer asciiAlign" onclick="chooseOption('1A')">A. Nah. I'll walk.
+      <pre class="pointer asciiAlign" onclick="chooseOption('1A')">A. Nah... just walk.
       </pre>
 
-      <pre class="pointer asciiAlign" onclick="chooseOption('1B')">B. Yes, let's wake my dad up.
+      <pre class="pointer asciiAlign" onclick="chooseOption('1B')">B. Maybe... wake my father up.
       </pre>
     </div>
     <div id="dialogue-box2-A" class="pointer dialogue-box" style="display: none;">
       <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
 
-But... I might encounter people I don't want to encounter.
+But... what if I run into them again? I don’t want the stares... the whispers...
 
 
       </pre>
-      <pre class="pointer asciiAlign" onclick="chooseOption('2A')">A. Let's walk. He needs his rest.
+      <pre class="pointer asciiAlign" onclick="chooseOption('2A')">A. Let's walk. My father deserves the rest.
       </pre>
 
-      <pre class="pointer asciiAlign" onclick="chooseOption('2B')">B. You're right, let's wake him up.
+      <pre class="pointer asciiAlign" onclick="chooseOption('2B')">B. Yeah… maybe it’s safer if he drives me.
       </pre>
     </div>
 
     <div id="dialogue-box3-A" class="pointer dialogue-box" style="display: none;">
       <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
 
-You're right... I can't be selfish.
+Yeah... I shouldn’t bother him. I can handle it... I always do.
 
 
 >
@@ -157,20 +127,22 @@ You're right... I can't be selfish.
     <div id="dialogue-box2-B" class="pointer dialogue-box" style="display: none;">
       <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
 
-But... what if he gets angry at me for waking him up?
+But... what if he gets upset? What if I ruin his morning too...?
+
+What if I'm the reason he didn't get enough sleep...? He worked pretty late yesterday...
 
 
       </pre>
-      <pre class="pointer asciiAlign" onclick="chooseOption('3A')">A. Let's walk... I don't want to get yelled at.
+      <pre class="pointer asciiAlign" onclick="chooseOption('3A')">A. I’ll walk. I don't want to be yelled at today.
       </pre>
 
-      <pre class="pointer asciiAlign" onclick="chooseOption('3B')">B. It's fine... he's never had a problem with it before.
+      <pre class="pointer asciiAlign" onclick="chooseOption('3B')">B. It’s okay... he usually doesn’t mind. Right?
       </pre>
     </div>
     <div id="dialogue-box4-A" class="pointer dialogue-box" style="display: none;">
       <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
 
-Alright... I'll endure it.
+...Alright. I’ll do it alone. Again.
 
 
 >
@@ -179,7 +151,7 @@ Alright... I'll endure it.
     <div id="dialogue-box4-B" class="pointer dialogue-box" style="display: none;">
       <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
 
-But... he needs his sleep. He went to bed late last night.
+But... he looked so tired last night. I don’t want to be the reason he doesn’t rest.
 
 
 >
@@ -189,6 +161,8 @@ But... he needs his sleep. He went to bed late last night.
       <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
 
 It'll be my fault if he's tired and doesn't get enough sleep.
+
+If he’s exhausted at work... that'll be my fault. I should just stay quiet.
 
 
 >

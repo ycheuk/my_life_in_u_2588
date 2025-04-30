@@ -17,36 +17,6 @@
     opacity: 1;
     transition: opacity 2s ease-in-out;
   }
-
-  #context, #words_context {
-    position: fixed;
-    top: 0;
-    left: 50px;
-    margin: 0;
-    padding: 10px;
-    font-family: monospace;
-  }
-
-  #question, #words_question {
-    position: fixed;
-    top: 50px;
-    left: 16px;
-    margin: 0;
-    padding: 10px;
-    font-family: monospace;
-  }
-
-  #words_context, #words_question {
-    display: none;
-  }
-
-  #context:hover, #question:hover {
-    display: none;
-  }
-
-  #context:hover + #words_context, #question:hover + #words_question {
-    display: block;
-  }
 </style>
 <body>
   <div id="fade-in"></div>
@@ -109,11 +79,11 @@
       <div id="dialogue-box" class="dialogue-box" style="display: none;">
         <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
 
-Ugh, the alarm again... do I really have to get up already?
+The alarm again… I don’t want to move.
 
 
                                </pre>
-        <pre class="pointer asciiAlign" onclick="chooseOption('A')">A. Turn it off and get up
+        <pre class="pointer asciiAlign" onclick="chooseOption('A')">A. Turn it off and start getting ready
         </pre>
 
         <pre class="pointer asciiAlign" onclick="chooseOption('B')">B. Turn it off and sleep a bit longer
@@ -122,20 +92,20 @@ Ugh, the alarm again... do I really have to get up already?
       <div id="dialogue-box2" class="dialogue-box" style="display: none;">
         <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
 
-Just ten more minutes... maybe I can stay in bed a little longer.
+Just ten more minutes... I don't want to face today just yet...
 
 
         </pre>
         <pre class="pointer asciiAlign" onclick="chooseOption('2A')">A. Sleep a bit longer
         </pre>
 
-        <pre class="pointer asciiAlign" onclick="chooseOption('2B')">B. No, we need to start getting ready
+        <pre class="pointer asciiAlign" onclick="chooseOption('2B')">B. Start getting ready
         </pre>
       </div>
       <div id="dialogue-box3" class="pointer dialogue-box" style="display: none;">
         <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
 
-...
+I guess I have to get up. Even though it'll just be the same as every other day.
 
 
 >

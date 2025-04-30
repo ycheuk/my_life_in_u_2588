@@ -39,36 +39,6 @@
       transition: opacity 2s ease-in-out;
       pointer-events: none;
     }
-
-    #context, #words_context {
-      position: fixed;
-      top: 0;
-      left: 50px;
-      margin: 0;
-      padding: 10px;
-      font-family: monospace;
-    }
-
-    #question, #words_question {
-      position: fixed;
-      top: 50px;
-      left: 16px;
-      margin: 0;
-      padding: 10px;
-      font-family: monospace;
-    }
-
-    #words_context, #words_question {
-      display: none;
-    }
-
-    #context:hover, #question:hover {
-      display: none;
-    }
-
-    #context:hover + #words_context, #question:hover + #words_question {
-      display: block;
-    }
   </style>
 <body>
   <div id="fade-in"></div>
@@ -129,20 +99,22 @@
       <div id="dialogue-box" class="dialogue-box">
         <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
 
-She's waving 'hi' at me. Do I... wave back too? Or just ignore her?
+She’s waving at me... I think?
+
+Should I wave back? Or pretend I didn’t see?
 
 
         </pre>
-        <pre class="pointer asciiAlign" onclick="chooseOption('1A')">A. Wave 'hi'. It'd be rude to ignore.
+        <pre class="pointer asciiAlign" onclick="chooseOption('1A')">A. Wave 'hi'. It’d feel rude not to.
         </pre>
 
-        <pre class="pointer asciiAlign" onclick="chooseOption('1B')">B. Just ignore...
+        <pre class="pointer asciiAlign" onclick="chooseOption('1B')">B. Just ignore it… maybe I’m imagining things.
         </pre>
       </div>
       <div id="dialogue-box2" class="pointer dialogue-box" style="display: none;">
         <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
 
-Oh... she was waving at her friend.
+Oh... She wasn’t waving at me. It was for someone behind me.
 
 
 >

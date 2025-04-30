@@ -29,36 +29,6 @@
     transition: opacity 2s ease-in-out;
     pointer-events: none;
   }
-
-  #context, #words_context {
-    position: fixed;
-    top: 0;
-    left: 50px;
-    margin: 0;
-    padding: 10px;
-    font-family: monospace;
-  }
-
-  #question, #words_question {
-    position: fixed;
-    top: 50px;
-    left: 16px;
-    margin: 0;
-    padding: 10px;
-    font-family: monospace;
-  }
-
-  #words_context, #words_question {
-    display: none;
-  }
-
-  #context:hover, #question:hover {
-    display: none;
-  }
-
-  #context:hover + #words_context, #question:hover + #words_question {
-    display: block;
-  }
 </style>
 <body>
   <div id="fade-in"></div>
@@ -132,7 +102,9 @@
       <div id="dialogue-box" class="pointer dialogue-box" style="display: none;">
         <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
 
-Hmmm... I don't feel like cooking breakfast today.
+...I can’t bring myself to cook anything this morning.
+
+I feel nauseous thinking about breakfast...
 
 
 >
@@ -141,7 +113,9 @@ Hmmm... I don't feel like cooking breakfast today.
       <div id="dialogue-box2" class="pointer dialogue-box" style="display: none;">
         <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
 
-I'll just make some simple cereal for breakfast.
+I’ll just pour some cereal... just a few spoonfuls is fine.
+
+That’s all I can manage right now anyways.
 
 
 >
