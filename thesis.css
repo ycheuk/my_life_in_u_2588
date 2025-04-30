@@ -64,6 +64,11 @@ body {
 }
 
 /* context and question buttons */
+.icon-container {
+  position: relative;
+  display: inline-block;
+}
+
 #context, #words_context {
   position: fixed;
   top: 0;
@@ -86,10 +91,12 @@ body {
   display: none;
 }
 
-#context:hover, #question:hover {
-  display: none;
+.icon-container:hover #context,
+.icon-container:hover #question {
+  visibility: hidden;
 }
 
-#context:hover + #words_context, #question:hover + #words_question {
+.icon-container:hover #words_context,
+.icon-container:hover #words_question {
   display: block;
 }
