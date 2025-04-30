@@ -1735,9 +1735,8 @@ colorBows();
   |  '---' '---' '---'  |     |      |     |  '---' '---' '---'  |
   |_____________________|_____|______|_____|_____________________|</pre>
 
-  context button:
-
-  #context, #words_context {
+------------------------------------context button:------------------------------------
+  #question, #words_question {
     position: fixed;
     top: 0;
     left: 50px;
@@ -1746,24 +1745,24 @@ colorBows();
     font-family: monospace;
   }
 
-  #words_context {
+  #words_question {
     display: none;
   }
 
-  #context:hover {
+  #question:hover {
     display: none;
   }
 
-  #context:hover + #words_context {
+  #question:hover + #words_question {
     display: block;
   }
 
-  <pre class="time" id="context">
+  <pre class="time" id="question">
 ╭╶╶╶╶╮
 : ౨ৎ :
 ╰╶╶╶╶╯
   </pre>
-  <pre class="time" id="words_context">
+  <pre class="time" id="words_question">
 
 Context
 
@@ -1786,9 +1785,50 @@ Context
    }, 10);
 
    setTimeout(() => {
-     window.location.href = "context.html";
+     window.location.href = "question.html";
    }, 2000);
  }
 
- document.getElementById("context").addEventListener("click", fadeToBlackAndRedirect);
- document.getElementById("words_context").addEventListener("click", fadeToBlackAndRedirect);
+ document.getElementById("question").addEventListener("click", fadeToBlackAndRedirect);
+ document.getElementById("words_question").addEventListener("click", fadeToBlackAndRedirect);
+
+ ------------------------------------question button:------------------------------------
+ #question, #words_question {
+   position: fixed;
+   top: 50px;
+   left: 16px;
+   margin: 0;
+   padding: 10px;
+   font-family: monospace;
+ }
+
+ #words_context, #words_question {
+   display: none;
+ }
+
+ #context:hover, #question:hover {
+   display: none;
+ }
+
+ #context:hover + #words_context, #question:hover + #words_question {
+   display: block;
+ }
+
+ <pre class="time" id="words_context">
+    ╭╶╶╶╶╶╶╶╶╶╮
+    : Context :
+    ╰╶╶╶╶╶╶╶╶╶╯
+ </pre>
+ <pre class="question" id="question">
+╭╶╶╶╶╮
+: ?? :
+╰╶╶╶╶╯
+ </pre>
+ <pre class="question" id="words_question">
+╭╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╮
+: To move between scenes and frames, :
+:    users will sometimes need to    :
+:  click on an area where the mouse  :
+: cursor turns into a hand pointer.  :
+╰╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╯
+ </pre>

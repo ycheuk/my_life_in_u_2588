@@ -44,15 +44,24 @@
       font-family: monospace;
     }
 
-    #words_context {
+    #question, #words_question {
+      position: fixed;
+      top: 50px;
+      left: 16px;
+      margin: 0;
+      padding: 10px;
+      font-family: monospace;
+    }
+
+    #words_context, #words_question {
       display: none;
     }
 
-    #context:hover {
+    #context:hover, #question:hover {
       display: none;
     }
 
-    #context:hover + #words_context {
+    #context:hover + #words_context, #question:hover + #words_question {
       display: block;
     }
   </style>
@@ -64,9 +73,22 @@
 ╰╶╶╶╶╯
   </pre>
   <pre class="time" id="words_context">
-
-Context
-
+    ╭╶╶╶╶╶╶╶╶╶╮
+    : Context :
+    ╰╶╶╶╶╶╶╶╶╶╯
+  </pre>
+  <pre class="question" id="question">
+╭╶╶╶╶╮
+: ?? :
+╰╶╶╶╶╯
+  </pre>
+  <pre class="question" id="words_question">
+╭╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╮
+: To move between scenes and frames, :
+:    users will sometimes need to    :
+:  click on an area where the mouse  :
+: cursor turns into a hand pointer.  :
+╰╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╯
   </pre>
   <div id="container">
     <div id="container">
