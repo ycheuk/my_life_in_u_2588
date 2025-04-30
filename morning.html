@@ -109,7 +109,7 @@
       <div id="dialogue-box" class="dialogue-box" style="display: none;">
         <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
 
-My alarm is going off... What should I do?
+Ugh, the alarm again... do I really have to get up already?
 
 
                                </pre>
@@ -122,33 +122,20 @@ My alarm is going off... What should I do?
       <div id="dialogue-box2" class="dialogue-box" style="display: none;">
         <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
 
-It's 6:40am... do I continue sleeping...?
+Just ten more minutes... maybe I can stay in bed a little longer.
 
 
         </pre>
-        <pre class="pointer asciiAlign" onclick="chooseOption('2A')">A. Yes
+        <pre class="pointer asciiAlign" onclick="chooseOption('2A')">A. Sleep a bit longer
         </pre>
 
-        <pre class="pointer asciiAlign" onclick="chooseOption('2B')">B. Let's get up
-        </pre>
-      </div>
-      <div id="dialogue-box3" class="dialogue-box" style="display: none;">
-        <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
-
-6:50am... I should really get up.
-
-
-        </pre>
-        <pre class="pointer asciiAlign" onclick="chooseOption('3A')">A. Let's get up.
-        </pre>
-
-        <pre class="pointer asciiAlign" onclick="chooseOption('3B')">B. No. Sleep.
+        <pre class="pointer asciiAlign" onclick="chooseOption('2B')">B. No, we need to start getting ready
         </pre>
       </div>
-      <div id="dialogue-box4" class="pointer dialogue-box" style="display: none;">
+      <div id="dialogue-box3" class="pointer dialogue-box" style="display: none;">
         <pre class="asciiAlign">╭─────────────────────────────────── ˚₊‧꒰ა ☆ ໒꒱ ‧₊˚ ───────────────────────────────────┒
 
-It's 7am. I don't have time to eat breakfast anymore...
+...
 
 
 >
@@ -173,8 +160,7 @@ It's 7am. I don't have time to eat breakfast anymore...
     function isAnyDialogueBoxVisible() {
       return document.getElementById("dialogue-box").style.display === "block" ||
              document.getElementById("dialogue-box2").style.display === "block" ||
-             document.getElementById("dialogue-box3").style.display === "block" ||
-             document.getElementById("dialogue-box4").style.display === "block";
+             document.getElementById("dialogue-box3").style.display === "block";
     }
 
     function handleUserIdle() {
@@ -237,12 +223,6 @@ It's 7am. I don't have time to eat breakfast anymore...
         document.getElementById("dialogue-box3").style.display = "block";
         resetIdleTimer();
       }
-
-      if (chosenOption ==='3B' && hours === 7 && minutes === 0 && period === "AM") {
-        clockRunning = false;
-        document.getElementById("dialogue-box4").style.display = "block";
-        resetIdleTimer();
-      }
     }
 
     function chooseOption(option) {
@@ -263,15 +243,11 @@ It's 7am. I don't have time to eat breakfast anymore...
         clockRunning = true;
         document.getElementById("dialogue-box2").style.display = "none";
       }
-      if (option === '3B') {
-        clockRunning = true;
-        document.getElementById("dialogue-box3").style.display = "none";
-      }
     }
 
     setInterval(updateClock, 500);
 
-    document.getElementById("dialogue-box4").onclick = function() {
+    document.getElementById("dialogue-box3").onclick = function() {
       window.location.href = 'mirror.html';
     };
 
@@ -314,14 +290,9 @@ It's 7am. I don't have time to eat breakfast anymore...
         clockRunning = true;
         document.getElementById("dialogue-box2").style.display = "none";
       }
-
-      if (option === '3B') {
-        clockRunning = true;
-        document.getElementById("dialogue-box3").style.display = "none";
-      }
     }
 
-    document.getElementById("dialogue-box4").onclick = function() {
+    document.getElementById("dialogue-box3").onclick = function() {
       fadeToBlackAndRedirect1();
     };
 
