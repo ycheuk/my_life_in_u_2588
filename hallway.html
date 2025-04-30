@@ -197,55 +197,102 @@ It'll be my fault if he's tired and doesn't get enough sleep.
   </div>
   <div id="fade-out"></div>
   <script>
-      window.onload = function() {
-        document.getElementById("fade-in").style.opacity = "0";
-        setTimeout(() => {
-          document.getElementById("fade-in").style.display = "none";
-        }, 2000);
-      };
+    let idleTimer = null;
+    const idleTimeout = 30000;
 
-    function chooseOption(option) {
-      document.querySelectorAll('.dialogue-box').forEach(box => box.style.display = 'none');
+    function resetIdleTimer() {
+      if (idleTimer) {
+        clearTimeout(idleTimer);
+      }
 
-      if (option === '1A') {
-        document.getElementById('dialogue-box2-A').style.display = 'block';
-      } else if (option === '1B') {
-        document.getElementById('dialogue-box2-B').style.display = 'block';
-      } else if (option === '2A') {
-        document.getElementById('dialogue-box3-A').style.display = 'block';
-      } else if (option === '2B') {
-        document.getElementById('dialogue-box2-B').style.display = 'block';
-      } else if (option === '3A') {
-        document.getElementById('dialogue-box4-A').style.display = 'block';
-      } else if (option === '3B') {
-        document.getElementById('dialogue-box4-B').style.display = 'block';
+      if (isAnyDialogueBoxVisible()) {
+        idleTimer = setTimeout(handleUserIdle, idleTimeout);
       }
     }
 
-    document.getElementById('dialogue-box3-A').addEventListener('click', function() {
+    function isAnyDialogueBoxVisible() {
+      const dialogueBoxes = [
+        'dialogue-box1',
+        'dialogue-box2-A',
+        'dialogue-box2-B',
+        'dialogue-box3-A',
+        'dialogue-box4-A',
+        'dialogue-box4-B',
+        'dialogue-box5'
+      ];
+
+      for (const boxId of dialogueBoxes) {
+        if (document.getElementById(boxId).style.display !== 'none') {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    function handleUserIdle() {
       document.getElementById("fade-out").style.opacity = "1";
       setTimeout(() => {
         window.location.href = "kitchen.html";
       }, 2000);
+    }
+    window.onload = function() {
+    document.getElementById("fade-in").style.opacity = "0";
+    setTimeout(() => {
+    document.getElementById("fade-in").style.display = "none";
+    resetIdleTimer();
+    }, 2000);
+
+    document.addEventListener("mousemove", resetIdleTimer);
+    document.addEventListener("mousedown", resetIdleTimer);
+    document.addEventListener("keypress", resetIdleTimer);
+    document.addEventListener("touchstart", resetIdleTimer);
+    };
+
+    function chooseOption(option) {
+    document.querySelectorAll('.dialogue-box').forEach(box => box.style.display = 'none');
+
+    if (option === '1A') {
+    document.getElementById('dialogue-box2-A').style.display = 'block';
+    } else if (option === '1B') {
+    document.getElementById('dialogue-box2-B').style.display = 'block';
+    } else if (option === '2A') {
+    document.getElementById('dialogue-box3-A').style.display = 'block';
+    } else if (option === '2B') {
+    document.getElementById('dialogue-box2-B').style.display = 'block';
+    } else if (option === '3A') {
+    document.getElementById('dialogue-box4-A').style.display = 'block';
+    } else if (option === '3B') {
+    document.getElementById('dialogue-box4-B').style.display = 'block';
+    }
+
+    resetIdleTimer();
+    }
+
+    document.getElementById('dialogue-box3-A').addEventListener('click', function() {
+    document.getElementById("fade-out").style.opacity = "1";
+    setTimeout(() => {
+    window.location.href = "kitchen.html";
+    }, 2000);
     });
 
     document.getElementById('dialogue-box4-A').addEventListener('click', function() {
-      document.getElementById("fade-out").style.opacity = "1";
-      setTimeout(() => {
-        window.location.href = "kitchen.html";
-      }, 2000);
+    document.getElementById("fade-out").style.opacity = "1";
+    setTimeout(() => {
+    window.location.href = "kitchen.html";
+    }, 2000);
     });
 
     document.getElementById('dialogue-box4-B').addEventListener('click', function() {
-      document.querySelectorAll('.dialogue-box').forEach(box => box.style.display = 'none');
-      document.getElementById('dialogue-box5').style.display = 'block';
+    document.querySelectorAll('.dialogue-box').forEach(box => box.style.display = 'none');
+    document.getElementById('dialogue-box5').style.display = 'block';
+    resetIdleTimer();
     });
 
     document.getElementById('dialogue-box5').addEventListener('click', function() {
-      document.getElementById("fade-out").style.opacity = "1";
-      setTimeout(() => {
-        window.location.href = "kitchen.html";
-      }, 2000);
+    document.getElementById("fade-out").style.opacity = "1";
+    setTimeout(() => {
+    window.location.href = "kitchen.html";
+    }, 2000);
     });
 
     function fadeToBlackAndRedirect() {

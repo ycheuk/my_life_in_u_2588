@@ -73,22 +73,7 @@
 : cursor turns into a hand pointer.  :
 ╰╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╯
   </pre>
-  <!-- <pre id="ascii-door">
-    __________
-   |          |
-   |          |
-   |          |
-   |          |
-   |          |
-   |          |
-   |        0 |
-   |          |
-   |          |
-   |          |
-   |          |
-   |          |
- __|__________|
-</pre> -->
+</pre>
   <div id="container">
     <div id="container">
       <pre class="time" id="clock">
@@ -171,29 +156,44 @@ It's 7am. I don't have time to eat breakfast anymore...
       </div>
     </div>
   </div>
-  <!-- <pre>
-
-o(=(=(=(=)=)=)=)o
- !!!!!!}!{!!!!!!
- !!!!!} | {!!!!!
- !!!!}  |  {!!!!
- !!!!}  |  {!!!!
- !!!'   |   '!!!
- ~@~----+----~@~
- !!!    |    !!!
- !!!    |    !!!
- !!!    |    !!!
- !!!    |    !!!
- !!!____|____!!!
- !!!=========!!!
-_!!!_________!!!__
-  </pre> -->
   <script>
+    let idleTimer = null;
+    const idleTimeout = 30000; // 60000 = 1 min
+
+    function resetIdleTimer() {
+      if (idleTimer) {
+        clearTimeout(idleTimer);
+      }
+
+      if (isAnyDialogueBoxVisible()) {
+        idleTimer = setTimeout(handleUserIdle, idleTimeout);
+      }
+    }
+
+    function isAnyDialogueBoxVisible() {
+      return document.getElementById("dialogue-box").style.display === "block" ||
+             document.getElementById("dialogue-box2").style.display === "block" ||
+             document.getElementById("dialogue-box3").style.display === "block" ||
+             document.getElementById("dialogue-box4").style.display === "block";
+    }
+
+    function handleUserIdle() {
+      if (isAnyDialogueBoxVisible()) {
+        fadeToBlackAndRedirect1();
+      }
+    }
     window.onload = function() {
-      document.getElementById("fade-in").style.opacity = "0";
-      setTimeout(() => {
-        document.getElementById("fade-in").style.display = "none";
-      }, 2000);
+    document.getElementById("fade-in").style.opacity = "0";
+    setTimeout(() => {
+    document.getElementById("fade-in").style.display = "none";
+    }, 2000);
+
+    document.addEventListener("mousemove", resetIdleTimer);
+    document.addEventListener("mousedown", resetIdleTimer);
+    document.addEventListener("keypress", resetIdleTimer);
+    document.addEventListener("touchstart", resetIdleTimer);
+
+    resetIdleTimer();
     };
 
     let hours = 6;
@@ -221,23 +221,27 @@ _!!!_________!!!__
       document.getElementById("clock").innerHTML = `╔══════════════════╗\n${timeString}\n╚══════════════════╝`;
 
       if (hours === 6 && minutes === 30 && period === "AM") {
-    clockRunning = false;
-    document.getElementById("dialogue-box").style.display = "block";
-  }
+        clockRunning = false;
+        document.getElementById("dialogue-box").style.display = "block";
+        resetIdleTimer();
+      }
 
       if (chosenOption === 'B' && hours === 6 && minutes === 40 && period === "AM") {
         clockRunning = false;
         document.getElementById("dialogue-box2").style.display = "block";
+        resetIdleTimer();
       }
 
       if (chosenOption === '2A' && hours === 6 && minutes === 50 && period === "AM") {
         clockRunning = false;
         document.getElementById("dialogue-box3").style.display = "block";
+        resetIdleTimer();
       }
 
       if (chosenOption ==='3B' && hours === 7 && minutes === 0 && period === "AM") {
         clockRunning = false;
         document.getElementById("dialogue-box4").style.display = "block";
+        resetIdleTimer();
       }
     }
 

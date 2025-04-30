@@ -161,11 +161,53 @@ The colors don't match... and my hair looks awful.
   </div>
   <div id="fade-out"></div>
   <script>
+    let idleTimer = null;
+    const idleTimeout = 30000;
+
+    function resetIdleTimer() {
+      if (idleTimer) {
+        clearTimeout(idleTimer);
+      }
+
+      const currentDialogueBox = getCurrentDialogueBox();
+      if (currentDialogueBox) {
+        idleTimer = setTimeout(() => handleUserIdle(currentDialogueBox), idleTimeout);
+      }
+    }
+
+    function getCurrentDialogueBox() {
+      for (let i = 1; i <= 4; i++) {
+        const boxId = `dialogue-box${i}`;
+        if (document.getElementById(boxId).style.display !== "none") {
+          return i;
+        }
+      }
+      return null;
+    }
+
+    function handleUserIdle(currentBox) {
+      if (currentBox === 4) {
+        document.getElementById("fade-out").style.opacity = "1";
+        setTimeout(() => {
+          window.location.href = "hallway.html";
+        }, 2000);
+      } else {
+        updateScene(currentBox - 1);
+      }
+    }
+
     window.onload = function() {
-      document.getElementById("fade-in").style.opacity = "0";
-      setTimeout(() => {
-        document.getElementById("fade-in").style.display = "none";
-      }, 2000);
+    document.getElementById("fade-in").style.opacity = "0";
+    setTimeout(() => {
+      document.getElementById("fade-in").style.display = "none";
+
+      resetIdleTimer();
+    }, 2000);
+
+    document.addEventListener("mousemove", resetIdleTimer);
+    document.addEventListener("mousedown", resetIdleTimer);
+    document.addEventListener("keypress", resetIdleTimer);
+    document.addEventListener("touchstart", resetIdleTimer);
     };
 
     const dialogueSteps = [
@@ -241,36 +283,49 @@ The colors don't match... and my hair looks awful.
     ];
 
     function updateScene(index) {
-      const step = dialogueSteps[index];
+  const step = dialogueSteps[index];
 
-      document.body.style.backgroundColor = "black";
-      document.getElementById("container").style.display = "none";
+  document.body.style.backgroundColor = "black";
+  document.getElementById("container").style.display = "none";
 
-      setTimeout(() => {
-        document.body.style.backgroundColor = "#ece6e3";
-        document.getElementById("container").style.display = "block";
+  setTimeout(() => {
+    document.body.style.backgroundColor = "#ece6e3";
+    document.getElementById("container").style.display = "block";
 
-        document.getElementById(step.dialogue).style.display = "none";
-        if (step.nextDialogue) {
-          document.getElementById(step.nextDialogue).style.display = "block";
-        }
-        document.getElementById("ascii-mirror").textContent = step.newMirror;
-        document.getElementById("clock").textContent = `
+    document.getElementById(step.dialogue).style.display = "none";
+    if (step.nextDialogue) {
+      document.getElementById(step.nextDialogue).style.display = "block";
+    }
+    document.getElementById("ascii-mirror").textContent = step.newMirror;
+    document.getElementById("clock").textContent = `
 ╔══════════════════╗
 ║ ███day │ ${step.newTime} ║
 ╚══════════════════╝`;
+
+    resetIdleTimer();
       }, 2000);
     }
 
-    document.getElementById("dialogue-box1").addEventListener("click", () => updateScene(0));
-    document.getElementById("dialogue-box2").addEventListener("click", () => updateScene(1));
-    document.getElementById("dialogue-box3").addEventListener("click", () => updateScene(2));
+    document.getElementById("dialogue-box1").addEventListener("click", () => {
+    updateScene(0);
+    resetIdleTimer();
+    });
+
+    document.getElementById("dialogue-box2").addEventListener("click", () => {
+    updateScene(1);
+    resetIdleTimer();
+    });
+
+    document.getElementById("dialogue-box3").addEventListener("click", () => {
+    updateScene(2);
+    resetIdleTimer();
+    });
 
     document.getElementById("dialogue-box4").addEventListener("click", () => {
-      document.getElementById("fade-out").style.opacity = "1";
-      setTimeout(() => {
-        window.location.href = "hallway.html";
-      }, 2000);
+    document.getElementById("fade-out").style.opacity = "1";
+    setTimeout(() => {
+    window.location.href = "hallway.html";
+    }, 2000);
     });
 
     function fadeToBlackAndRedirect() {

@@ -161,6 +161,59 @@ Oh... she was waving at her friend.
   </div>
   <div id="fade-out"></div>
   <script>
+    let idleTimer;
+    const idleTime = 30000; // 30 seconds
+    let isDialogueVisible = false;
+
+    function resetIdleTimer() {
+      clearTimeout(idleTimer);
+      if (isDialogueVisible) {
+        idleTimer = setTimeout(handleIdle, idleTime);
+      }
+    }
+
+    function handleIdle() {
+      if (isDialogueVisible) {
+        console.log("User idle - redirecting to crossing.html");
+        fadeToBlackAndCross();
+      }
+    }
+
+    function fadeToBlackAndCross() {
+      document.getElementById("fade-out").style.opacity = "1";
+
+      setTimeout(() => {
+        window.location.href = "crossing.html";
+      }, 2000);
+    }
+
+    function fadeToBlackAndRedirect(destination) {
+      document.getElementById("fade-out").style.opacity = "1";
+
+      setTimeout(() => {
+        window.location.href = destination;
+      }, 2000);
+    }
+
+    function checkDialogueVisibility() {
+      const dialogueBox = document.getElementById('dialogue-box');
+      const dialogueBox2 = document.getElementById('dialogue-box2');
+      const dialogueBox3 = document.getElementById('dialogue-box3');
+
+      const isAnyDialogueVisible =
+        dialogueBox.style.display === 'block' ||
+        dialogueBox2.style.display === 'block' ||
+        dialogueBox3.style.display === 'block';
+
+      if (isAnyDialogueVisible && !isDialogueVisible) {
+        isDialogueVisible = true;
+        resetIdleTimer();
+      } else if (!isAnyDialogueVisible && isDialogueVisible) {
+        isDialogueVisible = false;
+        clearTimeout(idleTimer);
+      }
+    }
+
     window.onload = function() {
       document.getElementById("fade-in").style.opacity = "0";
       setTimeout(() => {
@@ -192,19 +245,38 @@ Oh... she was waving at her friend.
           dialogueBox.style.display = 'block';
       } else {
           dialogueBox.style.display = 'none';
+          checkDialogueVisibility();
       }
 
       if (currentFrame === 18) {
           dialogueBox3.style.display = 'block';
       } else {
           dialogueBox3.style.display = 'none';
+          checkDialogueVisibility();
       }
 
       if (currentFrame === 25) {
           dialogueBox2.style.display = 'block';
       } else {
           dialogueBox2.style.display = 'none';
+          checkDialogueVisibility();
       }
+
+      document.addEventListener('mousemove', resetIdleTimer);
+      document.addEventListener('mousedown', resetIdleTimer);
+      document.addEventListener('keypress', resetIdleTimer);
+      document.addEventListener('touchstart', resetIdleTimer);
+
+      // Initialize on page load
+      window.addEventListener('load', function() {
+        // Your existing onload code remains
+        document.getElementById("fade-in").style.opacity = "0";
+        setTimeout(() => {
+          document.getElementById("fade-in").style.display = "none";
+        }, 2000);
+
+        checkDialogueVisibility();
+      });
 
       document.getElementById('dialogue-box2').addEventListener('click', function () {
           currentFrame = 26;

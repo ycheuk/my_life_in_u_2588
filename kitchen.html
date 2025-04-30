@@ -151,6 +151,44 @@ I'll just make some simple cereal for breakfast.
   </div>
   <div id="fade-out"></div>
   <script>
+    let idleTimer;
+    let currentState = 0;
+    let userInteracted = false;
+
+    function resetIdleTimer() {
+      userInteracted = true;
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(progressScene, 30000);
+    }
+
+    function progressScene() {
+      userInteracted = false;
+
+      switch(currentState) {
+        case 0:
+          document.getElementById('dialogue-box').style.display = 'block';
+          document.getElementById('kitchen').classList.remove('pointer');
+          currentState = 1;
+          idleTimer = setTimeout(progressScene, 30000);
+          break;
+
+        case 1:
+          document.getElementById('dialogue-box').style.display = 'none';
+          document.getElementById('dialogue-box2').style.display = 'block';
+          currentState = 2;
+          idleTimer = setTimeout(progressScene, 30000);
+          break;
+
+        case 2:
+          document.getElementById("fade-out").style.opacity = "1";
+          setTimeout(() => {
+            window.location.href = "dining.html";
+          }, 2000);
+          currentState = 3;
+          break;
+      }
+    }
+
     window.onload = function() {
       document.getElementById("fade-in").style.opacity = "0";
       setTimeout(() => {
@@ -161,11 +199,15 @@ I'll just make some simple cereal for breakfast.
     document.getElementById('kitchen').addEventListener('click', function() {
       document.getElementById('dialogue-box').style.display = 'block';
       document.getElementById('kitchen').classList.remove('pointer');
+      currentState = 1;
+      resetIdleTimer();
     });
 
     document.getElementById('dialogue-box').addEventListener('click', function() {
       document.getElementById('dialogue-box').style.display = 'none';
       document.getElementById('dialogue-box2').style.display = 'block';
+      currentState = 2;
+      resetIdleTimer();
     });
 
     document.getElementById('dialogue-box2').addEventListener('click', function() {
@@ -173,7 +215,23 @@ I'll just make some simple cereal for breakfast.
       setTimeout(() => {
         window.location.href = "dining.html";
       }, 2000);
+      currentState = 3;
+      clearTimeout(idleTimer);
     });
+
+    window.onload = function() {
+      document.getElementById("fade-in").style.opacity = "0";
+      setTimeout(() => {
+        document.getElementById("fade-in").style.display = "none";
+        idleTimer = setTimeout(progressScene, 30000);
+      }, 2000);
+    };
+
+    document.addEventListener('mousemove', resetIdleTimer);
+    document.addEventListener('mousedown', resetIdleTimer);
+    document.addEventListener('keypress', resetIdleTimer);
+    document.addEventListener('touchstart', resetIdleTimer);
+    document.addEventListener('scroll', resetIdleTimer);
 
     function fadeToBlackAndRedirect() {
      let fadeOverlay = document.createElement("div");

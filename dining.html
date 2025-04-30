@@ -178,21 +178,90 @@ Alright, let's get going.
   </div>
   <div id="fade-out"></div>
   <script>
+    let idleTimer;
+    let currentState = 0;
+    let userInteracted = false;
+
+    function resetIdleTimer() {
+      userInteracted = true;
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(progressScene, 30000);
+    }
+
+    function progressScene() {
+      userInteracted = false;
+
+      switch(currentState) {
+        case 0:
+          document.getElementById('dialogue-box').style.display = 'none';
+          document.getElementById('dialogue-box2').style.display = 'block';
+          currentState = 1;
+          idleTimer = setTimeout(progressScene, 30000);
+          break;
+
+        case 1:
+          document.getElementById('dialogue-box2').style.display = 'none';
+          document.getElementById('dialogue-box3').style.display = 'block';
+          currentState = 2;
+          idleTimer = setTimeout(progressScene, 30000);
+          break;
+
+        case 2:
+          document.body.style.backgroundColor = "black";
+          document.getElementById("container").style.display = "none";
+
+          setTimeout(() => {
+            document.body.style.backgroundColor = "#ece6e3";
+            document.getElementById("container").style.display = "block";
+            document.getElementById("breakfast").style.display = "none";
+            document.getElementById("empty-breakfast").style.display = "block";
+            document.getElementById('dialogue-box3').style.display = 'none';
+            document.getElementById('dialogue-box4').style.display = 'block';
+
+            document.getElementById('clock').innerHTML = "╔══════════════════╗\n║ ███day │ 7:34 AM ║\n╚══════════════════╝";
+
+            currentState = 3;
+            idleTimer = setTimeout(progressScene, 30000);
+          }, 2000);
+          break;
+
+        case 3:
+          document.getElementById("fade-out").style.opacity = "1";
+          setTimeout(() => {
+            window.location.href = "street.html";
+          }, 2000);
+          currentState = 4;
+          break;
+      }
+    }
+
     window.onload = function() {
-      document.getElementById("fade-in").style.opacity = "0";
-      setTimeout(() => {
-        document.getElementById("fade-in").style.display = "none";
-      }, 2000);
+    document.getElementById("fade-in").style.opacity = "0";
+    setTimeout(() => {
+    document.getElementById("fade-in").style.display = "none";
+    currentState = 0;
+    idleTimer = setTimeout(progressScene, 30000);
+    }, 2000);
     };
+
+    document.addEventListener('mousemove', resetIdleTimer);
+    document.addEventListener('mousedown', resetIdleTimer);
+    document.addEventListener('keypress', resetIdleTimer);
+    document.addEventListener('touchstart', resetIdleTimer);
+    document.addEventListener('scroll', resetIdleTimer);
 
     document.getElementById('dialogue-box').addEventListener('click', function() {
       document.getElementById('dialogue-box').style.display = 'none';
       document.getElementById('dialogue-box2').style.display = 'block';
+      currentState = 1;
+      resetIdleTimer();
     });
 
     document.getElementById('dialogue-box2').addEventListener('click', function() {
       document.getElementById('dialogue-box2').style.display = 'none';
       document.getElementById('dialogue-box3').style.display = 'block';
+      currentState = 2;
+      resetIdleTimer();
     });
 
     document.getElementById('dialogue-box3').addEventListener('click', function() {
@@ -208,6 +277,9 @@ Alright, let's get going.
         document.getElementById('dialogue-box4').style.display = 'block';
 
         document.getElementById('clock').innerHTML = "╔══════════════════╗\n║ ███day │ 7:34 AM ║\n╚══════════════════╝";
+
+        currentState = 3;
+        resetIdleTimer();
       }, 2000);
     });
 
@@ -216,6 +288,8 @@ Alright, let's get going.
       setTimeout(() => {
         window.location.href = "street.html";
       }, 2000);
+      currentState = 4;
+      clearTimeout(idleTimer);
     });
 
     function fadeToBlackAndRedirect() {
